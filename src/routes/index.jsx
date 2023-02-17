@@ -6,7 +6,7 @@ export default function Router() {
   const routing = useRoutes([
     {
       path: "/",
-      element: <SearchMovie />,
+      element: <SearchMovie title="Search Page"/>,
     },
   ]);
   return routing;

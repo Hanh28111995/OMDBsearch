@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MovieDetail from './MovieDetail'
 import SearchInput from './SearchInput'
 import './index.scss'
 import ModelComponent from './ModelComponent'
-import { useSelector } from 'react-redux'
 
-export default function SearchMovie() {
-  
+export default function SearchMovie(props) {
+  useEffect(() => {
+    document.title = props.title;
+  });
   return (
     <div className='wrapper'>
       <div className='container pb-5'>
         <div className='content'>
           <SearchInput />
           <MovieDetail />
-          <ModelComponent/>
+          <ModelComponent />
         </div>
       </div>
     </div>

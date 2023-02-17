@@ -31,7 +31,7 @@ export const BASE_URL = 'https://www.omdbapi.com/';
   // Bỏ dấu câu, kí tự đặc biệt
   // str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g, " ");
   // return str;
-}
+// }
 
 
 

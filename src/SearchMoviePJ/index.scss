@@ -62,17 +62,14 @@
                 }
             }
         }
+    }
+}
 
-
-        .ant-modal {
-            width: 100% !important;
-            top: 50px;
-        }
-
-        .ant-modal-body {
-            overflow-y: auto;
-        }
-
+.ant-modal {
+    width: 100% !important;
+    top: 50px;
+    .ant-modal-body {
+        overflow-y: auto;
         .model_detail {
             display: grid;
             grid-template-columns: repeat(10, 1fr);
@@ -130,6 +127,9 @@
         }
     }
 }
+
+
+
 
 @media only screen and (max-width: 820px) {
     .content {

@@ -15,7 +15,7 @@ export default function MovieDetail() {
                 <div className='title_block'>
                     <h1 >Movie Detail</h1>
                 </div>
-                <Space onClick={() => onModel()}>
+                <Space onClick={() => onModel()} style={{cursor:'pointer'}}>
                     <div className='content_detail'>
                         <div className='content_detail_item'>
                             <img className='img-fluid' src={userState.movieDetail.Poster} alt={userState.movieDetail.Title} />

@@ -83,7 +83,7 @@
                 grid-column: 1 / span 3;
                 grid-row: 1 / span 1;
                 height: 100%;
-                background-position: center;
+                background-position: cover;
                 background-repeat: no-repeat;
                 background-size: contain;
             }
@@ -160,7 +160,7 @@
                     font-size: 12px;
 
                     p {
-                        margin-bottom: 0;
+                        margin-bottom: 0.5rem;
                     }
                 }
             }
@@ -190,10 +190,6 @@
                 .item_title,
                 .item_value {
                     font-size: 10px;
-                }
-
-                .model_detail_item2 {
-                    padding-top: 0;
                 }
             }
         }

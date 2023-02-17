@@ -68,8 +68,10 @@
 .ant-modal {
     width: 100% !important;
     top: 50px;
+
     .ant-modal-body {
         overflow-y: auto;
+
         .model_detail {
             display: grid;
             grid-template-columns: repeat(10, 1fr);
@@ -102,20 +104,21 @@
             .model_detail_item8 {
                 display: flex;
                 justify-content: space-between;
-
-                .item_title,
-                .item_value {
-                    font-size: 15px;
-                }
-
-                .item_title {
-                    width: 30%;
-                }
-
-                .item_value {
-                    width: 70%;
-                }
             }
+
+            .item_title,
+            .item_value {
+                font-size: 15px;
+            }
+
+            .item_title {
+                width: 30%;
+            }
+
+            .item_value {
+                width: 70%;
+            }
+
 
             $number: 1;
 
@@ -141,17 +144,26 @@
         }
     }
 
-    .model_detail {
-        -moz-column-gap: 15px;
-        column-gap: 15px;
+    .ant-modal {
+        .ant-modal-body {
+            .model_detail {
+                grid-template-rows: 300px;
+                -moz-column-gap: 15px;
+                column-gap: 15px;
 
-        .model_detail_item2 {
-            grid-column: 4 / span 7;
-        }
+                .model_detail_item2 {
+                    grid-column: 4 / span 7;
+                }
 
-        .item_title,
-        .item_value {
-            font-size: 12px !important;
+                .item_title,
+                .item_value {
+                    font-size: 12px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+            }
         }
     }
 }
@@ -166,16 +178,24 @@
         }
     }
 
-    .model_detail {
-        grid-template-rows: 300px;
+    .ant-modal {
+        .ant-modal-body {
+            .model_detail {
+                grid-template-rows: 250px;
 
-        .item_title,
-        .item_value {
-            font-size: 10px !important;
-        }
+                .model_detail_item2 {
+                    padding-top: 0;
+                }
 
-        .model_detail_item2 {
-            padding-top: 0;
+                .item_title,
+                .item_value {
+                    font-size: 10px;
+                }
+
+                .model_detail_item2 {
+                    padding-top: 0;
+                }
+            }
         }
     }
 

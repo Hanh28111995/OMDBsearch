@@ -1,5 +1,5 @@
 import React from 'react'
-import { AutoComplete, Modal } from 'antd';
+import { Modal } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { setModal } from '../MovieStore/actions/user.action';
 
@@ -43,7 +43,7 @@ export default function ModelComponent() {
                     <div className='model_detail_item6'>
                         <div className='item_title'><p>Ratings: </p>
                         </div>
-                        <div className='item_value'><p>{Ratings?.map(item => { if (item.Source === "Internet Movie Database") return item.Value })}</p>
+                        <div className='item_value'><p>{Ratings?.forEach((item) => { if (item.Source === "Internet Movie Database") return item.Value })}</p>
                         </div>
                     </div>
                     <div className='model_detail_item7'>

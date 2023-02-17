@@ -5,9 +5,11 @@ import './index.scss'
 import ModelComponent from './ModelComponent'
 
 export default function SearchMovie(props) {
+
   useEffect(() => {
     document.title = props.title;
   });
+  
   return (
     <div className='wrapper'>
       <div className='container pb-5'>

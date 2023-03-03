@@ -9,7 +9,7 @@ export default function
                 <div className='block-element'>
                     <Space>
                         <div className='nav_sidebar'>
-
+                            
                         </div>
                         <div className='board_content'>
                             <div className='title_bar'></div>

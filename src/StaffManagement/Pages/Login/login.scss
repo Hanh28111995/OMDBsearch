@@ -1,9 +1,20 @@
+:root {
+    --bg-color-1: #000;
+    --bg-color-2: #fff;
+    --bg-color-3: #2988ab;
+    --bg-color-4: #096481;
+    --font-color-1: #000;
+    --font-color-2: #6c757d;
+    --font-color-3: #fff;
+    --font-color-4: #096481;
+}
+
 .login-bg {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://admin.worldcraftlogistics.net/images/bgr__rain1.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito', sans-serif;
 
     .block-element {
         position: relative;
@@ -15,17 +26,22 @@
         width: 60%;
 
         h4 {
-            color: white;
+            color: var(--font-color-3);
             font-size: 28px;
         }
 
         p {
-            color: whitesmoke;
+            color: var(--font-color-3);
         }
 
         label {
-            color: aliceblue;
+            color: var(--font-color-3);
             margin-right: 10px;
+        }
+
+        .fpw-banner {
+         width: 50%; 
+         margin: auto;  
         }
 
         .introduce-banner {
@@ -34,12 +50,25 @@
             position: absolute;
             height: 100%;
             width: 50%;
-            background-color: white;
+            background-color: var(--bg-color-2);
             transition: all 1s ease-in-out;
+            display: flex;
+            justify-content: center;
 
-            h2,
+            h2 {
+                color: var(--font-color-4);
+                font-weight: 700;
+            }
+
             p {
-                color: black;
+                color: var(--font-color-4);
+            }
+
+            .introduce-banner-content {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
             }
         }
 
@@ -56,17 +85,36 @@
             .ant-space-item {
                 width: 100%;
 
-                &:first-child {
-                    border-right: 1px solid gray;
-                }
+
             }
 
         }
+
+        a.fpw {
+            text-decoration: none;
+            color: var(--bg-color-3);
+        }
+
+        a.fpw:hover {
+            color: var(--font-color-2);
+        }
+
+        .btn-login:hover,
+        .btn-fake:hover {
+            background-color: var(--bg-color-4);
+        }
     }
 
-    .btn-fake {
-        background-color: white;
+    .btn-fake,
+    .btn-login {
+        background-color: var(--bg-color-3);
         cursor: pointer;
+        border-radius: 5px;
+        padding: 5px;
+        color: var(--font-color-3);
+        font-size: 15px;
+        border: solid 1px var(--bg-color-3);
+        transition: all 0.3s ease-in-out;
     }
 
     .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):before {
@@ -74,7 +122,7 @@
     }
 
     .ant-checkbox-checked .ant-checkbox-inner {
-        background-color: red;
-        border-color: red;
+        background-color: var(--bg-color-3);
+        border-color: var(--bg-color-3);
     }
 }

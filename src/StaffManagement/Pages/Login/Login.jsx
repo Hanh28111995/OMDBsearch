@@ -16,19 +16,19 @@ export default function Login() {
   return (
     <div className="wrapper">
       <div className="login-bg">
-        <div className="block-element text-center">
+        <div className="block-element text-center py-5 px-3">
           <Space align="start">
             <Space.Compact direction="vertical">
               <div className="form-login-1 p-3">
                 <div>
-                  <div class="auth-brand text-center text-lg-start"></div>
-                  <h4 class="mt-0">Sign In</h4>
-                  <p class=" mb-4">Enter your user and password.</p>
+                  <h4 className="mt-0">Sign In</h4>
+                  <p className=" mb-4">Enter your user and password.</p>
                 </div>
                 <Form
-                  name="basic"
+                  name="basic1"
+                  labelCol={{ span: 7 }}
                   initialValues={{
-                    remember: true,
+                    remember: false,
                   }}
                   onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
@@ -44,7 +44,7 @@ export default function Login() {
                       },
                     ]}
                   >
-                    <Input placeholder="Enter your user" />
+                    <Input placeholder="Enter your user" autoComplete="off" />
                   </Form.Item>
 
                   <Form.Item
@@ -57,19 +57,21 @@ export default function Login() {
                       },
                     ]}
                   >
-                    <Input.Password placeholder="Enter your password" />
+                    <Input.Password placeholder="Enter your password" autoComplete='new-password' />
                   </Form.Item>
-
-                  <Form.Item name="remember" valuePropName="checked">
-                    <Checkbox>Remember me</Checkbox>
-                    <a href="">Forget the password</a>
-                  </Form.Item>
+                  <Space align="horizontal" style={{ alignItems: 'baseline' }}>
+                    <Form.Item name="remember" valuePropName="checked">
+                      <Checkbox>Remember me</Checkbox>
+                    </Form.Item>
+                    <a href="#" className="fpw">Forget the password</a>
+                  </Space>
 
                   <Form.Item>
                     <Button
                       type="primary"
                       htmlType="submit"
-                      style={{ width: "100%", backgroundColor: "yellow" }}
+                      style={{ width: "100%" }}
+                      className='btn-login'
                     >
                       Login
                     </Button>
@@ -77,7 +79,7 @@ export default function Login() {
                 </Form>
 
                 <div
-                  class="btn-fake"
+                  className="btn-fake"
                   onClick={() => setstyleLogin(!styleLogin)}
                 >
                   Login by ID Card
@@ -87,14 +89,14 @@ export default function Login() {
             <Space.Compact direction="vertical">
               <div className="form-login-1 p-3">
                 <div>
-                  <div class="auth-brand text-center text-lg-start"></div>
-                  <h4 class="mt-0">Sign In</h4>
-                  <p class=" mb-4">Enter your Card ID.</p>
+                  <h4 className="mt-0">Sign In</h4>
+                  <p className=" mb-4">Enter your Card ID.</p>
                 </div>
                 <Form
-                  name="basic"
+                  name="basic2"
+                  labelCol={{ span: 7 }}
                   initialValues={{
-                    remember: true,
+                    remember: false,
                   }}
                   onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
@@ -110,30 +112,31 @@ export default function Login() {
                       },
                     ]}
                   >
-                    <Input.Password />
+                    <Input.Password placeholder="Enter your ID"  autoComplete='new-password'/>
                   </Form.Item>
 
-                  <Form.Item name="remember" valuePropName="checked">
-                    <Checkbox>Remember me</Checkbox>
-                    <a href="">Forget the password</a>
-                  </Form.Item>
+                  <Space align="horizontal" style={{ alignItems: 'baseline' }}>
+                    <Form.Item name="remember" valuePropName="checked">
+                      <Checkbox>Remember me</Checkbox>
+                    </Form.Item>
+                    <a href="#" className="fpw">Forget the password</a>
+                  </Space>
 
                   <Form.Item>
                     <Button
                       type="primary"
                       htmlType="submit"
                       style={{
-                        width: "100%",
-                        backgroundColor: "yellow",
-                        marginTop: "50px",
+                        width: "100%", marginTop: "57px",
                       }}
+                      className='btn-login'
                     >
                       Login
                     </Button>
                   </Form.Item>
                 </Form>
                 <div
-                  class="btn-fake"
+                  className="btn-fake"
                   onClick={() => setstyleLogin(!styleLogin)}
                 >
                   Login by User
@@ -141,28 +144,100 @@ export default function Login() {
               </div>
             </Space.Compact>
           </Space>
-          <div className={`introduce-banner ${styleLogin ? "move" : ""}`}>
-            <img
-              src="https://admin.worldcraftlogistics.net/images/Logo__001.png"
-              alt="logo worldcraftlogistics"
-            />
-            <h2 class="mb-3">WorldCraft Logistics CMS</h2>
-            <p class="lead">
-              <Icon
-                path={mdiFormatQuoteOpen}
-                size={0.5}
-                style={{ marginBottom: "10px" }}
+
+          {forgetPass &&
+            <div className='fpw-banner'>
+              <div>
+                <h4 className="mt-0">Forgot Password</h4>
+                <p className=" mb-4">Enter your user and email.</p>
+              </div>
+              <Form
+                name="basic"
+                labelCol={{ span: 5 }}
+                initialValues={{
+                  remember: true,
+                }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                autoComplete="off"
+              >
+                <Form.Item
+                  label="Username"
+                  name="username"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your username!",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Enter your username" />
+                </Form.Item>
+
+                <Form.Item
+                  label="Email"
+                  name="email"
+                  rules={[
+                    {
+                      type: 'email',
+                      message: 'The input is not valid Email!',
+                    },
+                    {
+                      required: true,
+                      message: 'Please input your E-mail!',
+                    },
+                  ]}
+                >
+                  <Input placeholder="Enter your email" />
+                </Form.Item>
+
+                <Form.Item>
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    style={{ width: "100%" }}
+                    className='btn-login'
+                  >
+                    CONFIRM
+                  </Button>
+                </Form.Item>
+              </Form>
+
+              <div
+                className="btn-fake"
+              >
+                Back to Login
+              </div>
+            </div>
+          }
+
+          { !forgetPass &&
+          <div className={`introduce-banner ${styleLogin ? "move" : ""} p-5`}>
+            <div className="introduce-banner-content">
+              <img
+                src="https://admin.worldcraftlogistics.net/images/Logo__001_no_bg.png"
+                alt="logo worldcraftlogistics"
               />
-              Content Management System for logistics staff{" "}
-              <Icon
-                path={mdiFormatQuoteClose}
-                size={0.5}
-                style={{ marginBottom: "10px" }}
-              />
-            </p>
-            <p>Welcome!</p>
+              <h2 className="mt-4 mb-3">WorldCraft Logistics CMS</h2>
+              <p>
+                <Icon
+                  path={mdiFormatQuoteOpen}
+                  size={0.5}
+                  style={{ marginBottom: "10px" }}
+                />
+                Content Management System for logistics staff{" "}
+                <Icon
+                  path={mdiFormatQuoteClose}
+                  size={0.5}
+                  style={{ marginBottom: "10px" }}
+                />
+              </p>
+              <p>Welcome!</p>
+            </div>
           </div>
+          }
         </div>
+
       </div>
     </div>
   );

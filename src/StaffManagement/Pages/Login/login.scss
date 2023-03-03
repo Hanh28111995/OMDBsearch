@@ -1,0 +1,80 @@
+.login-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://admin.worldcraftlogistics.net/images/bgr__rain1.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+
+    .block-element {
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.6);
+        top: 50vh;
+        left: 50vw;
+        position: fixed;
+        transform: translate(-50%, -50%);
+        width: 60%;
+
+        h4 {
+            color: white;
+            font-size: 28px;
+        }
+
+        p {
+            color: whitesmoke;
+        }
+
+        label {
+            color: aliceblue;
+            margin-right: 10px;
+        }
+
+        .introduce-banner {
+            top: 0;
+            right: 0;
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            background-color: white;
+            transition: all 1s ease-in-out;
+
+            h2,
+            p {
+                color: black;
+            }
+        }
+
+        .introduce-banner.move {
+            transform: translateX(-100%);
+        }
+
+
+        .ant-space {
+            gap: 0 !important;
+            width: 100%;
+            justify-content: center;
+
+            .ant-space-item {
+                width: 100%;
+
+                &:first-child {
+                    border-right: 1px solid gray;
+                }
+            }
+
+        }
+    }
+
+    .btn-fake {
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):before {
+        content: '';
+    }
+
+    .ant-checkbox-checked .ant-checkbox-inner {
+        background-color: red;
+        border-color: red;
+    }
+}

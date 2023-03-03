@@ -3,6 +3,7 @@ import MovieDetail from './MovieDetail'
 import SearchInput from './SearchInput'
 import './index.scss'
 import ModelComponent from './ModelComponent'
+import ChartD from './ChartD'
 
 export default function SearchMovie(props) {
 
@@ -17,6 +18,7 @@ export default function SearchMovie(props) {
           <SearchInput />
           <MovieDetail />
           <ModelComponent />
+          <ChartD/>
         </div>
       </div>
     </div>

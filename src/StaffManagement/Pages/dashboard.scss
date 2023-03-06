@@ -1,0 +1,37 @@
+.dashboard {
+    .ant-card {
+        border-radius: 5px;
+
+        .ant-card-head {
+            border-bottom: none;
+            .ant-card-head-wrapper {
+                .ant-card-head-title {
+                    color: aqua;
+                }
+            }
+        }
+
+        .ant-card-body {
+            position: relative;
+            .ant-avatar {
+                border: 2px solid black;
+            }
+
+            p {
+                padding-top: 10px;
+                margin: 0;
+                text-align: center;
+            }
+            .status_staft{
+                background-color: aquamarine;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 3px;
+                position: absolute;
+                top: 2%;
+                padding: 5px 5px;
+            }
+        }
+    }
+}

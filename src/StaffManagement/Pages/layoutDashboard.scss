@@ -1,0 +1,22 @@
+.layOut_wrapper>.ant-layout {
+    .ant-menu-inline-collapsed {
+
+        li:nth-child(1),
+        li:nth-child(7) {
+            display: none;
+        }
+    }
+
+    .ant-layout-sider {
+        overflow-x: hidden;
+        .logo {
+            padding-top: 30px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+    }
+
+    .ant-menu.ant-menu-inline-collapsed>.ant-menu-item {
+        padding: 0 calc(50% - 12px);
+    }
+}

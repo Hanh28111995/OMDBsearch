@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Breadcrumb, Layout, Menu, Image, Space, notification } from "antd";
 import Icon from "@mdi/react";
 import { mdiAccount, mdiAccountCash, mdiFileEdit, mdiClockTimeFour, mdiTicketAccount, mdiCalendarMonth, mdiAccountNetwork, mdiAccountSupervisor } from "@mdi/js";
-import './layoutDashboard.scss'
 import { Outlet } from 'react-router-dom';
 const { Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children, type) {
@@ -16,15 +15,15 @@ function getItem(label, key, icon, children, type) {
 }
 const items = [
     getItem('PERSONAL'),
-    getItem('Information', '/tomorrow', <Icon path={mdiAccount} size={1} />),
-    getItem('Daily Task', '/tomorrow', <Icon path={mdiFileEdit} size={1} />),
-    getItem('Time Sheet', '/tomorrow', <Icon path={mdiClockTimeFour} size={1} />),
-    getItem('Payroll', '/tomorrow', <Icon path={mdiAccountCash} size={1} />),
-    getItem('Ticket', '/tomorrow', <Icon path={mdiTicketAccount} size={1} />),
+    getItem('Information', '/tomorrow1', <Icon path={mdiAccount} size={1} />),
+    getItem('Daily Task', '/tomorrow2', <Icon path={mdiFileEdit} size={1} />),
+    getItem('Time Sheet', '/tomorrow3', <Icon path={mdiClockTimeFour} size={1} />),
+    getItem('Payroll', '/tomorrow4', <Icon path={mdiAccountCash} size={1} />),
+    getItem('Ticket', '/tomorrow5', <Icon path={mdiTicketAccount} size={1} />),
     getItem('DEPARTMENT'),
-    getItem('Calendar', '/tomorrow', <Icon path={mdiCalendarMonth} size={1} />),
-    getItem('TO-CoWorker', '/tomorrow', <Icon path={mdiAccountNetwork} size={1} />),
-    getItem('Manager', '/tomorrow', <Icon path={mdiAccountSupervisor} size={1} />),
+    getItem('Calendar', '/tomorrow6', <Icon path={mdiCalendarMonth} size={1} />),
+    getItem('TO-CoWorker', '/tomorrow7', <Icon path={mdiAccountNetwork} size={1} />),
+    getItem('Manager', '/tomorrow8', <Icon path={mdiAccountSupervisor} size={1} />),
 
 
 
@@ -42,7 +41,7 @@ export default function MainLayout() {
                     minHeight: '100vh',
                 }}
             >
-                <Sider collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} style={{ backgroundColor: '#05357e' }} collapsible>
+                <Sider collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}  collapsible>
                     <div className="logo" >
                         <a href="/">
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
+import MainLayout from "../layout/MainLayout";
+import DashBoard from "../pages/dboard/DashBoard";
+import Login from "../pages/Login/Login";
 import SearchMovie from "../SearchMoviePJ/SearchMovie";
-import DashBoard from "../StaffManagement/Pages/DashBoard";
-import Login from "../StaffManagement/Pages/Login/Login";
-import MainLayout from "../StaffManagement/Pages/MainLayout";
 
 export default function Router() {
   const routing = useRoutes([
@@ -13,7 +13,7 @@ export default function Router() {
     // },
     {
       path: "/login",
-      element: <Login title="WCL Login " />,
+      element: <Login title="WCL Login" />,
     },
     {
       path: "/",
@@ -21,7 +21,7 @@ export default function Router() {
       children: [
         {
           path: "/admin",
-          element: <DashBoard/>,
+          element: <DashBoard title="WCL Dashboard" />,
         }]
     },
   ]);

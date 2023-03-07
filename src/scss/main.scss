@@ -1,0 +1,12 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@import "./base/reset";
+@import "./helper/variable";
+@import "./layout/layoutDashboard";
+@import "./page/dashboard";
+@import "./page/login";
+

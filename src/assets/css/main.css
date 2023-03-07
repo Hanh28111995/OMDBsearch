@@ -1,0 +1,299 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0;
+}
+
+.layOut_wrapper > .ant-layout .ant-menu-inline-collapsed li:nth-child(1),
+.layOut_wrapper > .ant-layout .ant-menu-inline-collapsed li:nth-child(7) {
+  display: none;
+}
+.layOut_wrapper > .ant-layout .ant-layout-sider {
+  overflow-x: hidden;
+}
+.layOut_wrapper > .ant-layout .ant-layout-sider .logo {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.layOut_wrapper > .ant-layout .ant-menu.ant-menu-inline-collapsed > .ant-menu-item {
+  padding: 0 calc(50% - 12px);
+}
+
+.dashboard .ant-card {
+  border-radius: 5px;
+}
+.dashboard .ant-card .ant-card-head {
+  border-bottom: none;
+}
+.dashboard .ant-card .ant-card-head .ant-card-head-wrapper .ant-card-head-title {
+  color: aqua;
+}
+.dashboard .ant-card .ant-card-body {
+  position: relative;
+}
+.dashboard .ant-card .ant-card-body .ant-avatar {
+  border: 2px solid black;
+}
+.dashboard .ant-card .ant-card-body p {
+  padding-top: 10px;
+  margin: 0;
+  text-align: center;
+}
+.dashboard .ant-card .ant-card-body .status_staft {
+  background-color: aquamarine;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 3px;
+  position: absolute;
+  top: 2%;
+  padding: 5px 5px;
+}
+
+.login-bg {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("https://admin.worldcraftlogistics.net/images/bgr__rain1.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://admin.worldcraftlogistics.net/images/bgr__rain1.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  font-family: "Nunito", sans-serif;
+}
+.login-bg .block-element {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 50vh;
+  left: 50vw;
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 60%;
+}
+.login-bg .block-element h4 {
+  color: #fff;
+  font-size: 28px;
+}
+.login-bg .block-element p {
+  color: #fff;
+}
+.login-bg .block-element label {
+  color: #fff;
+  margin-right: 10px;
+}
+.login-bg .block-element .fpw-banner {
+  margin: auto;
+}
+.login-bg .block-element .introduce-banner {
+  top: 0;
+  right: 0;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background-color: #fff;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.login-bg .block-element .introduce-banner h2 {
+  color: #096481;
+  font-weight: 700;
+}
+.login-bg .block-element .introduce-banner p {
+  color: #096481;
+}
+.login-bg .block-element .introduce-banner .introduce-banner-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.login-bg .block-element .introduce-banner.move {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.login-bg .block-element .ant-space {
+  gap: 0 !important;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.login-bg .block-element .ant-space .ant-space-item {
+  width: 100%;
+}
+.login-bg .block-element p.fpw:hover {
+  color: #2988ab;
+}
+.login-bg .block-element .btn-login:hover,
+.login-bg .block-element .btn-fake:hover {
+  background-color: #096481;
+  border-color: #096481;
+  color: #fff;
+}
+.login-bg .block-element .btn-fake,
+.login-bg .block-element .btn-login {
+  background-color: #2988ab;
+  border-radius: 5px;
+  padding: 5px;
+  color: #fff;
+  font-size: 15px;
+  border: solid 1px #2988ab;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.login-bg .block-element .btn-fake {
+  cursor: pointer;
+}
+.login-bg .ant-btn:focus {
+  background: #2988ab;
+}
+.login-bg .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional):before {
+  content: "";
+}
+.login-bg .ant-checkbox-wrapper span:last-child {
+  color: #fff;
+}
+.login-bg .ant-checkbox-wrapper .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #2988ab;
+  border-color: #2988ab;
+}
+.login-bg .hide {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}

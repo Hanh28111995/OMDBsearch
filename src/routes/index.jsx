@@ -1,6 +1,7 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
+import StatusEmployee from "../modules/dboard/StatusEmployee";
 import DashBoard from "../pages/dboard/DashBoard";
 import Login from "../pages/Login/Login";
 import SearchMovie from "../SearchMoviePJ/SearchMovie";
@@ -20,9 +21,14 @@ export default function Router() {
       element: <MainLayout/>,
       children: [
         {
-          path: "/admin",
+          path: "/admin1",
           element: <DashBoard title="WCL Dashboard" />,
-        }]
+        },
+        {
+          path: "/admin2",
+          element: <StatusEmployee/>,
+        },
+      ]
     },
   ]);
   return routing;

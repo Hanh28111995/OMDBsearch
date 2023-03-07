@@ -68,7 +68,7 @@ export default function MainLayout() {
 
                     />
                 </Sider>
-                <Layout className="site-layout" style={{ marginLeft: '50px' }} >
+                <Layout className="site-layout">
                     <Space direction="vertical">
                         <Content
                             style={{

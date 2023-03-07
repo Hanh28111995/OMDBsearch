@@ -1,0 +1,49 @@
+$bg-color-1: #000;
+$bg-color-2: #fff;
+$bg-color-3: #2988ab;
+$bg-color-4: #096481;
+$fs-5: 12px;
+$fs-6: 30px;
+
+.overlayStatus {
+    display: flex;
+    width: 150px;
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+    transform: skew(-10deg);
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contentStatus {
+    float: left;
+    width: 100%;
+    transform: skew(10deg);
+    position: static;
+
+    .contentStatus_child {
+        position: absolute;
+        right: -30px;
+        bottom: 0 ;
+        background-color: white;
+        .contentStatus_child_num {
+            margin: 0;
+            font-size: $fs-6;
+            line-height: 1;
+        }
+        .contentStatus_child_text {
+            margin: 0;
+            color: #000;
+            font-size: $fs-5;
+        }
+    }
+}
+
+
+
+.with-chevron[aria-expanded='true'] i {
+    display: block;
+    transform: rotate(180deg) !important;
+  }

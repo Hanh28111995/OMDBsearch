@@ -4,6 +4,7 @@ import MainLayout from "../layout/MainLayout";
 import StatusEmployee from "../modules/dboard/StatusEmployee";
 import DashBoard from "../pages/dboard/DashBoard";
 import Login from "../pages/Login/Login";
+import InforForm from "../pages/personal infor/InforForm";
 import SearchMovie from "../SearchMoviePJ/SearchMovie";
 
 export default function Router() {
@@ -27,6 +28,10 @@ export default function Router() {
         {
           path: "/admin2",
           element: <StatusEmployee/>,
+        },
+        {
+          path: "/admin/Personal_Information",
+          element: <InforForm deactive={false}/>,
         },
       ]
     },

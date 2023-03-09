@@ -5,7 +5,8 @@ import StatusEmployee from "../modules/dboard/StatusEmployee";
 import DashBoard from "../pages/dboard/DashBoard";
 import Login from "../pages/Login/Login";
 import InforForm from "../pages/personal infor/InforForm";
-import SearchMovie from "../SearchMoviePJ/SearchMovie";
+import MissPunchForm from "../pages/Ticket/MissPunch/MissPunchForm";
+import TimeOffForm from "../pages/Ticket/TimeOff/TimeOffForm";
 
 export default function Router() {
   const routing = useRoutes([
@@ -32,6 +33,19 @@ export default function Router() {
         {
           path: "/admin/Personal_Information",
           element: <InforForm deactive={false}/>,
+        },
+        {
+          path: "/admin/ticket",
+          children:[
+            {
+              path:"/admin/ticket/miss-punch",
+              element:<MissPunchForm/>,
+            },
+            {
+              path:"/admin/ticket/time-off",
+              element:<TimeOffForm/>,
+            },
+          ]
         },
       ]
     },

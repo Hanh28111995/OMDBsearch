@@ -1,9 +1,44 @@
-@at-root {
-    .ant-select-tree-list-holder {
-       overflow: auto !important;
-    }
- 
-    .ant-select-tree-list-scrollbar-thumb {
-       display: none;
-    }
- }
+$bg-color-1: #000;
+$bg-color-2: #fff;
+$bg-color-3: #2988ab;
+$bg-color-4: #096481;
+$bg-color-5: #0acf97;
+$font-color-1: #000;
+$font-color-2: #6c757d;
+$font-color-3: #fff;
+$font-color-4: #096481;
+$font-color-5: #2988ab;
+$font-color-6: #0acf97;
+
+.ant-select-dropdown-menu {
+   max-height: none !important;
+   overflow-y: visible !important;
+}
+
+.bg-form {
+   font-family: "Nunito", sans-serif;
+   background-color: $font-color-3;
+   border-radius: 10px;
+   padding: 30px 20px;
+
+   .bg-form-header {
+      border-bottom: 2px solid rgba($color: #000000, $alpha: 0.2);
+
+      h4 {
+         font-weight: bold;
+      }
+
+      .ant-btn-primary {
+         border-color: $bg-color-5;
+         background: $bg-color-5;
+         border-radius: 5px;
+         box-shadow: 0 2px 6px 0 rgb(10 207 151 / 50%);
+         &:hover {
+            background-color: darken($bg-color-5, 20%);;
+         }
+      }
+
+   }
+}
+
+

@@ -1,0 +1,2 @@
+const SET_USER_INFOR  = "SET_USER_INFOR"
+export { SET_USER_INFOR };

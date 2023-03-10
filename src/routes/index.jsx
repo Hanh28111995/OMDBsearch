@@ -23,7 +23,7 @@ export default function Router() {
       element: <MainLayout/>,
       children: [
         {
-          path: "/admin1",
+          path: "/admin",
           element: <DashBoard title="WCL Dashboard" />,
         },
         {

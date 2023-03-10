@@ -27,7 +27,7 @@ const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 export default function InforForm(props) {
     return (
-        <Space direction='vertical' className='bg-form'>
+        <Space direction='vertical' className='bg-form pb-5'>
             <Space direction='vertical' className='bg-form-header'>
                 <div className='d-flex row col-12 '>
                     <div className='col-md-6 col-sm-12 p-0 '>
@@ -48,6 +48,7 @@ export default function InforForm(props) {
                 layout="horizontal"
                 disabled={props.deactive}
                 style={{ maxWidth: '100%' }}
+                autoComplete='off'
             >
                 <Row gutter={24}>
 
@@ -57,7 +58,7 @@ export default function InforForm(props) {
                             name="fullname"
                             rules={[{ required: true, message: 'Please input your Full Name!' }]}
                         >
-                            <Input />
+                            <Input autoComplete='new-password'/>
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={12} >
@@ -84,7 +85,7 @@ export default function InforForm(props) {
                                 },
                             ]}
                         >
-                            <Input />
+                            <Input autoComplete='new-password'/>
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={12} >
@@ -147,8 +148,10 @@ export default function InforForm(props) {
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Department" name="department">
-                            <Select listHeight={700}>
+                        <Form.Item label="Department" name="department" >
+                            <Select 
+                            listHeight={700} 
+                            >
                                 {renderedDpmObject}
                             </Select>
                         </Form.Item>

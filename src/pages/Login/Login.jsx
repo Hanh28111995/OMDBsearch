@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import { Button, Space, Form, Input, Checkbox } from "antd";
 import Icon from "@mdi/react";
 import { mdiFormatQuoteClose, mdiFormatQuoteOpen } from "@mdi/js";
+import { useDispatch } from "react-redux";
+import { setUserInfor } from "../../store/actions/user.action";
 
 export default function Login() {
   const [forgetPass, setForgetPass] = useState(false);
   const [styleLogin, setstyleLogin] = useState(false);
   const [disBTN, setDisBTN] = useState(false);
+  const dispatch = useDispatch();
   const onFinish = (values) => {
     console.log("Success:", values);
+    if((values.username === "hanhT")&&(values.password === "0163H"))
+    {
+      localStorage.setItem("WLC_LOGIN", JSON.stringify(values));
+      dispatch(setUserInfor(values));
+    }
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);

@@ -1,5 +1,8 @@
 import React from "react";
-import { useRoutes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Navigate, useRoutes } from "react-router-dom";
+import AuthGuards from "../guards/auth.guards";
+import NoAuthGuards from "../guards/no-auth.guards";
 import MainLayout from "../layout/MainLayout";
 import StatusEmployee from "../modules/dboard/StatusEmployee";
 import DashBoard from "../pages/dboard/DashBoard";
@@ -15,40 +18,56 @@ export default function Router() {
     //   element: <SearchMovie title="Search Page" />,
     // },
     {
-      path: "/login",
-      element: <Login title="WCL Login" />,
+      path: '/',
+      element: <NoAuthGuards />,
+      children: [
+        {
+          path: "/",
+          element: <Navigate to="/login" />,
+        },
+        {
+          path: "/login",
+          element: <Login title="WCL Login" />,
+        },
+      ]
     },
     {
       path: "/",
-      element: <MainLayout/>,
+      element: <AuthGuards />,
       children: [
         {
-          path: "/admin",
-          element: <DashBoard title="WCL Dashboard" />,
-        },
-        {
-          path: "/admin2",
-          element: <StatusEmployee/>,
-        },
-        {
-          path: "/admin/Personal_Information",
-          element: <InforForm deactive={false}/>,
-        },
-        {
-          path: "/admin/ticket",
-          children:[
+          path: '/',
+          element: <MainLayout />,
+          children: [
             {
-              path:"/admin/ticket/miss-punch",
-              element:<MissPunchForm/>,
+              path: "/admin",
+              element: <DashBoard title="WCL Dashboard" />,
             },
             {
-              path:"/admin/ticket/time-off",
-              element:<TimeOffForm/>,
+              path: "/admin2",
+              element: <StatusEmployee />,
+            },
+            {
+              path: "/admin/Personal_Information",
+              element: <InforForm deactive={false} />,
+            },
+            {
+              path: "/admin/ticket",
+              children: [
+                {
+                  path: "/admin/ticket/miss-punch",
+                  element: <MissPunchForm />,
+                },
+                {
+                  path: "/admin/ticket/time-off",
+                  element: <TimeOffForm />,
+                },
+              ]
             },
           ]
         },
       ]
-    },
+    }
   ]);
   return routing;
 }

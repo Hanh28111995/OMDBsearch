@@ -4,18 +4,22 @@ import Icon from "@mdi/react";
 import { mdiFormatQuoteClose, mdiFormatQuoteOpen } from "@mdi/js";
 import { useDispatch } from "react-redux";
 import { setUserInfor } from "../../store/actions/user.action";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [forgetPass, setForgetPass] = useState(false);
   const [styleLogin, setstyleLogin] = useState(false);
   const [disBTN, setDisBTN] = useState(false);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const onFinish = (values) => {
     console.log("Success:", values);
     if((values.username === "hanhT")&&(values.password === "0163H"))
     {
       localStorage.setItem("WLC_LOGIN", JSON.stringify(values));
       dispatch(setUserInfor(values));
+      navigate('/admin')
     }
   };
   const onFinishFailed = (errorInfo) => {

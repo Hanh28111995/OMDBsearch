@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { Breadcrumb, Layout, Menu, Image, Space, notification } from "antd";
+import { LogoutOutlined, } from "@ant-design/icons";
 import Icon from "@mdi/react";
 import { mdiAccount, mdiAccountCash, mdiFileEdit, mdiClockTimeFour, mdiTicketAccount, mdiCalendarMonth, mdiAccountNetwork, mdiAccountSupervisor } from "@mdi/js";
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { setUserInfor } from '../store/actions/user.action';
+import { useDispatch } from 'react-redux';
 const { Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children, type) {
     return {
@@ -24,7 +27,7 @@ const items = [
     getItem('Calendar', '/tomorrow6', <Icon path={mdiCalendarMonth} size={1} />),
     getItem('TO-CoWorker', '/tomorrow7', <Icon path={mdiAccountNetwork} size={1} />),
     getItem('Manager', '/tomorrow8', <Icon path={mdiAccountSupervisor} size={1} />),
-
+    getItem('Log Out', 'logOut', <LogoutOutlined />),
 
 
     // getItem('User Management', '/project-management/user', <TeamOutlined />),
@@ -32,6 +35,13 @@ const items = [
 
 
 export default function MainLayout() {
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        localStorage.removeItem("WLC_LOGIN");
+        dispatch(setUserInfor(null));
+        navigate('/login');
+    }
     const [collapsed, setCollapsed] = useState(true);
 
     return (
@@ -41,7 +51,7 @@ export default function MainLayout() {
                     minHeight: '100vh',
                 }}
             >
-                <Sider collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}  collapsible>
+                <Sider collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} collapsible>
                     <div className="logo" >
                         <a href="/">
 
@@ -65,7 +75,11 @@ export default function MainLayout() {
                         style={{ backgroundColor: 'transparent' }}
                         items={items}
                         selectedKeys={'/'}
-
+                        onClick={({ key }) => {
+                            if (key === 'logOut') {
+                                handleLogout();
+                            }
+                        }}
                     />
                 </Sider>
                 <Layout className="site-layout">

@@ -18,11 +18,15 @@ function getItem(label, key, icon, children, type) {
 }
 const items = [
     getItem('PERSONAL'),
-    getItem('Information', '/tomorrow1', <Icon path={mdiAccount} size={1} />),
+    getItem('Information', '/admin/personal_information', <Icon path={mdiAccount} size={1} />),
     getItem('Daily Task', '/tomorrow2', <Icon path={mdiFileEdit} size={1} />),
     getItem('Time Sheet', '/tomorrow3', <Icon path={mdiClockTimeFour} size={1} />),
     getItem('Payroll', '/tomorrow4', <Icon path={mdiAccountCash} size={1} />),
-    getItem('Ticket', '/tomorrow5', <Icon path={mdiTicketAccount} size={1} />),
+    getItem('Ticket', '/tomorrow5', <Icon path={mdiTicketAccount} size={1} />, 
+    [
+        getItem('Miss Punch', '/admin/ticket/miss-punch'),
+        getItem('Time Off', '/admin/ticket/time-off'),
+    ]),
     getItem('DEPARTMENT'),
     getItem('Calendar', '/tomorrow6', <Icon path={mdiCalendarMonth} size={1} />),
     getItem('TO-CoWorker', '/tomorrow7', <Icon path={mdiAccountNetwork} size={1} />),
@@ -68,16 +72,17 @@ export default function MainLayout() {
                         </a>
                     </div>
                     <Menu
-                        defaultSelectedKeys={['/admin/movie-management']}
                         mode="inline"
                         theme="dark"
                         // inlineCollapsed={collapsed}
                         style={{ backgroundColor: 'transparent' }}
                         items={items}
-                        selectedKeys={'/'}
                         onClick={({ key }) => {
                             if (key === 'logOut') {
                                 handleLogout();
+                            }
+                            else {
+                                navigate(key)
                             }
                         }}
                     />

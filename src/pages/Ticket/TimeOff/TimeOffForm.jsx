@@ -1,42 +1,95 @@
 import React from 'react'
 import { Space, Table, Input, Button, Image, } from 'antd';
-
+import { render } from 'react-dom';
+import DataTable from 'react-data-table-component';
 
 export default function TimeOffForm() {
   const columns = [
     {
-      title: 'Mã Phim',
-      dataIndex: 'maPhim',
-      key: 'maPhim',
+        name: 'Title',
+        selector: row => row.title,
+        sortable: true,
     },
     {
-      title: 'Hình ảnh',
-      dataIndex: 'hinhAnh',
-      key: 'hinhAnh',
-      render: (text) => {
-        return <Image src={`${text}`} className='img-fluid' width={50} />
-      }
+        name: 'Year',
+        selector: row => row.year,
+        sortable: true,
+    },
+];
+
+const data = [
+    {
+        id: 1,
+        title: 'Beetlejuice',
+        year: '1988',
     },
     {
-      title: 'Tên phim',
-      dataIndex: 'tenPhim',
-      key: 'tenPhim',
+        id: 2,
+        title: 'Ghostbusters',
+        year: '1984',
     },
     {
-      title: 'Ngày Khởi Chiếu',
-      dataIndex: 'ngayKhoiChieu',
-      key: 'ngayKhoiChieu',
-      // render: (text) => {
-      //   return <span>{formatDate3(text)}</span>
-      // }
-    },
+      id: 1,
+      title: 'Beetlejuice',
+      year: '1988',
+  },
+  {
+      id: 2,
+      title: 'Ghostbusters',
+      year: '1984',
+  },
+  {
+    id: 1,
+    title: 'Beetlejuice',
+    year: '1988',
+},
+{
+    id: 2,
+    title: 'Ghostbusters',
+    year: '1984',
+},
+{
+  id: 1,
+  title: 'Beetlejuice',
+  year: '1988',
+},
+{
+  id: 2,
+  title: 'Ghostbusters',
+  year: '1984',
+},
+{
+  id: 1,
+  title: 'Beetlejuice',
+  year: '1988',
+},
+{
+  id: 2,
+  title: 'Ghostbusters',
+  year: '1984',
+},
+{
+  id: 1,
+  title: 'Beetlejuice',
+  year: '1988',
+},
+{
+  id: 2,
+  title: 'Ghostbusters',
+  year: '1984',
+},
+]
 
 
 
-  ];
 
   return (
-    <Table rowKey='maPhim' columns={columns}
-       />
+    <div>
+        <DataTable
+            columns={columns}
+            data={data}
+            pagination
+        />
+    </div>
   )
 }

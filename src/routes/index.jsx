@@ -48,7 +48,7 @@ export default function Router() {
               element: <StatusEmployee />,
             },
             {
-              path: "/admin/Personal_Information",
+              path: "/admin/personal_information",
               element: <InforForm deactive={false} />,
             },
             {

@@ -1,0 +1,86 @@
+.dataTable {
+    .react-bootstrap-table {
+        table thead th {
+            .ant-space {
+                gap: 0 !important;
+                position: relative;
+                transform: translateY(-5px);
+
+                .ant-space-item:last-child {
+                    position: absolute;
+                    top: 40%;
+                }
+            }
+        }
+    }
+
+    .react-bs-table-sizePerPage-dropdown {
+        #pageDropDown {
+            width: 60px;
+            height: 30px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: transparent;
+            color: black;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        .dropdown-menu {
+            width: 55px;
+            min-width: 55px;
+
+            &>li {
+                padding: 0;
+
+                a {
+                    text-align: center;
+                    display: block;
+                    padding: 3px 5px;
+                    clear: both;
+                    font-weight: 400;
+                    line-height: 1.5;
+                    text-decoration: none;
+                }
+            }
+
+        }
+    }
+
+    .pagination {
+
+        li[title="previous page"] a,
+        li[title="next page"] a {
+            &:after {
+                font: var(--fa-font-solid);
+                position: absolute;
+                top: 50%;
+                right: 50%;
+                transform: translate(50%, -50%);
+                background-color: #fff;
+            }
+        }
+        li[title="previous page"] a,
+        li[title="next page"] a {
+            &:hover:after  {
+                background-color: #e9ecef;
+            }
+        }
+
+        li[title="next page"] a {
+            &:after {
+                content: "\f054";
+            }
+        }
+
+        li[title="previous page"] a {
+            &:after {
+                content: "\f053";
+            }
+        }
+    }
+}

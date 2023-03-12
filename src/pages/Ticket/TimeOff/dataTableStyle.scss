@@ -52,6 +52,7 @@
     }
 
     .pagination {
+        margin-bottom: 0;
 
         li[title="previous page"] a,
         li[title="next page"] a {
@@ -64,9 +65,10 @@
                 background-color: #fff;
             }
         }
+
         li[title="previous page"] a,
         li[title="next page"] a {
-            &:hover:after  {
+            &:hover:after {
                 background-color: #e9ecef;
             }
         }
@@ -80,6 +82,18 @@
         li[title="previous page"] a {
             &:after {
                 content: "\f053";
+            }
+        }
+
+        .page-item {
+            height: 30px ;
+            width: 30px ;
+            border-radius: 5px ;
+
+            .page-link {
+                line-height: 0.8 ;
+                justify-content: center;
+                display: flex;
             }
         }
     }

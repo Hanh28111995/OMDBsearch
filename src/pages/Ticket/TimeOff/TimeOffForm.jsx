@@ -119,6 +119,7 @@ const data = [
 const options = {
   // prePageText: "",
   // nextPageText: '',
+  // hidePageListOnlyOnePage: false,
   showTotal: false,
   paginationSize: 4,
   alwaysShowAllBtns: true,
@@ -226,7 +227,7 @@ export default function TimeOffForm() {
                         <Space>
                           <span>Show</span>
                           <SizePerPageDropdownStandalone {...paginationProps} />
-                          <span>Entries</span>
+                          <span>entries</span>
                         </Space>
                         <Space >
                           <SearchBar {...toolkitprops.searchProps} />
@@ -242,6 +243,13 @@ export default function TimeOffForm() {
                         {...toolkitprops.baseProps}
                         {...paginationTableProps}
                       />
+                      {
+                        (data.length == 0) &&
+                        <Space direction='vertical' className='d-dlex text-center w-100' >
+                          <p className='pt-3'>No data available in table</p>
+                          <hr />
+                        </Space>
+                      }
                     </Space>
                   )
                 }
@@ -250,10 +258,18 @@ export default function TimeOffForm() {
                 <PaginationTotalStandalone
                   {...paginationProps}
                 />
-                <PaginationListStandalone
-                  {
-                  ...paginationProps}
-                />
+                {(data.length == 0) ?
+                  <Space>
+                    <ul class="pagination react-bootstrap-table-page-btns-ul">
+                      <li class="disabled page-item" title="previous page"><a href="#" class="page-link">&lt;</a></li>
+                      <li class="disabled page-item" title="next page"><a href="#" class="page-link">&gt;</a></li>
+                    </ul>
+                  </Space>
+
+                  : <PaginationListStandalone
+                    {...paginationProps}
+                  />
+                }
               </Space>
             </>
           )

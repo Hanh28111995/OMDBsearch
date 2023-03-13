@@ -1,4 +1,6 @@
 .layOut_wrapper>.ant-layout {
+    position: relative;
+
     .ant-menu-inline-collapsed {
 
         li:nth-child(1),
@@ -9,6 +11,11 @@
 
     .ant-layout-sider {
         overflow-x: hidden;
+        position: absolute;
+        min-height: 100%;
+        z-index: 99;
+        top: 0;
+        left: 0;
 
         .logo {
             padding-top: 30px;
@@ -20,4 +27,8 @@
     .ant-menu.ant-menu-inline-collapsed>.ant-menu-item {
         padding: 0 calc(50% - 12px);
     }
+}
+
+.hiden_logo {
+    display: none;
 }

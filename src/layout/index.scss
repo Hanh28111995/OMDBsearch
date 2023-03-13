@@ -1,0 +1,14 @@
+.hiden_logo {
+    display: none;
+}
+
+.layOut_wrapper {
+    .ant-layout {
+        position: relative;
+        .ant-layout-sider {
+            position: absolute;
+            min-height: 100%;
+            z-index: 99;
+        }
+    }
+}

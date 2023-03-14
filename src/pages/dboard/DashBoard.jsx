@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Col, Row, Avatar } from 'antd'
+import { Card, Col, Row, Avatar, Space } from 'antd'
 import Icon from "@mdi/react";
 import { mdiAccessPoint, mdiAccessPointOff } from "@mdi/js";
 import StatusEmployee from '../../modules/dboard/StatusEmployee';
@@ -10,14 +10,19 @@ const { Meta } = Card;
 
 export default function DashBoard() {
     return (
-        <div className='dashboard row col-12'>
-            <div className='col-8 bg-white pr-5'>
-                <StatusEmployee />
-                <StatusGroup />
-            </div>
-            <div className='col-4'>
-                <StatusEvent />
-            </div>
-        </div>
+        // <div className='dashboard '>
+        //     <Space >
+        //         <div className='row col-12'>
+        //             <div className='col-5 bg-white pr-5'>
+        //                 <StatusEmployee />
+        //                 <StatusGroup />
+        //             </div>
+
+        //         </div>
+        //     </Space>
+        // </div>
+
+        <StatusEvent />
+
     )
 }

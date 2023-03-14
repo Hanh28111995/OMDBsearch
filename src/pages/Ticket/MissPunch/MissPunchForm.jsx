@@ -8,8 +8,6 @@ import paginationFactory,
   PaginationListStandalone,
 } from 'react-bootstrap-table2-paginator';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
-
-import '../TimeOff/dataTableStyle.scss'
 import Icon from '@mdi/react';
 import {
   mdiMenuUp,
@@ -19,6 +17,7 @@ import {
   mdiDotsHorizontalCircleOutline
 } from '@mdi/js';
 import { Space } from 'antd';
+import IconSort from '../../../modules/dataTable/IconSort';
 const { SearchBar } = Search;
 
 const data = [];
@@ -55,13 +54,13 @@ const options = {
   // prePageText: "",
   // nextPageText: '',
   // hidePageListOnlyOnePage: false,
-  showTotal: false,
-  paginationSize: 4,
-  alwaysShowAllBtns: true,
+  // showTotal: false,
+  // paginationSize: 4,
+  // alwaysShowAllBtns: true,
   withFirstAndLast: false,
+  alwaysShowAllBtns: true,
   custom: true,
   totalSize: data.length,
-  alwaysShowAllBtns: true,
   sizePerPageList: [
     {
       text: '10', value: 10
@@ -82,24 +81,9 @@ const options = {
       text: 'All', value: data.length
     }
   ],
-  // A numeric array is also available. the purpose of above example is custom the text
 };
-///// function component for sort icon block
-function IconSort(props) {
-  return (
-    <Space direction='vertical' >
-      <Icon path={mdiMenuUp}
-        color={`${props.up && props.active ? '#096481' : '#d0d2d4'}`}
-        size={1}
-      />
-      <Icon path={mdiMenuDown}
-        color={`${props.down && props.active ? '#096481' : '#d0d2d4'}`}
-        size={1}
-      />
-    </Space>
-  )
 
-}
+///// function component for sort icon block
 const customSort = (order, column) => {
   if (!order) return (<IconSort active={false} up={false} down={false} />)
   else if (order === 'asc') return (<IconSort active={true} up={true} down={false} />)
@@ -108,18 +92,7 @@ const customSort = (order, column) => {
 }
 ///// function component for sort next/prev pagination
 
-// const pageButtonRenderer = ({
-//   title,
-// }) => {
-//   const titleStyle = {}
-//   const nextAndPrevIcon = {
-//     if(title) {
-
-//     }
-//   }
-// }
-
-function referenceFormatter(cell, row) {
+const referenceFormatter = (cell, row) => {
   if (row.hrStatus === true) {
     return (
       <span>
@@ -132,7 +105,7 @@ function referenceFormatter(cell, row) {
   );
 }
 
-function StatusFormatter(cell, row) {
+const statusFormatter = (cell, row) => {
   return (
     < span >
       {(cell == '...')
@@ -174,7 +147,7 @@ const columns = [{
   dataField: 'managerStatus',
   text: 'Manager Status',
   sort: true,
-  formatter: StatusFormatter,
+  formatter: statusFormatter,
   sortCaret: customSort,
 }, {
   dataField: 'hrDate',
@@ -185,7 +158,7 @@ const columns = [{
   dataField: 'hrStatus',
   text: 'HR Status',
   sort: true,
-  formatter: StatusFormatter,
+  formatter: statusFormatter,
   sortCaret: customSort,
 }
 ];
@@ -203,7 +176,7 @@ export default function MissPunchForm() {
             <>
 
               <ToolkitProvider
-                keyField="id"
+                keyField="reference"
                 data={data}
                 columns={columns}
                 search
@@ -225,7 +198,7 @@ export default function MissPunchForm() {
                       <hr />
                       <BootstrapTable
                         bootstrap4
-                        keyField='id'
+                        keyField='reference'
                         data={data}
                         columns={columns}
                         bordered={false}

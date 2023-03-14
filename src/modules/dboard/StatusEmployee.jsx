@@ -2,7 +2,6 @@ import React from 'react'
 import Icon from '@mdi/react';
 import { mdiAccountGroup, mdiAccessPointOff, mdiThumbUp, mdiThumbDown, mdiClockAlert } from '@mdi/js';
 import { Space, Card, Col, Row, Avatar } from 'antd'
-import './index.scss';
 
 
 export default function StatusEmployee() {

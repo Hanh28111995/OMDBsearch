@@ -16,7 +16,7 @@ function getItem(label, key, icon, children, type, disabled) {
         disabled
     };
 }
-const items = [
+const items1 = [
     getItem('PERSONAL'),
     getItem('Information', '/admin/personal_information', <Icon path={mdiAccount} size={1} />),
     getItem('Daily Task', '/tomorrow2', <Icon path={mdiFileEdit} size={1} />),
@@ -33,9 +33,15 @@ const items = [
     getItem('Manager', '/tomorrow8', <Icon path={mdiAccountSupervisor} size={1} />),
     getItem(<hr color='white' />, null, null, null, null, true),
     getItem('Log Out', 'logOut', <Icon path={mdiLogout} size={1} />),
-
-
     // getItem('User Management', '/project-management/user', <TeamOutlined />),
+]
+const item2 = [
+    getItem('Welcome !', '', <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg" width={100}  />,
+        [
+            getItem('Change Avatar', null, <i className="fa-solid fa-truck"></i>),
+            getItem('Change Password', null, <i className="fa-solid fa-equals"></i>),
+            getItem('Support', null, <i className="fa-solid fa-paste"></i>),
+        ])
 ]
 
 
@@ -73,7 +79,7 @@ export default function MainLayout() {
                         theme="dark"
                         // inlineCollapsed={collapsed}
                         style={{ backgroundColor: 'transparent' }}
-                        items={items}
+                        items={items1}
                         onClick={({ key }) => {
                             if (key === 'logOut') {
                                 handleLogout();
@@ -84,42 +90,22 @@ export default function MainLayout() {
                         }}
                     />
                 </Sider>
-                <Layout className="site-layout" 
-                style={{marginLeft:'80px'}}
+                <Layout className="site-layout"
+                    style={{ marginLeft: '80px' }}
                 >
-                    <Space direction=" horizontal">
-
+                    <Space className='d-flex !important'>
+                            
                         <Menu
                             mode="inline"
                             style={{
                                 backgroundColor: '#f4f5f7',
+                                width:'200px'
                             }}
                             onClick={({ key }) => {
                                 navigate(key)
                             }}
-                            items={[
-                                {
-                                    label: 'Welcome !',
-                                    icon: <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg" width={100} preview={false} />,
-                                    disabled: false,
-                                    children: [
-                                        { label: 'Change Avatar', icon: <i className="fa-solid fa-truck"></i>, disabled: true },
-                                        { label: 'Change Password', icon: <i className="fa-solid fa-equals"></i>, disabled: true },
-                                        { label: 'Support', icon: <i className="fa-solid fa-paste"></i>, disabled: true },
-                                    ],
-                                },
-                                { label: <hr />, disabled: true },
-                                // { label: 'Cyber Board', key: '/project-management/board', icon: <i className="fa-solid fa-credit-card"></i> },
-                                // { label: 'Project Settings', icon: <i className="fa-solid fa-gear"></i>, disabled: true },
-                                // { label: <hr />, disabled: true },
-                                // { label: 'Releases', icon: <i className="fa-solid fa-truck"></i>, disabled: true },
-                                // { label: 'Issues and Filters', icon: <i className="fa-solid fa-equals"></i>, disabled: true },
-                                // { label: 'Pages', icon: <i className="fa-solid fa-paste"></i>, disabled: true },
-                                // { label: 'Reports', icon: <i className="fa-solid fa-location-arrow"></i>, disabled: true },
-                                // { label: 'Components', icon: <i className="fa-solid fa-box"></i>, disabled: true },
-                            ]}
+                            items={item2}
                         >
-
                         </Menu>
 
                         <Content

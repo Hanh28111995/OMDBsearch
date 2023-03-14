@@ -10,8 +10,8 @@ const contentStyle = {
 
 export default function StatusEvent() {
   return (
-    <Space direction="vertical" style={{ display: 'flex' }}>
-      <Space direction="vertical" style={{ display: 'flex' }}>
+    <>
+      <div>
         <div>Events in this month</div>
         <Carousel autoplay>
           <div>
@@ -27,24 +27,7 @@ export default function StatusEvent() {
             <h3 style={contentStyle}>4</h3>
           </div>
         </Carousel>
-      </Space>
-      <Space direction="vertical" style={{ display: 'flex' }}>
-        <div>Events in this month</div>
-        <Carousel autoplay>
-          <div>
-            <h3 style={contentStyle}>1</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>2</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>3</h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>4</h3>
-          </div>
-        </Carousel>
-      </Space>
-    </Space>
+      </div>
+    </>
   )
 }

@@ -1,0 +1,39 @@
+// #6c757d font cỏlor
+ .mp_ex_form {
+    font-size: 0.9rem;
+    .c {
+        text-align: center;
+    }
+    .b{
+        font-weight: 500;
+    }
+
+    .f {
+        display: flex;
+    }
+
+    .f-h {
+        line-height: 40px;
+        background-color: #c7842a;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .container {
+        background-color: #fff;
+        border: 1px solid #e6e9ed;
+        border-radius: 1px;
+        padding: 10px;
+    }
+
+    .border-none {
+        border: 0px !important;
+        margin: 1px;
+    }
+    .p-10-20{
+        padding: 10px 20px;
+    }
+    .border-none{
+        border: none;
+    }
+}

@@ -5,6 +5,9 @@ import { mdiAccount, mdiAccountCash, mdiFileEdit, mdiClockTimeFour, mdiTicketAcc
 import { Outlet, useNavigate } from 'react-router-dom';
 import { setUserInfor } from '../store/actions/user.action';
 import { useDispatch } from 'react-redux';
+import lg_logo  from '../assets/imgs/Logo__001_no_bg.png'
+import sm_logo  from '../assets/imgs/Logo_no_bg.png'
+
 const { Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children, type, disabled) {
     return {
@@ -66,10 +69,10 @@ export default function MainLayout() {
                     <div className="logo" >
                         <a href="/">
                             <div className={`sideBar-icon-sm ${!collapsed ? "hiden_logo" : ""}`}>
-                                <img src="https://admin.worldcraftlogistics.net/images/Logo_no_bg.png" height={50} alt="" />
+                                <img src={sm_logo} height={50} alt="" />
                             </div>
                             <div className={`sideBar-icon-lg ${collapsed ? "hiden_logo" : ""}`}>
-                                <img src="https://admin.worldcraftlogistics.net/images/Logo__001_no_bg.png" height={50} alt="" />
+                                <img src={lg_logo} height={50} alt="" />
                             </div>
                             {/* } */}
                         </a>

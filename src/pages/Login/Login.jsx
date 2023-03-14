@@ -5,6 +5,7 @@ import { mdiFormatQuoteClose, mdiFormatQuoteOpen } from "@mdi/js";
 import { useDispatch } from "react-redux";
 import { setUserInfor } from "../../store/actions/user.action";
 import { useNavigate } from "react-router-dom";
+import  logo from '../../assets/imgs/Logo__001_no_bg.png'
 
 export default function Login() {
   const [forgetPass, setForgetPass] = useState(false);
@@ -308,7 +309,7 @@ export default function Login() {
           <div className={`introduce-banner ${styleLogin ? "move" : ""} p-5`}>
             <div className="introduce-banner-content">
               <img
-                src="https://admin.worldcraftlogistics.net/images/Logo__001_no_bg.png"
+                src={logo}
                 alt="logo worldcraftlogistics"
               />
               <h2 className="mt-4 mb-3">WorldCraft Logistics CMS</h2>

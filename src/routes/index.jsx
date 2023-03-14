@@ -6,6 +6,7 @@ import NoAuthGuards from "../guards/no-auth.guards";
 import MainLayout from "../layout/MainLayout";
 import StatusEmployee from "../modules/dboard/StatusEmployee";
 import DashBoard from "../pages/dboard/DashBoard";
+import MissPunchDetail from "../pages/Detail/MissPunchDetail";
 import Login from "../pages/Login/Login";
 import InforForm from "../pages/personal infor/InforForm";
 import MissPunchForm from "../pages/Ticket/MissPunch/MissPunchForm";
@@ -65,6 +66,10 @@ export default function Router() {
               ]
             },
           ]
+        },
+        {
+          path: "/admin/ticket/miss-punch/miss-punch-detail/:referenceCode",
+          element: <MissPunchDetail />,
         },
       ]
     }

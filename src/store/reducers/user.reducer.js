@@ -6,7 +6,8 @@ if (userInfor) {
   userInfor = JSON.parse(userInfor);
 }
 const DEFAULT_STATE = {
-  userInfor
+  userInfor,
+  // presentMissPunch,
 };
 export const userReducer = (state = DEFAULT_STATE, { type, payload }) => {
   switch (type) {
@@ -14,6 +15,10 @@ export const userReducer = (state = DEFAULT_STATE, { type, payload }) => {
       state.userInfor = payload;
       return { ...state };
     }
+    // case SET_PRESENT_MISS_PUNCH: {
+    //   state.presentMissPunch = payload;
+    //   return { ...state };
+    // }
     default:
       return state;
   }

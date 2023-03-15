@@ -6,12 +6,13 @@ const contentStyle = {
   lineHeight: '160px',
   textAlign: 'center',
   background: '#364d79',
+  width:'100%'
 };
 
 export default function StatusEvent() {
   return (
     <>
-      <div>
+      <div className='container' style={{height:'300px', width:'300px'}}>
         <div>Events in this month</div>
         <Carousel autoplay>
           <div>

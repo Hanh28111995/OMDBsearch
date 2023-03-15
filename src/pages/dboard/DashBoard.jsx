@@ -10,19 +10,18 @@ const { Meta } = Card;
 
 export default function DashBoard() {
     return (
-        // <div className='dashboard '>
-        //     <Space >
-        //         <div className='row col-12'>
-        //             <div className='col-5 bg-white pr-5'>
-        //                 <StatusEmployee />
-        //                 <StatusGroup />
-        //             </div>
-
-        //         </div>
-        //     </Space>
-        // </div>
-
-        <StatusEvent />
-
+        <div className='dashboard '>
+            <Space direction='horizontal'>
+                <Space direction='vertical' >
+                    <StatusEmployee />
+                    <StatusGroup />
+                </Space>
+                <Space direction='vertical'>
+                    <StatusEvent />
+                    <StatusEvent />
+                    <StatusEvent />
+                </Space>
+            </Space>
+        </div>
     )
 }

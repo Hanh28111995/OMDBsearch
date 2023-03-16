@@ -4,7 +4,6 @@ import { Space, Image } from 'antd';
 import logo from '../../assets/imgs/Logo__001_no_bg.png'
 import ManagerSignature from '../../assets/imgs/Pending.png'
 import HRSignature from '../../assets/imgs/Approved.png'
-import './index.scss'
 export default function MissPunchDetail(props) {
     const param = useParams();
     return (

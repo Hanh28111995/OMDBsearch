@@ -1,5 +1,5 @@
 // // import { USER_INFO_KEY } from "../../constants/common";
-import { SET_USER_INFOR } from "../types/user.type";
+import { SET_USER_INFOR, SET_TITLE_HEADER } from "../types/user.type";
 
 let userInfor = localStorage.getItem("WLC_LOGIN");
 if (userInfor) {
@@ -7,7 +7,7 @@ if (userInfor) {
 }
 const DEFAULT_STATE = {
   userInfor,
-  // presentMissPunch,
+  titleHeader:'',
 };
 export const userReducer = (state = DEFAULT_STATE, { type, payload }) => {
   switch (type) {
@@ -15,10 +15,10 @@ export const userReducer = (state = DEFAULT_STATE, { type, payload }) => {
       state.userInfor = payload;
       return { ...state };
     }
-    // case SET_PRESENT_MISS_PUNCH: {
-    //   state.presentMissPunch = payload;
-    //   return { ...state };
-    // }
+    case SET_TITLE_HEADER: {
+      state.titleHeader = payload;
+      return { ...state };
+    }
     default:
       return state;
   }

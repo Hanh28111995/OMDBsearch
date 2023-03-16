@@ -28,7 +28,7 @@ export default function Router() {
         },
         {
           path: "/login",
-          element: <Login title="WCL Login" />,
+          element: <Login title="Login" />,
         },
       ]
     },
@@ -42,7 +42,7 @@ export default function Router() {
           children: [
             {
               path: "/admin",
-              element: <DashBoard title="WCL Dashboard" />,
+              element: <DashBoard title="Dashboard" />,
             },
             {
               path: "/admin2",
@@ -50,18 +50,18 @@ export default function Router() {
             },
             {
               path: "/admin/personal_information",
-              element: <InforForm deactive={false} />,
+              element: <InforForm deactive={false} title='Personal Information Form'/>,
             },
             {
               path: "/admin/ticket",
               children: [
                 {
                   path: "/admin/ticket/miss-punch",
-                  element: <MissPunchForm />,
+                  element: <MissPunchForm title="Miss Punch Form"/>,
                 },
                 {
                   path: "/admin/ticket/time-off",
-                  element: <TimeOffForm />,
+                  element: <TimeOffForm title="Time Off Form"/>,
                 },
               ]
             },

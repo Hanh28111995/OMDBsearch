@@ -1,12 +1,21 @@
 .layOut_wrapper>.ant-layout {
     position: relative;
 
+    .special-menu li{
+        .ant-menu-submenu-title
+        {
+            padding: 0 0  !important;
+        }
+    }
+
+
     .ant-menu-inline-collapsed // .ant-menu-inline-collapsed-noicon 
 
         {
 
         li:nth-child(1),
-        li:nth-child(7) {
+        li:nth-child(7),
+        li:nth-child(11) {
             display: none;
         }
     }
@@ -14,14 +23,15 @@
     .ant-menu-inline-collapsed:hover {
 
         li:nth-child(1),
-        li:nth-child(7) {
+        li:nth-child(7),
+        li:nth-child(11) {
             display: list-item;
         }
     }
 
     .ant-layout-sider {
         overflow-x: hidden;
-        position: absolute;
+        position: fixed;
         min-height: 100%;
         z-index: 99;
         top: 0;
@@ -54,9 +64,9 @@
         }
     }
 
-    // .ant-menu-submenu-title {
-    //     padding: 0 calc(50% - 12px) !important;
-    // }
+    .ant-menu-submenu-title {
+        padding: 0 calc(50% - 12px) !important;
+    }
 
     .ant-layout-sider-collapsed {
         &:hover {
@@ -83,7 +93,9 @@
     }
 
 
-
+    .ant-space-item {
+        min-height: 100%;
+    }
 
 }
 

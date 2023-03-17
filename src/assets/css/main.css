@@ -125,16 +125,6 @@ input {
 .layOut_wrapper > .ant-layout .special-menu li .ant-menu-submenu-title {
   padding: 0 0 !important;
 }
-.layOut_wrapper > .ant-layout .ant-menu-inline-collapsed li:nth-child(1),
-.layOut_wrapper > .ant-layout .ant-menu-inline-collapsed li:nth-child(7),
-.layOut_wrapper > .ant-layout .ant-menu-inline-collapsed li:nth-child(11) {
-  display: none;
-}
-.layOut_wrapper > .ant-layout .ant-menu-inline-collapsed:hover li:nth-child(1),
-.layOut_wrapper > .ant-layout .ant-menu-inline-collapsed:hover li:nth-child(7),
-.layOut_wrapper > .ant-layout .ant-menu-inline-collapsed:hover li:nth-child(11) {
-  display: list-item;
-}
 .layOut_wrapper > .ant-layout .ant-layout-sider {
   overflow-x: hidden;
   position: fixed;
@@ -159,28 +149,6 @@ input {
 }
 .layOut_wrapper > .ant-layout .ant-layout-sider:hover .logo .sideBar-icon-sm {
   display: none;
-}
-.layOut_wrapper > .ant-layout .ant-menu-submenu-title {
-  padding: 0 calc(50% - 12px) !important;
-}
-.layOut_wrapper > .ant-layout .ant-layout-sider-collapsed:hover {
-  -webkit-box-flex: 0 !important;
-      -ms-flex: 0 0 200px !important;
-          flex: 0 0 200px !important;
-  max-width: 200px !important;
-  min-width: 200px !important;
-  width: 200px;
-}
-.layOut_wrapper > .ant-layout .ant-layout-sider-collapsed:hover .ant-menu-item,
-.layOut_wrapper > .ant-layout .ant-layout-sider-collapsed:hover .ant-menu-submenu-title {
-  padding: 0 20px !important;
-}
-.layOut_wrapper > .ant-layout .ant-layout-sider-collapsed:hover .ant-menu-item .ant-menu-title-content,
-.layOut_wrapper > .ant-layout .ant-layout-sider-collapsed:hover .ant-menu-submenu-title .ant-menu-title-content {
-  opacity: 1 !important;
-}
-.layOut_wrapper > .ant-layout .ant-menu.ant-menu-inline-collapsed > .ant-menu-item {
-  padding: 0 calc(50% - 12px);
 }
 .layOut_wrapper > .ant-layout .ant-space-item {
   min-height: 100%;
@@ -347,8 +315,55 @@ input {
   opacity: 0;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  display: none;
+}
+.login-bg .introduce-banner-sm {
+  padding: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+  display: none;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 15px;
 }
 
+@-webkit-keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 544px) {
+  .login-bg .block-element {
+    width: 90%;
+  }
+  .login-bg .block-element .ant-space {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .login-bg .block-element .introduce-banner {
+    display: none;
+  }
+  .login-bg .block-element .introduce-banner-sm {
+    display: block;
+  }
+  .hide {
+    display: none;
+  }
+}
 .dataTable .react-bootstrap-table table thead th .ant-space {
   gap: 0 !important;
   position: relative;

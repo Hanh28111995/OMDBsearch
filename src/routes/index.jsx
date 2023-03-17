@@ -2,15 +2,17 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, useRoutes } from "react-router-dom";
 import AuthGuards from "../guards/auth.guards";
+import HRAuthGuards from "../guards/hr_auth.guards";
 import NoAuthGuards from "../guards/no-auth.guards";
 import MainLayout from "../layout/MainLayout";
 import StatusEmployee from "../modules/dboard/StatusEmployee";
 import DashBoard from "../pages/dboard/DashBoard";
 import MissPunchDetail from "../pages/Detail/MissPunchDetail";
+import TimesheetTable from "../pages/HRpages/Timesheet/TimesheetTable";
 import Login from "../pages/Login/Login";
 import InforForm from "../pages/personal infor/InforForm";
-import MissPunchForm from "../pages/Ticket/MissPunch/MissPunchForm";
-import TimeOffForm from "../pages/Ticket/TimeOff/TimeOffForm";
+import MissPunchForm from "../pages/Ticket/MissPunch/MissPunchTable";
+import TimeOffForm from "../pages/Ticket/TimeOff/TimeOffTablejsx";
 
 export default function Router() {
   const routing = useRoutes([
@@ -50,21 +52,32 @@ export default function Router() {
             },
             {
               path: "/admin/personal_information",
-              element: <InforForm deactive={false} title='Personal Information Form'/>,
+              element: <InforForm deactive={false} title='Personal Information Form' />,
             },
             {
               path: "/admin/ticket",
               children: [
                 {
                   path: "/admin/ticket/miss-punch",
-                  element: <MissPunchForm title="Miss Punch Form"/>,
+                  element: <MissPunchForm title="Miss Punch Form" />,
                 },
                 {
                   path: "/admin/ticket/time-off",
-                  element: <TimeOffForm title="Time Off Form"/>,
+                  element: <TimeOffForm title="Time Off Form" />,
                 },
               ]
             },
+            {
+              path: "/admin/hr",
+              element: <HRAuthGuards/>,
+              children:[
+                {
+                  path: "/admin/hr/timesheet",
+                  element:<TimesheetTable  title='HR Time Sheet'/>
+                }
+              ]
+            },
+
           ]
         },
         {
@@ -72,7 +85,8 @@ export default function Router() {
           element: <MissPunchDetail />,
         },
       ]
-    }
+    },
+
   ]);
   return routing;
 }

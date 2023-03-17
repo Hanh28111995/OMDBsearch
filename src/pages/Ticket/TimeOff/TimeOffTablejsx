@@ -9,10 +9,10 @@ const { SearchBar } = Search;
 
 const data = [];
 for (let i = 0; i < 100; i++) {
-  data.push( {
+  data.push({
     id: i,
-    title: 'Beetlejuice'+[i],
-    year: '1988'+[i],
+    title: 'Beetlejuice' + [i],
+    year: '1988' + [i],
   },);
 }
 const options = {
@@ -121,7 +121,7 @@ export default function TimeOffForm() {
               >
                 {
                   toolkitprops => (
-                    
+
                     <Space direction='vertical d-dlex w-100'>
                       <Space direction='horizontal' align='baseline' className='justify-content-between d-flex'>
                         <Space>
@@ -133,7 +133,7 @@ export default function TimeOffForm() {
                           <SearchBar {...toolkitprops.searchProps} />
                         </Space>
                       </Space>
-                      <p>{ paginationProps.sizePerPage }</p>
+                      <p>{paginationProps.sizePerPage}</p>
 
                       <hr />
                       <BootstrapTable

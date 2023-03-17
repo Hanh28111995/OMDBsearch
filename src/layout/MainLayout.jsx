@@ -21,23 +21,23 @@ function getItem(label, key, icon, children, type, disabled) {
     };
 }
 const items1 = [
-    getItem('PERSONAL', null, <></>, null, null, true),
+    getItem('PERSONAL___', null, <span>___</span>, null, null, true),
     getItem('Information', '/admin/personal_information', <Icon path={mdiAccount} size={1} />),
     getItem('Daily Task', '/tomorrow2', <Icon path={mdiFileEdit} size={1} />),
     getItem('Time Sheet', '/tomorrow3', <Icon path={mdiClockTimeFour} size={1} />),
-    getItem('Payroll', '/tomorrow4', <Icon path={mdiAccountCash} size={1} />),
+    getItem('Payroll', '/tomorrow4', <Icon path={mdiAccountCash} size={1} />,),
     getItem('Ticket', '/tomorrow5', <Icon path={mdiTicketAccount} size={1} />,
         [
             getItem('Miss Punch', '/admin/ticket/miss-punch'),
             getItem('Time Off', '/admin/ticket/time-off'),
         ]),
 
-    getItem('DEPARTMENT', null, <></>, null, null, true),
+    getItem('DEPARTMENT___', null, <span>___</span>, null, null, true),
     getItem('Calendar', '/tomorrow6', <Icon path={mdiCalendarMonth} size={1} />),
     getItem('TO-CoWorker', '/tomorrow7', <Icon path={mdiAccountNetwork} size={1} />),
     getItem('Manager', '/tomorrow8', <Icon path={mdiAccountSupervisor} size={1} />),
 
-    getItem('GROUP', null, <></>, null, null, true),
+    getItem('GROUP___', null, <span>___</span>, null, null, true),
     getItem('Time Sheet', '/tomorrow9', <Icon path={mdiAccountSupervisor} size={1} />),
     getItem('Daily Task', '/tomorrow10', <Icon path={mdiAccountSupervisor} size={1} />),
 
@@ -55,7 +55,7 @@ const item2 = [
     //         getItem('Support', null, <i className="fa-solid fa-paste"></i>),
     //     ]
     // ),
-    getItem('HR Menu', null, <></> , [
+    getItem('HR Menu', null, <></>, [
         getItem('User Management', null, '---',),
         getItem('TimeSheet', null, '---',),
         getItem('Injury Report', null, '---',),
@@ -92,7 +92,12 @@ export default function MainLayout() {
                     minHeight: '100vh',
                 }}
             >
-                <Sider collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} collapsible>
+                <Sider
+                    collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}
+                    collapsible={false}
+                    onMouseEnter={() => setCollapsed(false)}
+                    onMouseLeave={() => setCollapsed(true)}
+                >
                     <div className="logo" >
                         <a href="/">
                             <div className='sideBar-icon-sm' >
@@ -140,13 +145,13 @@ export default function MainLayout() {
                                     <Breadcrumb.Item>{ }</Breadcrumb.Item>
                                 </Breadcrumb> */}
                                 <Space direction='horizontal'>
-                                    <Menu
+                                    {/* <Menu
                                         mode="inline"
                                         items={item2}
                                         theme="light"
                                         className='special-menu w-20'
                                     >
-                                    </Menu>
+                                    </Menu> */}
                                     <Header />
                                 </Space>
                                 <Outlet />

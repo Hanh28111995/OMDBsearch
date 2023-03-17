@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory,
 {
@@ -17,12 +17,20 @@ import {
 import { Space } from 'antd';
 import IconSort from '../../../modules/dataTable/IconSort';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTitleHeader } from '../../../store/actions/user.action';
 const { SearchBar } = Search;
 
 
-export default function MissPunchForm() {
+export default function MissPunchForm(props) {
   // const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const userState = useSelector((state) => state.userReducer)
+  console.log(props.title)
+  useEffect(() => {
+    dispatch(setTitleHeader(props.title))
+  }, [userState.titleHeader])
+  
   //demo data from api
   const data = [];
   for (let i = 0; i < 46; i++) {

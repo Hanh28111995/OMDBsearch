@@ -81,12 +81,12 @@
         }
 
         .btn-login:hover,
-        .btn-fake:hover
-         {
+        .btn-fake:hover {
             background-color: $bg-color-4;
             border-color: $bg-color-4;
             color: $font-color-3;
         }
+
         .btn-fake,
         .btn-login {
             background-color: $bg-color-3;
@@ -97,7 +97,8 @@
             border: solid 1px $bg-color-3;
             transition: all 0.3s ease-in-out;
         }
-        .btn-fake{
+
+        .btn-fake {
             cursor: pointer;
         }
     }
@@ -121,8 +122,53 @@
             border-color: $bg-color-3;
         }
     }
+
     .hide {
         opacity: 0;
         transition: all 0.3s ease-in-out;
+        display: none;
+    }
+
+    .introduce-banner-sm {
+        padding: 10px;
+        margin-bottom: 25px;
+        text-align: center;
+        display: none;
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 544px) {
+    .login-bg {
+        .block-element {
+            width: 90%;
+
+            .ant-space {
+                flex-direction: column;
+            }
+
+            .introduce-banner {
+                display: none;
+            }
+
+            .introduce-banner-sm {
+                display: block;
+            }
+        }
+    }
+
+    .hide {
+        display: none;
     }
 }

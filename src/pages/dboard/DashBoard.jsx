@@ -13,10 +13,10 @@ const { Meta } = Card;
 export default function DashBoard(props) {
     const dispatch = useDispatch();
     const userState = useSelector((state) => state.userReducer)
-    console.log(props.title)
     useEffect(()=>{
         dispatch(setTitleHeader(props.title))
     },[userState.titleHeader])
+    
     
     return (
         <div className='dashboard '>

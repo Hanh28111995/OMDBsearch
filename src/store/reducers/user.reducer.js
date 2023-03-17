@@ -7,6 +7,7 @@ if (userInfor) {
 }
 const DEFAULT_STATE = {
   userInfor,
+  userPosition:'HR',
   titleHeader:'',
 };
 export const userReducer = (state = DEFAULT_STATE, { type, payload }) => {

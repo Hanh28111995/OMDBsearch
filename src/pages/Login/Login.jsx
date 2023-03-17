@@ -1,30 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Button, Space, Form, Input, Checkbox } from "antd";
 import Icon from "@mdi/react";
 import { mdiFormatQuoteClose, mdiFormatQuoteOpen } from "@mdi/js";
 import { useDispatch } from "react-redux";
 import { setUserInfor } from "../../store/actions/user.action";
 import { useNavigate } from "react-router-dom";
-import  logo from '../../assets/imgs/Logo__001_no_bg.png'
+import logo from '../../assets/imgs/Logo__001_no_bg.png'
 
 export default function Login() {
   const [forgetPass, setForgetPass] = useState(false);
   const [styleLogin, setstyleLogin] = useState(false);
   const [disBTN, setDisBTN] = useState(false);
+  const [changeFocus, setChangeFocus] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
-    console.log("Success:", values);
-    if((values.username === "hanhT")&&(values.password === "0163H"))
-    {
-      localStorage.setItem("WLC_LOGIN", JSON.stringify(values));
-      dispatch(setUserInfor(values));
-      navigate('/admin')
+    if (changeFocus) {
+      console.log("Success:", values);
+      if ((values.username === "hanhT") && (values.password === "0163H")) {
+        localStorage.setItem("WLC_LOGIN", JSON.stringify(values));
+        dispatch(setUserInfor(values));
+        navigate('/admin')
+      }
     }
   };
+
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    if (changeFocus) {
+      console.log("Failed:", errorInfo);
+    }
   };
   const loginmethod = () => {
     setDisBTN(true);
@@ -33,6 +38,20 @@ export default function Login() {
       setDisBTN(false);
     }, 800);
   }
+
+  const input1Ref = useRef(null);
+  const input2Ref = useRef(null);
+
+  function handleKeyDown(e) {
+    if (e.target.id.indexOf('username') >= 0) {
+      e.preventDefault();
+      input2Ref.current.focus();
+    } else if (e.target.id.indexOf('password') >= 0) {
+      setChangeFocus(true);
+    }
+  }
+
+
   return (
     <div className="wrapper">
       <div className="login-bg">
@@ -43,6 +62,9 @@ export default function Login() {
               {
                 !forgetPass
                   ? (<div className={`form-login-1 ${styleLogin ? "hide" : ""}  p-3`}>
+                    <div className="introduce-banner-sm ">
+                      <img src={logo} className='img-fluid' alt="WorldCraft Logictics Employee" />
+                    </div>
                     <div>
                       <h4 className="mt-0">Sign In</h4>
                       <p className=" mb-4">Enter your user and password.</p>
@@ -68,7 +90,7 @@ export default function Login() {
                           },
                         ]}
                       >
-                        <Input placeholder="Enter your user" autoComplete="off" />
+                        <Input placeholder="Enter your user" autoComplete="off" onPressEnter={(e) => handleKeyDown(e)} ref={input1Ref} />
                       </Form.Item>
 
                       <Form.Item
@@ -81,13 +103,13 @@ export default function Login() {
                           },
                         ]}
                       >
-                        <Input.Password placeholder="Enter your password" autoComplete='new-password' />
+                        <Input.Password placeholder="Enter your password" autoComplete='new-password' onPressEnter={(e) => handleKeyDown(e)} ref={input2Ref} />
                       </Form.Item>
                       <Space align="horizontal" style={{ alignItems: 'baseline' }}>
                         <Form.Item name="remember" valuePropName="checked">
                           <Checkbox>Remember me</Checkbox>
                         </Form.Item>
-                        <p  className="fpw" onClick={() => setForgetPass(!forgetPass)}>Forget the password</p>
+                        <p className="fpw" onClick={() => setForgetPass(!forgetPass)}>Forget the password</p>
                       </Space>
 
                       <Form.Item>
@@ -109,7 +131,10 @@ export default function Login() {
                       Login by ID Card
                     </div>
                   </div>)
-                  : (<div className='fpw-banner p-3'>
+                  : (<div className={`fpw-banner ${styleLogin ? "hide" : ""}  p-3`}>
+                    <div className="introduce-banner-sm ">
+                      <img src={logo} className='img-fluid' alt="WorldCraft Logictics Employee" />
+                    </div>
                     <div>
                       <h4 className="mt-0">Forgot Password</h4>
                       <p className=" mb-4">Enter your user and email.</p>
@@ -160,7 +185,7 @@ export default function Login() {
                           type="primary"
                           htmlType="submit"
                           className='btn-login'
-                          style={{marginTop:'55px'}}
+                          style={{ marginTop: '55px' }}
                         >
                           CONFIRM
                         </Button>
@@ -180,6 +205,9 @@ export default function Login() {
               {
                 !forgetPass
                   ? (<div className={`form-login-2 ${!styleLogin ? "hide" : ""} p-3`}>
+                    <div className="introduce-banner-sm ">
+                      <img src={logo} className='img-fluid' alt="WorldCraft Logictics Employee" />
+                    </div>
                     <div>
                       <h4 className="mt-0">Sign In</h4>
                       <p className=" mb-4">Enter your Card ID.</p>
@@ -212,7 +240,7 @@ export default function Login() {
                         <Form.Item name="remember" valuePropName="checked">
                           <Checkbox className="text-light">Remember me</Checkbox>
                         </Form.Item>
-                        <p  className="fpw" onClick={() => setForgetPass(!forgetPass)}>Forget the password</p>
+                        <p className="fpw" onClick={() => setForgetPass(!forgetPass)}>Forget the password</p>
                       </Space>
                       <Form.Item>
                         <Button
@@ -235,14 +263,17 @@ export default function Login() {
                       Login by User
                     </div>
                   </div>)
-                  : (<div className='fpw-banner p-3'>
+                  : (<div className={`fpw-banner ${!styleLogin ? "hide" : ""}  p-3`}>
+                    <div className="introduce-banner-sm ">
+                      <img src={logo} className='img-fluid' alt="WorldCraft Logictics Employee" />
+                    </div>
                     <div>
                       <h4 className="mt-0">Forgot Password</h4>
                       <p className=" mb-4">Enter your user and email.</p>
                     </div>
                     <Form
-                     name="basic4"
-                     labelCol={{ span: 7 }}
+                      name="basic4"
+                      labelCol={{ span: 7 }}
                       initialValues={{
                         remember: true,
                       }}
@@ -286,7 +317,7 @@ export default function Login() {
                           type="primary"
                           htmlType="submit"
                           className='btn-login'
-                          style={{marginTop:'55px'}}
+                          style={{ marginTop: '55px' }}
                         >
                           CONFIRM
                         </Button>

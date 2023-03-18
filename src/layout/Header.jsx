@@ -62,7 +62,7 @@ export default function Header(props) {
                     mode="inline"
                     items={item2}
                     theme="light"
-                    className='special-menu w-20'
+                    className='special-menu'
                 >
                 </Menu>
                 <div className='d-flex align-items-center'>

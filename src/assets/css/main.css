@@ -531,6 +531,11 @@ input {
           transform: rotate(180deg) !important;
 }
 
+.header {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
 .header #demo1::before,
 .header #demo2::before {
   content: "";
@@ -633,6 +638,16 @@ input {
 }
 .header .hide {
   display: none;
+}
+.header .header-left ul li ul {
+  top: 55px;
+  position: absolute !important;
+  z-index: 5;
+  width: 150px;
+  -webkit-box-shadow: rgba(154, 161, 171, 0.15) 0px 0px 35px 0px;
+          box-shadow: rgba(154, 161, 171, 0.15) 0px 0px 35px 0px;
+  border-radius: 5px;
+  border: 1px solid rgb(231, 235, 240);
 }
 
 .mp_exp_form {

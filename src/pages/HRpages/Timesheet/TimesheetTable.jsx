@@ -14,23 +14,29 @@ import {
     mdiCloseCircleOutline,
     mdiDotsHorizontalCircleOutline
 } from '@mdi/js';
-import { Space, DatePicker, Button } from 'antd';
+import { Space, DatePicker, Button, AutoComplete } from 'antd';
 import IconSort from '../../../modules/dataTable/IconSort';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTitleHeader } from '../../../store/actions/user.action';
+import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 const { SearchBar } = Search;
 
 export default function TimesheetTable(props) {
-    const [selectDate, setSelectDate] = useState({
-        dateStart: '',
-        dateEnd: ''
-    })
-
-    const dispatch = useDispatch();
-    const userState = useSelector((state) => state.userReducer)
-    useEffect(() => {
-        dispatch(setTitleHeader(props.title))
-    }, [userState.titleHeader])
+    const userData = [
+        {
+            id: 1,
+            username: 'Huy Nguyen'
+        },
+        {
+            id: 2,
+            username: 'Khanh Nguyen'
+        },
+        {
+            id: 3,
+            username: 'Hao Nguyen'
+        },
+    ]
 
     const data = [];
     for (let i = 0; i < 46; i++) {
@@ -39,8 +45,7 @@ export default function TimesheetTable(props) {
                 {
                     id: i.toString(),
                     name: 'Huy Nguyen',
-                    date: '03/02/2023',
-                    day: '03/09/2023',
+                    date: '03/03/2023',
                     punchin: '8:00 AM',
                     punchout: '5:00 PM',
                     lunchin: '12:00 PM',
@@ -52,23 +57,55 @@ export default function TimesheetTable(props) {
             );
         }
         else {
-            data.push(
-                {
-                    id: [i],
-                    name: 'Khanh Nguyen',
-                    date: '03/03/2023',
-                    day: '03/10/2023',
-                    punchin: '8:30 AM',
-                    punchout: '5:30 PM',
-                    lunchin: '12:00 PM',
-                    lunchout: '1:00 PM',
-                    total: '8 hour',
-                    status: '...',
-                    edit: '...',
-                },
-            );
+            if (i % 3 === 0) {
+                data.push(
+                    {
+                        id: i.toString(),
+                        name: 'Khanh Nguyen',
+                        date: '03/04/2023',
+                        punchin: '8:00 AM',
+                        punchout: '5:00 PM',
+                        lunchin: '12:00 PM',
+                        lunchout: '1:00 PM',
+                        total: '8 hour',
+                        status: '...',
+                        edit: '...',
+                    },
+                );
+            }
+            else
+                data.push(
+                    {
+                        id: [i],
+                        name: 'Hao Nguyen',
+                        date: '03/05/2023',
+                        punchin: '8:30 AM',
+                        punchout: '5:30 PM',
+                        lunchin: '12:00 PM',
+                        lunchout: '1:00 PM',
+                        total: '8 hour',
+                        status: '...',
+                        edit: '...',
+                    },
+                );
         }
     }
+    const navigate = useNavigate()
+    const [DataRender, setDataRender] = useState(data)
+    const [selectDate, setSelectDate] = useState({
+        dateStart: '',
+        dateEnd: ''
+    })
+    const [stateUserList, setStateUserList] = useState(userData)
+    const [valueShow, setValueShow] = useState('')
+
+    const dispatch = useDispatch();
+    const userState = useSelector((state) => state.userReducer)
+    useEffect(() => {
+        dispatch(setTitleHeader(props.title))
+    }, [userState.titleHeader])
+
+
 
     const options = {
         // prePageText: "",
@@ -80,7 +117,7 @@ export default function TimesheetTable(props) {
         withFirstAndLast: false,
         alwaysShowAllBtns: true,
         custom: true,
-        totalSize: data.length,
+        totalSize: DataRender.length,
         sizePerPageList: [
             {
                 text: '10', value: 10
@@ -98,7 +135,7 @@ export default function TimesheetTable(props) {
                 text: '50', value: 50
             },
             {
-                text: 'All', value: data.length
+                text: 'All', value: DataRender.length
             }
         ],
     };
@@ -137,11 +174,6 @@ export default function TimesheetTable(props) {
     }, {
         dataField: 'date',
         text: 'Date',
-        sort: true,
-        sortCaret: customSort,
-    }, {
-        dataField: 'day',
-        text: 'Day',
         sort: true,
         sortCaret: customSort,
     }, {
@@ -186,20 +218,37 @@ export default function TimesheetTable(props) {
     ];
     //////date filter
     const onChange = (date, dateString) => {
-        const startDate = new Date(selectDate.dateStart);
-        const endDate = new Date(selectDate.dateEnd);
-
-        const days = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24));
-
-        const dateArray = [...Array(days + 1).keys()].map((day) => {
-            const date = new Date(startDate);
-            date.setDate(startDate.getDate() + day);
-            return date.toISOString().slice(0, 10);
-        });
-
-        console.log(dateArray);
+        let dateArray = []
+        let filter_product = []
+        if (selectDate.dateStart && selectDate.dateEnd) {
+            let startDate = new Date(selectDate.dateStart);
+            let endDate = new Date(selectDate.dateEnd);
+            let days = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24));
+            dateArray = [...Array(days + 1).keys()].map((day) => {
+                const date = new Date(startDate);
+                date.setDate(startDate.getDate() + day);
+                return moment(date.toISOString().slice(0, 10)).format('MM/DD/YYYY');
+            });
+            filter_product = data.filter((item) => dateArray.includes(item.date))
+        }
+        if (
+            (!selectDate.dateStart && selectDate.dateEnd) || (selectDate.dateStart && !selectDate.dateEnd)
+        ) {
+            dateArray = (moment(selectDate.dateEnd + selectDate.dateStart)).format('MM/DD/YYYY')
+            filter_product = data.filter((item) => dateArray.includes(item.date))
+        }
+        if (!selectDate.dateStart && !selectDate.dateEnd) {
+            filter_product = data 
+        }
+        if (!selectDate.dateStart && !selectDate.dateEnd && !valueShow) {
+            filter_product = []
+        }
+        if (valueShow) {
+            filter_product = filter_product.filter((item) => valueShow.includes(item.name))
+        }
+        setDataRender(filter_product)
     };
-
+    const onClear = () => { navigate(0) }
     const onChange1 = (date, dateString) => {
         setSelectDate(prevState => ({ ...prevState, dateStart: dateString }))
     };
@@ -210,11 +259,6 @@ export default function TimesheetTable(props) {
 
     return (
         <>
-            <Space>
-                <DatePicker onChange={onChange1} />
-                <DatePicker onChange={onChange2} />
-                <Button type="dash" size={'large'} className='rounded' onClick={onChange}>Search</Button>
-            </Space>
             <Space direction="vertical" className='d-flex dataTable'>
                 <PaginationProvider pagination={paginationFactory(options)}>
                     {
@@ -223,10 +267,9 @@ export default function TimesheetTable(props) {
                             paginationTableProps
                         }) => (
                             <>
-
                                 <ToolkitProvider
                                     keyField="id"
-                                    data={data}
+                                    data={DataRender}
                                     columns={columns}
                                     search
                                 >
@@ -240,7 +283,33 @@ export default function TimesheetTable(props) {
                                                         <span>entries</span>
                                                     </Space>
                                                     <Space >
-                                                        <SearchBar {...toolkitprops.searchProps} />
+                                                        {/* <SearchBar {...toolkitprops.searchProps} /> */}
+                                                        <DatePicker onChange={onChange1} placeholder='Select Start Date' />
+                                                        <DatePicker onChange={onChange2} placeholder='Select End Date' />
+                                                        <AutoComplete
+                                                            style={{
+                                                                width: 200,
+                                                            }}
+                                                            placeholder={'Username Search'}
+                                                            options={stateUserList.map((user, index) => {
+                                                                return { label: user.username, value: user.username }
+                                                            })}
+                                                            value={valueShow}
+                                                            onChange={(text) => {
+                                                                setValueShow(text);
+                                                            }}
+
+                                                            onSelect={(value, option) => {
+                                                                setValueShow(option.value);
+                                                            }}
+
+                                                            onSearch={(value) => {
+                                                                const filteredArrayUser = userData.filter(obj => obj.username.indexOf(value) >= 0);
+                                                                setStateUserList(filteredArrayUser)
+                                                            }}
+                                                        />
+                                                        <Button type="dash" size={'large'} className='rounded' onClick={onChange}>Search</Button>
+                                                        <Button type="dash" size={'large'} className='rounded' onClick={onClear}>Show All</Button>
                                                     </Space>
                                                 </Space>
 
@@ -248,14 +317,15 @@ export default function TimesheetTable(props) {
                                                 <BootstrapTable
                                                     bootstrap4
                                                     keyField='id'
-                                                    data={data}
+                                                    data={DataRender}
                                                     columns={columns}
                                                     bordered={false}
                                                     {...toolkitprops.baseProps}
                                                     {...paginationTableProps}
                                                 />
+
                                                 {
-                                                    (data.length === 0) &&
+                                                    (DataRender.length === 0) &&
                                                     <Space direction='vertical' className='d-dlex text-center w-100' >
                                                         <p className='pt-3'>No data available in table</p>
                                                         <hr />
@@ -269,11 +339,11 @@ export default function TimesheetTable(props) {
                                     <PaginationTotalStandalone
                                         {...paginationProps}
                                     />
-                                    {(data.length === 0) ?
+                                    {(DataRender.length === 0) ?
                                         <Space>
-                                            <ul class="pagination react-bootstrap-table-page-btns-ul">
-                                                <li class="disabled page-item" title="previous page"><a href="#" class="page-link">&lt;</a></li>
-                                                <li class="disabled page-item" title="next page"><a href="#" class="page-link">&gt;</a></li>
+                                            <ul className="pagination react-bootstrap-table-page-btns-ul">
+                                                <li className="disabled page-item page-link" title="previous page"><a href="#" >&lt;</a></li>
+                                                <li className="disabled page-item page-link" title="next page"><a href="#" >&gt;</a></li>
                                             </ul>
                                         </Space>
 

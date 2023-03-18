@@ -43,35 +43,6 @@ const items1 = [
 
     getItem(<hr color='white' />, null, null, null, null, true),
     getItem('Log Out', 'logOut', <Icon path={mdiLogout} size={1} />),
-
-
-
-]
-const item2 = [
-    // getItem('Welcome !', null, <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg" width={100} />,
-    //     [
-    //         getItem('Change Avatar', null, <i className="fa-solid fa-truck"></i>),
-    //         getItem('Change Password', null, <i className="fa-solid fa-equals"></i>),
-    //         getItem('Support', null, <i className="fa-solid fa-paste"></i>),
-    //     ]
-    // ),
-    getItem('HR Menu', null, <></>, [
-        getItem('User Management', null, '---',),
-        getItem('TimeSheet', null, '---',),
-        getItem('Injury Report', null, '---',),
-        getItem('Emp Starting Infor', null, '---',),
-        getItem('Employee Complaint', null, '---',),
-        getItem('Incident Report', null, '---',),
-        getItem('Lunch Correction', null, '---',),
-        getItem('Miss Punch', null, '---',),
-        getItem('Time Off', null, '---',),
-        getItem('Pay Roll', null, '---',),
-        getItem('VTO Request', null, '---',),
-        getItem('Notificate', null, '---',),
-        getItem('View Log', null, '---',),
-    ]),
-
-
 ]
 
 
@@ -135,8 +106,8 @@ export default function MainLayout() {
                                 margin: '0 0.5rem',
                             }}
                         >
-                            <Space direction='vertical'>
-                                {/* <Breadcrumb
+
+                            {/* <Breadcrumb
                                     style={{
                                         margin: '16px 0',
                                     }}
@@ -144,21 +115,13 @@ export default function MainLayout() {
                                     <Breadcrumb.Item>{ }</Breadcrumb.Item>
                                     <Breadcrumb.Item>{ }</Breadcrumb.Item>
                                 </Breadcrumb> */}
-                                <Space direction='horizontal'>
-                                    {/* <Menu
-                                        mode="inline"
-                                        items={item2}
-                                        theme="light"
-                                        className='special-menu w-20'
-                                    >
-                                    </Menu> */}
-                                    <Header />
-                                </Space>
-                                <Outlet />
-                                <Footer>
-                                    Ant Design ©2018 Created by Ant UED
-                                </Footer>
-                            </Space>
+
+                            <Header />
+                            <Outlet />
+                            <Footer>
+                                Ant Design ©2018 Created by Ant UED
+                            </Footer>
+
                         </Content>
                     </Space>
 

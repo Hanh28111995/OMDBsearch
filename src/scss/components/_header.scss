@@ -1,5 +1,5 @@
 .header {
-
+    justify-content: space-between;
     #demo1::before,
     #demo2::before {
         content: '';
@@ -37,6 +37,7 @@
     .menu_notificate {
         ul {
             padding-bottom: 1rem;
+
             li a p {
                 margin-bottom: 0;
             }
@@ -99,5 +100,23 @@
 
     .hide {
         display: none;
+    }
+
+    .header-left {
+        ul {
+            li {
+                ul {
+                        top: 55px;
+                        position: absolute !important;
+                        z-index: 5;
+                        width: 150px;
+                        box-shadow: rgba(154, 161, 171, 0.15) 0px 0px 35px 0px;
+                        border-radius: 5px;
+                        border: 1px solid rgb(231, 235, 240);
+                   
+
+                }
+            }
+        }
     }
 }

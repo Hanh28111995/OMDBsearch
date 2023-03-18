@@ -1,10 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { Layout, Menu, Image, Space, notification, Avatar, } from "antd";
+import React, { useState } from 'react'
+import { Menu, Space, notification, Avatar } from "antd";
 import Icon from '@mdi/react';
 import { mdiBellRing } from '@mdi/js';
 import { useSelector } from 'react-redux';
 
 export default function Header(props) {
+    function getItem(label, key, icon, children, type, disabled) {
+        return {
+            key,
+            icon,
+            children,
+            label,
+            type,
+            disabled
+        };
+    }
     const userState = useSelector((state) => state.userReducer)
     const [closeM, setCloseM] = useState(false)
     const [closeR, setCloseR] = useState(false)
@@ -16,11 +26,52 @@ export default function Header(props) {
         setCloseM(false);
     }
 
+    const item2 = [
+        // getItem('Welcome !', null, <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg" width={100} />,
+        //     [
+        //         getItem('Change Avatar', null, <i className="fa-solid fa-truck"></i>),
+        //         getItem('Change Password', null, <i className="fa-solid fa-equals"></i>),
+        //         getItem('Support', null, <i className="fa-solid fa-paste"></i>),
+        //     ]
+        // ),
+        getItem('HR Menu', null, <></>, [
+            getItem('User Management', null, '---',),
+            getItem('TimeSheet', null, '---',),
+            getItem('Injury Report', null, '---',),
+            getItem('Emp Starting Infor', null, '---',),
+            getItem('Employee Complaint', null, '---',),
+            getItem('Incident Report', null, '---',),
+            getItem('Lunch Correction', null, '---',),
+            getItem('Miss Punch', null, '---',),
+            getItem('Time Off', null, '---',),
+            getItem('Pay Roll', null, '---',),
+            getItem('VTO Request', null, '---',),
+            getItem('Notificate', null, '---',),
+            getItem('View Log', null, '---',),
+        ]),
+    ]
+
     return (
-        <Space className='header bg-white' >
-            <h4 className='m-0'>{userState.titleHeader}</h4>
-            <Space >
-                <div style={{ position: 'relative' }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
+
+        <div className='header d-flex flex-row mr-4' >
+            <div className='header-left d-flex flex-row'>
+                <Menu
+                    style={{
+                        width: '150px'
+                    }}
+                    mode="inline"
+                    items={item2}
+                    theme="light"
+                    className='special-menu w-20'
+                >
+                </Menu>
+                <div className='d-flex align-items-center'>
+                    <h4 className='mb-0 ml-4'>{userState.titleHeader}</h4>
+                </div>
+            </div>
+
+            <div className='header-right d-flex flex-row'>
+                <div style={{ position: 'relative', display: "flex" }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
                     <div className='menu_acc' data-toggle="collapse" data-target="#demo2">
                         <div className='bg-bell'>
                             <Icon path={mdiBellRing} size={1} />
@@ -46,7 +97,7 @@ export default function Header(props) {
                         </ul>
                     </div>
                 </div>
-                <div style={{ position: 'relative' }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
+                <div style={{ position: 'relative', display: "flex" }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
                     <div className='menu_acc' data-toggle="collapse" data-target="#demo1">
                         <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg" size={45} />
                         <span className='pl-1'><i className="fa-solid fa-caret-down"></i></span>
@@ -59,8 +110,10 @@ export default function Header(props) {
                         </ul>
                     </div>
                 </div>
-            </Space>
+            </div>
+        </div>
 
-        </Space>
+
+
     )
 }

@@ -12,17 +12,21 @@ export default function Login() {
   const [styleLogin, setstyleLogin] = useState(false);
   const [disBTN, setDisBTN] = useState(false);
   const [changeFocus, setChangeFocus] = useState(false);
+  const [activeValidate, setAtiveValidate] = useState(false)
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
 
   const onFinish = (values) => {
     if (changeFocus) {
       console.log("Success:", values);
       if ((values.username === "hanhT") && (values.password === "0163H")) {
+        
         localStorage.setItem("WLC_LOGIN", JSON.stringify(values));
         dispatch(setUserInfor(values));
         navigate('/admin')
       }
+
     }
   };
 

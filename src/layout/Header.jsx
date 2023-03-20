@@ -3,6 +3,7 @@ import { Menu, Space, notification, Avatar } from "antd";
 import Icon from '@mdi/react';
 import { mdiBellRing } from '@mdi/js';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header(props) {
     function getItem(label, key, icon, children, type, disabled) {
@@ -16,6 +17,7 @@ export default function Header(props) {
         };
     }
     const userState = useSelector((state) => state.userReducer)
+    const navigate = useNavigate()
     const [closeM, setCloseM] = useState(false)
     const [closeR, setCloseR] = useState(false)
     let blurEvent = () => {
@@ -36,7 +38,7 @@ export default function Header(props) {
         // ),
         getItem('HR Menu', null, <></>, [
             getItem('User Management', null, '---',),
-            getItem('TimeSheet', null, '---',),
+            getItem('TimeSheet', '/admin/hr/timesheet', '---',),
             getItem('Injury Report', null, '---',),
             getItem('Emp Starting Infor', null, '---',),
             getItem('Employee Complaint', null, '---',),
@@ -53,61 +55,64 @@ export default function Header(props) {
 
     return (
 
-        <div className='header d-flex flex-row mr-4' >
+        <div className='header d-flex flex-row mr-3' >
             <div className='header-left d-flex flex-row'>
                 <Menu
-                    style={{
-                        width: '150px'
-                    }}
                     mode="inline"
                     items={item2}
                     theme="light"
-                    className='special-menu'
+                    onClick={({ key }) => {
+                        navigate(key)
+                    }}
                 >
                 </Menu>
+
+            </div>
+
+            <div className='header-right d-flex flex-row bg-white'>
                 <div className='d-flex align-items-center'>
                     <h4 className='mb-0 ml-4'>{userState.titleHeader}</h4>
                 </div>
-            </div>
 
-            <div className='header-right d-flex flex-row'>
-                <div style={{ position: 'relative', display: "flex" }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
-                    <div className='menu_acc' data-toggle="collapse" data-target="#demo2">
-                        <div className='bg-bell'>
-                            <Icon path={mdiBellRing} size={1} />
+                <div className='d-flex align-items-center'>
+                    <div style={{ position: 'relative', display: "flex" }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
+                        <div className='menu_acc' data-toggle="collapse" data-target="#demo2">
+                            <div className='bg-bell'>
+                                <Icon path={mdiBellRing} size={1} />
+                            </div>
+                        </div>
+                        <div id="demo2" className={`menu_notificate collapse ${closeM ? "hide" : ""}`}>
+                            <div className='pt-3 text-center'>
+                                <a href="#">Xem tất cả thông báo</a>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <p>Time1</p>
+                                        <p>Event1</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <p>Time2</p>
+                                        <p>Event2</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div id="demo2" className={`menu_notificate collapse ${closeM ? "hide" : ""}`}>
-                        <div className='pt-3 text-center'>
-                            <a href="#">Xem tất cả thông báo</a>
+                    <div style={{ position: 'relative', display: "flex" }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
+                        <div className='menu_acc' data-toggle="collapse" data-target="#demo1">
+                            <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg" size={45} />
+                            <span className='pl-1'><i className="fa-solid fa-caret-down"></i></span>
                         </div>
-                        <ul>
-                            <li>
-                                <a href="">
-                                    <p>Time1</p>
-                                    <p>Event1</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <p>Time2</p>
-                                    <p>Event2</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div style={{ position: 'relative', display: "flex" }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
-                    <div className='menu_acc' data-toggle="collapse" data-target="#demo1">
-                        <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg" size={45} />
-                        <span className='pl-1'><i className="fa-solid fa-caret-down"></i></span>
-                    </div>
-                    <div id="demo1" className={`menu_acc_list collapse ${closeM ? "hide" : ""} py-2`}>
-                        <ul>
-                            <li><a href=""><i className="fa-solid fa-user"></i>Change Avatar</a></li>
-                            <li><a href=""><i className="fa-solid fa-lock"></i>Change Password</a></li>
-                            <li><a href=""><i className="fa-regular fa-life-ring"></i>Support</a></li>
-                        </ul>
+                        <div id="demo1" className={`menu_acc_list collapse ${closeM ? "hide" : ""} py-2`}>
+                            <ul>
+                                <li><a href=""><i className="fa-solid fa-user"></i>Change Avatar</a></li>
+                                <li><a href=""><i className="fa-solid fa-lock"></i>Change Password</a></li>
+                                <li><a href=""><i className="fa-regular fa-life-ring"></i>Support</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

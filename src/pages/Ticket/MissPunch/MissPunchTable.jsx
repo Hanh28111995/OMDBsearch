@@ -26,7 +26,6 @@ export default function MissPunchForm(props) {
   // const navigate = useNavigate();
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.userReducer)
-  console.log(props.title)
   useEffect(() => {
     dispatch(setTitleHeader(props.title))
   }, [userState.titleHeader])

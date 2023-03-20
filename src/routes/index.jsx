@@ -12,7 +12,7 @@ import TimesheetTable from "../pages/HRpages/Timesheet/TimesheetTable";
 import Login from "../pages/Login/Login";
 import InforForm from "../pages/personal infor/InforForm";
 import MissPunchForm from "../pages/Ticket/MissPunch/MissPunchTable";
-import TimeOffForm from "../pages/Ticket/TimeOff/TimeOffTablejsx";
+import TimeOffForm from "../pages/Ticket/TimeOff/TimeOffTable";
 
 export default function Router() {
   const routing = useRoutes([
@@ -52,18 +52,18 @@ export default function Router() {
             },
             {
               path: "/admin/personal_information",
-              element: <InforForm deactive={false} title='Personal Information Form' />,
+              element: <InforForm deactive={false} title='Personal Information' />,
             },
             {
               path: "/admin/ticket",
               children: [
                 {
                   path: "/admin/ticket/miss-punch",
-                  element: <MissPunchForm title="Miss Punch Form" />,
+                  element: <MissPunchForm title="Miss Punch" />,
                 },
                 {
                   path: "/admin/ticket/time-off",
-                  element: <TimeOffForm title="Time Off Form" />,
+                  element: <TimeOffForm title="Time Off" />,
                 },
               ]
             },

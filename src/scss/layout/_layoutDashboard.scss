@@ -1,13 +1,6 @@
 .layOut_wrapper>.ant-layout {
     position: relative;
 
-    .special-menu li {
-        .ant-menu-submenu-title {
-            padding: 0 0 !important;
-        }
-    }
-
-
     .ant-layout-sider {
         overflow-x: hidden;
         position: fixed;
@@ -48,4 +41,3 @@
     }
 
 }
-

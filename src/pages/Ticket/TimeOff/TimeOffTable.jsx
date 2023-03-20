@@ -72,16 +72,16 @@ const customSort = (order, column) => {
 }
 ///// function component for sort next/prev pagination
 
-const pageButtonRenderer = ({
-  title,
-}) => {
-  const titleStyle = {}
-  const nextAndPrevIcon = {
-    if(title) {
+// const pageButtonRenderer = ({
+//   title,
+// }) => {
+//   const titleStyle = {}
+//   const nextAndPrevIcon = {
+//     if(title) {
 
-    }
-  }
-}
+//     }
+//   }
+// }
 
 const columns = [{
   dataField: 'id',

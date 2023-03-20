@@ -21,7 +21,7 @@ export default function Login() {
     if (changeFocus) {
       console.log("Success:", values);
       if ((values.username === "hanhT") && (values.password === "0163H")) {
-        
+
         localStorage.setItem("WLC_LOGIN", JSON.stringify(values));
         dispatch(setUserInfor(values));
         navigate('/admin')
@@ -31,9 +31,11 @@ export default function Login() {
   };
 
   const onFinishFailed = (errorInfo) => {
+    setChangeFocus(true)
     if (changeFocus) {
       console.log("Failed:", errorInfo);
     }
+    setChangeFocus(false)
   };
   const loginmethod = () => {
     setDisBTN(true);
@@ -89,7 +91,7 @@ export default function Login() {
                         name="username"
                         rules={[
                           {
-                            required: true,
+                            required: changeFocus,
                             message: "Please input your username!",
                           },
                         ]}
@@ -102,7 +104,7 @@ export default function Login() {
                         name="password"
                         rules={[
                           {
-                            required: true,
+                            required: changeFocus,
                             message: "Please input your password!",
                           },
                         ]}
@@ -369,7 +371,3 @@ export default function Login() {
     </div>
   );
 }
-
-
-
-

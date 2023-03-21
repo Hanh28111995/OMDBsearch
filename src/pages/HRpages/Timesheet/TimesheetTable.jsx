@@ -12,7 +12,8 @@ import Icon from '@mdi/react';
 import {
     mdiCheckCircleOutline,
     mdiCloseCircleOutline,
-    mdiDotsHorizontalCircleOutline
+    mdiDotsHorizontalCircleOutline,
+    mdiNoteEditOutline
 } from '@mdi/js';
 import { Space, DatePicker, Button, AutoComplete } from 'antd';
 import IconSort from '../../../modules/dataTable/IconSort';
@@ -20,7 +21,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setTitleHeader } from '../../../store/actions/user.action';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
-const { SearchBar } = Search;
 
 export default function TimesheetTable(props) {
     const userData = [
@@ -90,17 +90,18 @@ export default function TimesheetTable(props) {
                 );
         }
     }
+
     const navigate = useNavigate()
+    const userState = useSelector((state) => state.userReducer)
     const [DataRender, setDataRender] = useState(data)
     const [selectDate, setSelectDate] = useState({
         dateStart: '',
         dateEnd: ''
-    })
+    },)
     const [stateUserList, setStateUserList] = useState(userData)
     const [valueShow, setValueShow] = useState('')
 
     const dispatch = useDispatch();
-    const userState = useSelector((state) => state.userReducer)
     useEffect(() => {
         dispatch(setTitleHeader(props.title))
     }, [userState.titleHeader])
@@ -108,12 +109,6 @@ export default function TimesheetTable(props) {
 
 
     const options = {
-        // prePageText: "",
-        // nextPageText: '',
-        // hidePageListOnlyOnePage: false,
-        // showTotal: false,
-        // paginationSize: 4,
-        // alwaysShowAllBtns: true,
         withFirstAndLast: false,
         alwaysShowAllBtns: true,
         custom: true,
@@ -139,7 +134,6 @@ export default function TimesheetTable(props) {
             }
         ],
     };
-
     const customSort = (order, column) => {
         if (!order) return (<IconSort active={false} up={false} down={false} />)
         else if (order === 'asc') return (<IconSort active={true} up={true} down={false} />)
@@ -160,6 +154,14 @@ export default function TimesheetTable(props) {
             </span >
         );
     }
+    const buttonFormatter = (cell, row) => {
+        return (
+            <a href='#'>
+                <Icon path={mdiNoteEditOutline} size={0.8} />
+            </a>
+        )
+    }
+
     const columns = [{
         dataField: 'id',
         text: 'No',
@@ -205,18 +207,19 @@ export default function TimesheetTable(props) {
     }, {
         dataField: 'status',
         text: 'Status',
-        sort: true,
+        // sort: true,
         formatter: statusFormatter,
         sortCaret: customSort,
     }, {
         dataField: 'edit',
         text: 'Edit',
-        sort: true,
-        // formatter: statusFormatter,
+        // sort: true,
+        formatter: buttonFormatter,
         sortCaret: customSort,
     }
     ];
-    //////date filter
+
+    ///////////FILTER INPUT DATA AND SHOW///////////////////
     const onChange = (date, dateString) => {
         let dateArray = []
         let filter_product = []
@@ -230,6 +233,7 @@ export default function TimesheetTable(props) {
                 return moment(date.toISOString().slice(0, 10)).format('MM/DD/YYYY');
             });
             filter_product = data.filter((item) => dateArray.includes(item.date))
+
         }
         if (
             (!selectDate.dateStart && selectDate.dateEnd) || (selectDate.dateStart && !selectDate.dateEnd)
@@ -238,7 +242,7 @@ export default function TimesheetTable(props) {
             filter_product = data.filter((item) => dateArray.includes(item.date))
         }
         if (!selectDate.dateStart && !selectDate.dateEnd) {
-            filter_product = data 
+            filter_product = data
         }
         if (!selectDate.dateStart && !selectDate.dateEnd && !valueShow) {
             filter_product = []
@@ -248,10 +252,15 @@ export default function TimesheetTable(props) {
         }
         setDataRender(filter_product)
     };
+
+    ///////////RELOAD PAGE TIMESHEET VIEW WITH ALL DATA///////////////////
     const onClear = () => { navigate(0) }
+
+    ///////////INPUT START DATE AND END DATE TO FILT///////////////////
     const onChange1 = (date, dateString) => {
         setSelectDate(prevState => ({ ...prevState, dateStart: dateString }))
     };
+
     const onChange2 = (date, dateString) => {
         setSelectDate(prevState => ({ ...prevState, dateEnd: dateString }))
     };
@@ -310,6 +319,7 @@ export default function TimesheetTable(props) {
                                                         />
                                                         <Button type="dash" size={'large'} className='rounded' onClick={onChange}>Search</Button>
                                                         <Button type="dash" size={'large'} className='rounded' onClick={onClear}>Show All</Button>
+                                                        <Button type="dash" size={'large'} className='rounded' onClick={() => navigate(`/admin/hr/timesheet/view/${valueShow}/${selectDate.dateStart}/${selectDate.dateEnd}`)} >Export</Button>
                                                     </Space>
                                                 </Space>
 

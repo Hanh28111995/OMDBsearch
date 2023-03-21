@@ -1,6 +1,6 @@
 # OMDBsearch
 
-
+https://select2.org/getting-started/installation
 
 {
     "liveServer.settings.donotShowInfoMsg": true,

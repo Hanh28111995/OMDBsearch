@@ -30,6 +30,9 @@ const items1 = [
         [
             getItem('Miss Punch', '/admin/ticket/miss-punch'),
             getItem('Time Off', '/admin/ticket/time-off'),
+            getItem('Injury Report', '/admin/ticket/injury'),
+            getItem('Incident Report', '/admin/ticket/incident'),
+
         ]),
 
     getItem('DEPARTMENT___', null, <span>___</span>, null, null, true),

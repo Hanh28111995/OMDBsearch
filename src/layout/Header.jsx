@@ -58,12 +58,13 @@ export default function Header(props) {
         <div className='header d-flex flex-row mr-3' >
             <div className='header-left d-flex flex-row'>
                 <Menu
-                    mode="inline"
+                    mode="horizontal"
                     items={item2}
                     theme="light"
                     onClick={({ key }) => {
                         navigate(key)
                     }}
+                    
                 >
                 </Menu>
 

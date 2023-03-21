@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
     Form,
     Input,
@@ -10,6 +10,8 @@ import {
     Space,
     Button
 } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTitleHeader } from '../../store/actions/user.action';
 const Dpm = ['IT', 'Sale', 'Warehouse', '-- Inventory', '-- Rework', '-- Shipping Clerk', '-- QC', '-- Front Operation', 'Accounting', 'Export', 'HR', 'Import', 'Transportation', 'Ecommerce', 'Other', 'CEO'];
 const location = ['US-MLK', 'US-CTR', 'VN-NT', 'VN-HCM', 'US-RLD'];
 const render = (x) => {
@@ -24,19 +26,19 @@ const renderedLocationObject = render(location);
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 export default function InforForm(props) {
+
+    const dispatch = useDispatch();
+    const userState = useSelector((state) => state.userReducer)
+    useEffect(() => {
+        dispatch(setTitleHeader(props.title))
+    }, [userState.titleHeader])
+
     return (
         <Space direction='vertical' className='bg-form pb-5'>
             <Space direction='vertical' className='bg-form-header'>
-                <div className='d-flex row col-12 '>
-                    <div className='col-md-6 col-sm-12 p-0 '>
-                        <h4 >INFORMATION</h4>
-                    </div>
-                    <div className='col-md-6 col-sm-12 text-right p-0'>
-                        <Button type="primary">Injury Report</Button>
-                    </div>
-
+                <div className='d-flex'>
+                    <h4 >INFORMATION</h4>
                 </div>
-
                 <p>Your personal information must be authentic, any changes in your personal information, please notify HR of the company for correction.
                     We would like to ensure that we only use your personal information for the company's work, all acts of disclosing your personal information to the outside are illegal.</p>
             </Space>
@@ -56,7 +58,7 @@ export default function InforForm(props) {
                             name="fullname"
                             rules={[{ required: true, message: 'Please input your Full Name!' }]}
                         >
-                            <Input autoComplete='new-password'/>
+                            <Input autoComplete='new-password' />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={12} >
@@ -83,7 +85,7 @@ export default function InforForm(props) {
                                 },
                             ]}
                         >
-                            <Input autoComplete='new-password'/>
+                            <Input autoComplete='new-password' />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={12} >
@@ -147,8 +149,8 @@ export default function InforForm(props) {
 
                     <Col xs={24} sm={24} md={12} lg={12} >
                         <Form.Item label="Department" name="department" >
-                            <Select 
-                            listHeight={700} 
+                            <Select
+                                listHeight={700}
                             >
                                 {renderedDpmObject}
                             </Select>

@@ -8,9 +8,13 @@ import MainLayout from "../layout/MainLayout";
 import StatusEmployee from "../modules/dboard/StatusEmployee";
 import DashBoard from "../pages/dboard/DashBoard";
 import MissPunchDetail from "../pages/Detail/MissPunchDetail";
+import TimesheetExp from "../pages/HRpages/Timesheet/TimesheetExp";
 import TimesheetTable from "../pages/HRpages/Timesheet/TimesheetTable";
 import Login from "../pages/Login/Login";
 import InforForm from "../pages/personal infor/InforForm";
+import IncidentReport from "../pages/Ticket/IncidentReport/IncidentReport";
+import InjuryReport from "../pages/Ticket/InjuryReport/InjuryReport";
+import MissPunchAddNew from "../pages/Ticket/MissPunch/MissPunchAddNew";
 import MissPunchForm from "../pages/Ticket/MissPunch/MissPunchTable";
 import TimeOffForm from "../pages/Ticket/TimeOff/TimeOffTable";
 
@@ -62,18 +66,30 @@ export default function Router() {
                   element: <MissPunchForm title="Miss Punch" />,
                 },
                 {
+                  path: "/admin/ticket/miss-punch/addnew",
+                  element: <MissPunchAddNew title="Miss Punch" />,
+                },
+                {
                   path: "/admin/ticket/time-off",
                   element: <TimeOffForm title="Time Off" />,
+                },
+                {
+                  path: "/admin/ticket/injury",
+                  element: <InjuryReport title="Injury Report" />,
+                },
+                {
+                  path: "/admin/ticket/incident",
+                  element: <IncidentReport title="Incident Report" />,
                 },
               ]
             },
             {
               path: "/admin/hr",
-              element: <HRAuthGuards/>,
-              children:[
+              element: <HRAuthGuards />,
+              children: [
                 {
                   path: "/admin/hr/timesheet",
-                  element:<TimesheetTable  title='HR Time Sheet'/>
+                  element: <TimesheetTable title='HR Time Sheet' />
                 }
               ]
             },
@@ -84,6 +100,17 @@ export default function Router() {
           path: "/admin/ticket/miss-punch/miss-punch-detail/:referenceCode",
           element: <MissPunchDetail />,
         },
+        {
+          path: "/admin/hr",
+          element: <HRAuthGuards />,
+          children: [
+            {
+              path: "/admin/hr/timesheet/view/:user/:dateStart/:dateEnd",
+              element: <TimesheetExp />,
+            }
+          ]
+        }
+
       ]
     },
 

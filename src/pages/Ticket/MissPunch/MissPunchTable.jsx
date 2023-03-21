@@ -29,14 +29,14 @@ export default function MissPunchForm(props) {
   useEffect(() => {
     dispatch(setTitleHeader(props.title))
   }, [userState.titleHeader])
-  
+
   //demo data from api
   const data = [];
   for (let i = 0; i < 46; i++) {
     if (i % 2 === 0) {
       data.push(
         {
-          reference: 'MSF' + [i],
+          reference: 'ES20' + [i],
           submitData: '03/02/2023',
           manager: ['Huy Nguyen'],
           managerDate: '01/02/2023',
@@ -49,7 +49,7 @@ export default function MissPunchForm(props) {
     else {
       data.push(
         {
-          reference: 'MSF' + [i],
+          reference: 'ES20' + [i],
           submitData: '03/02/2023',
           manager: ['Khanh Nguyen'],
           managerDate: '01/02/2023',
@@ -193,14 +193,19 @@ export default function MissPunchForm(props) {
                 {
                   toolkitprops => (
                     <Space direction='vertical d-dlex w-100'>
-                      <Space direction='horizontal' align='baseline' className='justify-content-between d-flex'>
+                      <Space direction='horizontal' className='justify-content-between d-flex'>
                         <Space>
                           <span className='bg-red'>Show</span>
                           <SizePerPageDropdownStandalone {...paginationProps} />
                           <span>entries</span>
                         </Space>
-                        <Space >
+                        <Space className='d-flex align-items-start'>
                           <SearchBar {...toolkitprops.searchProps} />
+                          <NavLink to='/admin/ticket/miss-punch/addnew'>
+                            <button className='btn btn-success create_new_form'>
+                              Create
+                            </button>
+                          </NavLink>
                         </Space>
                       </Space>
 

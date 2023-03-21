@@ -11,4 +11,5 @@ const setTitleHeader = (title) => {
     payload: title,
   }
 };
+
 export { setUserInfor, setTitleHeader }

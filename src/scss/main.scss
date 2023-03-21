@@ -1,18 +1,17 @@
-*
-{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
 @import "./base/reset";
 @import "./helper/variable";
 @import "./layout/layoutDashboard";
 @import "./page/dashboard";
 @import "./page/login";
+@import "./page/exportPdf";
 @import "./components/dataTableStyle";
 @import "./components/formInfor";
 @import "./components/statusComponentDashBoard";
 @import "./components/header";
-@import "./page/exportPdf";
-
-
+@import "./helper/button";

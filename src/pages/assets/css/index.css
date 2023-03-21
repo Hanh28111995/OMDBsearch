@@ -1,0 +1,36 @@
+.mp_ex_form {
+  font-size: 0.9rem;
+}
+.mp_ex_form .c {
+  text-align: center;
+}
+.mp_ex_form .b {
+  font-weight: 500;
+}
+.mp_ex_form .f {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.mp_ex_form .f-h {
+  line-height: 40px;
+  background-color: #c7842a;
+  text-align: center;
+  font-weight: 600;
+}
+.mp_ex_form .container {
+  background-color: #fff;
+  border: 1px solid #e6e9ed;
+  border-radius: 1px;
+  padding: 10px;
+}
+.mp_ex_form .border-none {
+  border: 0px !important;
+  margin: 1px;
+}
+.mp_ex_form .p-10-20 {
+  padding: 10px 20px;
+}
+.mp_ex_form .border-none {
+  border: none;
+}

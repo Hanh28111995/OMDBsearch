@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setTitleHeader } from '../../../store/actions/user.action';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
+import { itemsPerPage } from '../../../constants/formValueDefault';
 
 export default function TimesheetTable(props) {
     const userData = [
@@ -113,26 +114,7 @@ export default function TimesheetTable(props) {
         alwaysShowAllBtns: true,
         custom: true,
         totalSize: DataRender.length,
-        sizePerPageList: [
-            {
-                text: '10', value: 10
-            },
-            {
-                text: '20', value: 20
-            },
-            {
-                text: '30', value: 30
-            },
-            {
-                text: '40', value: 40
-            },
-            {
-                text: '50', value: 50
-            },
-            {
-                text: 'All', value: DataRender.length
-            }
-        ],
+        sizePerPageList:itemsPerPage,
     };
     const customSort = (order, column) => {
         if (!order) return (<IconSort active={false} up={false} down={false} />)

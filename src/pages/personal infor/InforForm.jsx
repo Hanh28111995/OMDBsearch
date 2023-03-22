@@ -8,7 +8,6 @@ import {
     Col,
     Row,
     Space,
-    Button
 } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTitleHeader } from '../../store/actions/user.action';
@@ -49,6 +48,7 @@ export default function InforForm(props) {
                 disabled={props.deactive}
                 style={{ maxWidth: '100%' }}
                 autoComplete='off'
+                disabled = {props.deactive}
             >
                 <Row gutter={24}>
 
@@ -56,7 +56,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="Full Name"
                             name="fullname"
-                            rules={[{ required: true, message: 'Please input your Full Name!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your Full Name!' }]}
                         >
                             <Input autoComplete='new-password' />
                         </Form.Item>
@@ -65,7 +65,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="Nick Name"
                             name="nickname"
-                            rules={[{ required: true, message: 'Please input your Nick Name!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your Nick Name!' }]}
                         >
                             <Input />
                         </Form.Item>
@@ -80,7 +80,7 @@ export default function InforForm(props) {
                                     message: 'The input is not valid E-mail!',
                                 },
                                 {
-                                    required: true,
+                                    required: !props.deactive,
                                     message: 'Please input your E-mail!',
                                 },
                             ]}
@@ -92,7 +92,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="Phone"
                             name="phone"
-                            rules={[{ required: true, message: 'Please input your Phone!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your Phone!' }]}
                         >
                             <Input />
                         </Form.Item>
@@ -109,7 +109,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="Passport"
                             name="passport"
-                            rules={[{ required: true, message: 'Please input your Passport!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your Passport!' }]}
                         >
                             <Input />
                         </Form.Item>
@@ -118,7 +118,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="Address"
                             name="address"
-                            rules={[{ required: true, message: 'Please input your Address!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your Address!' }]}
                         >
                             <Input />
                         </Form.Item>
@@ -127,7 +127,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="ZipCode"
                             name="zipcode"
-                            rules={[{ required: true, message: 'Please input your ZipCode!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your ZipCode!' }]}
                         >
                             <Input />
                         </Form.Item>
@@ -177,7 +177,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="Position"
                             name="position"
-                            rules={[{ required: true, message: 'Please input your Position!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your Position!' }]}
                         >
                             <Input />
                         </Form.Item>
@@ -186,7 +186,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="Vacation Hrs Avail"
                             name="vha"
-                            rules={[{ required: true, message: 'Please input your Vacation Hrs Avail!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your Vacation Hrs Avail!' }]}
                         >
                             <Input />
                         </Form.Item>
@@ -195,7 +195,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="Contract"
                             name="contract"
-                            rules={[{ required: true, message: 'Please input your Contract!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your Contract!' }]}
                         >
                             <Input />
                         </Form.Item>
@@ -204,7 +204,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="Sick Hrs Avail"
                             name="sha"
-                            rules={[{ required: true, message: 'Please input your Sick Hrs Avail!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your Sick Hrs Avail!' }]}
                         >
                             <Input />
                         </Form.Item>
@@ -220,7 +220,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="DKP"
                             name="dkp"
-                            rules={[{ required: true, message: 'Please input your DKP!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your DKP!' }]}
                         >
                             <Input />
                         </Form.Item>
@@ -230,7 +230,7 @@ export default function InforForm(props) {
                         <Form.Item
                             label="Note"
                             name="note"
-                            rules={[{ required: true, message: 'Please input your Note!' }]}
+                            rules={[{ required: !props.deactive, message: 'Please input your Note!' }]}
                         >
                             <Input />
                         </Form.Item>
@@ -239,53 +239,6 @@ export default function InforForm(props) {
                 </Row>
             </Form >
         </Space>
-
-
-        /* <Form.Item label="Select">
-        <Select >
-            <Select.Option value="demo">Demo</Select.Option>
-        </Select>
-    </Form.Item>
-    <Form.Item label="TreeSelect">
-        <TreeSelect 
-            treeData={[
-                { title: 'Light', value: 'light', children: [{ title: 'Bamboo', value: 'bamboo' }] },
-            ]}
-        />
-    </Form.Item>
-    <Form.Item label="Cascader" >
-        <Cascader
-            options={[
-                {
-                    value: 'zhejiang',
-                    label: 'Zhejiang',
-                    children: [
-                        {
-                            value: 'hangzhou',
-                            label: 'Hangzhou',
-                        },
-                    ],
-                },
-            ]}
-        />
-    </Form.Item>
-    <Form.Item label="DatePicker">
-        <DatePicker />
-    </Form.Item>
-    <Form.Item label="RangePicker">
-        <RangePicker />
-    </Form.Item>
-    <Form.Item label="InputNumber">
-        <InputNumber />
-    </Form.Item>
-    <Form.Item label="TextArea">
-        <TextArea rows={4} />
-    </Form.Item>
-    <Form.Item label="Switch" valuePropName="checked">
-        <Switch />
-    </Form.Item> */
-
-
 
     )
 }

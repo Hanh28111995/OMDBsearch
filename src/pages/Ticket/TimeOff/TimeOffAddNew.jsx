@@ -7,21 +7,16 @@ import {
     Row,
     Space,
     Input,
-    Collapse,
-    AutoComplete,
-    Radio,
     Button,
+    Radio
 } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTitleHeader } from '../../../store/actions/user.action';
 import { NavLink } from 'react-router-dom';
 
-const { Option } = Select;
 const { TextArea } = Input;
-const { Panel } = Collapse;
 
-export default function MissPunchAddNew(props) {
-    const [collapsible, setCollapsible] = useState(false)
+export default function TimeOffAddNew(props) {
     const dispatch = useDispatch();
     const userState = useSelector((state) => state.userReducer)
     useEffect(() => {
@@ -34,21 +29,25 @@ export default function MissPunchAddNew(props) {
     const onOk = (value) => {
         console.log('onOk: ', value);
     };
-
-    function handleChange(value) { console.log(`Selected ${value}`); }
-    function handleBlur() { console.log('blur'); }
-    function handleFocus() { console.log('focus'); }
-    function handleSearch(value) { console.log('search:', value); }
-
+    const options = [];
+    for (let i = 10; i < 36; i++) {
+        options.push({
+            value: i.toString(36) + i,
+            label: i.toString(36) + i,
+        });
+    }
+    const handleChange = (value) => {
+        console.log(`selected ${value}`);
+    };
 
     return (
         <Space direction='vertical' className='bg-form pb-5' >
             <Space direction='vertical' className='bg-form-header w-100'>
                 <div className='d-flex justify-content-between'>
                     <div>
-                        <h4>Create New Miss Punch</h4>
+                        <h4>Create New Time Off</h4>
                     </div>
-                    <NavLink to='/admin/ticket/miss-punch'>
+                    <NavLink to='/admin/ticket/time-off'>
                         <button className='btn btn-success back-btn'>
                             Back
                         </button>
@@ -57,7 +56,6 @@ export default function MissPunchAddNew(props) {
 
             </Space>
             <Form
-                name='new-miss-punchs'
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 layout="horizontal"
@@ -79,78 +77,72 @@ export default function MissPunchAddNew(props) {
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Punch In" name="punchin">
+                        <Form.Item label="Time Off Start" name="startDate">
                             <DatePicker
                                 className='w-100'
-                                placeholder='Select Date and Time'
-                                showTime={{
-                                    format: 'hh:mm A',
-                                }}
-                                format='MM-DD-YYYY  hh:mm A'
+                                placeholder='Select Date'
+                                format='MM-DD-YYYY'
                                 onChange={onChange1}
                                 onOk={onOk} />
                         </Form.Item>
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Lunch In" name="lunchin">
+                        <Form.Item label="Time Off End" name="endDate">
                             <DatePicker
                                 className='w-100'
-                                placeholder='Select Date and Time'
-                                showTime={{
-                                    format: 'hh:mm A',
-                                }}
-                                format='MM-DD-YYYY  hh:mm A'
+                                placeholder='Select Date'
+                                format='MM-DD-YYYY'
                                 onChange={onChange1}
                                 onOk={onOk} />
                         </Form.Item>
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Punch Out" name="punchout">
-                            <DatePicker
+                        <Form.Item label="Cover Worker" name="coverWorker">
+                            <Select
                                 className='w-100'
-                                placeholder='Select Date and Time'
-                                showTime={{
-                                    format: 'hh:mm A',
-                                }}
-                                format='MM-DD-YYYY  hh:mm A'
-                                onChange={onChange1}
-                                onOk={onOk} />
+                                placeholder="Select Your Co-Worker"
+                                onChange={handleChange}
+                                options={options}
+                            />
                         </Form.Item>
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Lunch Out" name="Lunchout">
-                            <DatePicker
-                                className='w-100'
-                                placeholder='Select Date and Time'
-                                showTime={{
-                                    format: 'hh:mm A',
-                                }}
-                                format='MM-DD-YYYY  hh:mm A'
-                                onChange={onChange1}
-                                onOk={onOk} />
-                        </Form.Item>
-                    </Col>
-
-                    {/* <Col xs={24} sm={24} md={24} lg={24} >
                         <Form.Item label="Manager" name="manager">
                             <Select
-                                showSearch style={{ width: 200 }}
-                                placeholder="Select a person"
-                                optionFilterProp="children"
+                                className='w-100'
+                                placeholder="Select Your Manager"
                                 onChange={handleChange}
-                                onFocus={handleFocus}
-                                onBlur={handleBlur}
-                                onSearch={handleSearch}
-                                filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0} >
-                                <Option value="jack">Jack</Option>
-                                <Option value="lucy">Lucy</Option>
-                                <Option value="tom">Tom</Option>
-                            </Select>,
+                                options={options}
+                            />
                         </Form.Item>
-                    </Col> */}
+                    </Col>
+
+                    <Col xs={24} sm={24} md={12} lg={12} >
+                        <Form.Item label="Pay Type" name="paytype">
+                            <Select
+                                className='w-100'
+                                placeholder="Select Pay Type"
+                                onChange={handleChange}
+                                options={options}
+                            />
+                        </Form.Item>
+                    </Col>
+
+                    <Col xs={24} sm={24} md={12} lg={12} >
+                        <Form.Item label="Shift Day" name="shiftday">
+                            <Select
+                                className='w-100'
+                                placeholder="Select Shift Day"
+                                onChange={handleChange}
+                                options={options}
+                            />
+                        </Form.Item>
+                    </Col>
+
+
 
                     <Col xs={24} sm={24} md={24} lg={24} >
                         <Form.Item label="Other Reason" name="reason">
@@ -164,7 +156,7 @@ export default function MissPunchAddNew(props) {
                     </Col>
                 </Row>
             </Form >
-        </Space>
+        </Space >
 
     )
 }

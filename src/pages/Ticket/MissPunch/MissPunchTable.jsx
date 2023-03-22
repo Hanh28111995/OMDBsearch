@@ -19,6 +19,7 @@ import IconSort from '../../../modules/dataTable/IconSort';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTitleHeader } from '../../../store/actions/user.action';
+import { itemsPerPage } from '../../../constants/formValueDefault';
 const { SearchBar } = Search;
 
 
@@ -37,7 +38,7 @@ export default function MissPunchForm(props) {
       data.push(
         {
           reference: 'ES20' + [i],
-          submitData: '03/02/2023',
+          submitDate: '03/02/2023',
           manager: ['Huy Nguyen'],
           managerDate: '01/02/2023',
           managerStatus: true,
@@ -50,7 +51,7 @@ export default function MissPunchForm(props) {
       data.push(
         {
           reference: 'ES20' + [i],
-          submitData: '03/02/2023',
+          submitDate: '03/02/2023',
           manager: ['Khanh Nguyen'],
           managerDate: '01/02/2023',
           managerStatus: false,
@@ -73,26 +74,7 @@ export default function MissPunchForm(props) {
     alwaysShowAllBtns: true,
     custom: true,
     totalSize: data.length,
-    sizePerPageList: [
-      {
-        text: '10', value: 10
-      },
-      {
-        text: '20', value: 20
-      },
-      {
-        text: '30', value: 30
-      },
-      {
-        text: '40', value: 40
-      },
-      {
-        text: '50', value: 50
-      },
-      {
-        text: 'All', value: data.length
-      }
-    ],
+    sizePerPageList: itemsPerPage,
   };
 
   ///// function component for sort icon block
@@ -138,8 +120,8 @@ export default function MissPunchForm(props) {
     formatter: referenceFormatter,
     sortCaret: customSort,
   }, {
-    dataField: 'submitData',
-    text: 'Submit Data',
+    dataField: 'submitDate',
+    text: 'Submit Date',
     sort: true,
     sortCaret: customSort,
 

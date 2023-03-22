@@ -492,9 +492,11 @@ input {
   background-color: #fff;
   border-radius: 10px;
   padding: 30px 20px;
+  margin-top: 1rem;
 }
 .bg-form .bg-form-header {
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 20px;
 }
 .bg-form .bg-form-header h4 {
   font-weight: bold;
@@ -508,6 +510,13 @@ input {
 }
 .bg-form .bg-form-header .ant-btn-primary:hover {
   background-color: #056e50;
+}
+.bg-form .ant-form-item .ant-col-3 {
+  text-align: left;
+}
+.bg-form .body-part-effect > .ant-col:first-child,
+.bg-form .body-part-effect > .ant-col:last-child {
+  display: grid;
 }
 
 .dashboard .ant-card .ant-card-body p {

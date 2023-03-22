@@ -14,8 +14,10 @@ import Login from "../pages/Login/Login";
 import InforForm from "../pages/personal infor/InforForm";
 import IncidentReport from "../pages/Ticket/IncidentReport/IncidentReport";
 import InjuryReport from "../pages/Ticket/InjuryReport/InjuryReport";
+import InjuryReportAddNew from "../pages/Ticket/InjuryReport/InjuryReportAddNew";
 import MissPunchAddNew from "../pages/Ticket/MissPunch/MissPunchAddNew";
 import MissPunchForm from "../pages/Ticket/MissPunch/MissPunchTable";
+import TimeOffAddNew from "../pages/Ticket/TimeOff/TimeOffAddNew";
 import TimeOffForm from "../pages/Ticket/TimeOff/TimeOffTable";
 
 export default function Router() {
@@ -56,7 +58,7 @@ export default function Router() {
             },
             {
               path: "/admin/personal_information",
-              element: <InforForm deactive={false} title='Personal Information' />,
+              element: <InforForm deactive={true} title='Personal Information' />,
             },
             {
               path: "/admin/ticket",
@@ -74,8 +76,16 @@ export default function Router() {
                   element: <TimeOffForm title="Time Off" />,
                 },
                 {
+                  path: "/admin/ticket/time-off/addnew",
+                  element: <TimeOffAddNew title="Time Off" />,
+                },
+                {
                   path: "/admin/ticket/injury",
                   element: <InjuryReport title="Injury Report" />,
+                },
+                {
+                  path: "/admin/ticket/injury/addnew",
+                  element: <InjuryReportAddNew title="Injury Report" />,
                 },
                 {
                   path: "/admin/ticket/incident",

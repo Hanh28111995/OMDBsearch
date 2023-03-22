@@ -19,6 +19,7 @@ import IconSort from '../../../modules/dataTable/IconSort';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTitleHeader } from '../../../store/actions/user.action';
+import { itemsPerPage } from '../../../constants/formValueDefault';
 const { SearchBar } = Search;
 
 
@@ -29,19 +30,21 @@ export default function TimeOffForm(props) {
   useEffect(() => {
     dispatch(setTitleHeader(props.title))
   }, [userState.titleHeader])
-  
+
   //demo data from api
   const data = [];
-  for (let i = 0; i < 46; i++) {
+  for (let i = 0; i < 4; i++) {
     if (i % 2 === 0) {
       data.push(
         {
-          reference: 'MSF' + [i],
-          submitData: '03/02/2023',
-          manager: ['Huy Nguyen'],
-          managerDate: '01/02/2023',
+          reference: 'OFF' + [i],
+          submitDate: '03/02/2023',
+          startDate: '03/02/2023',
+          endDate: '03/03/2023',
+          coverWorker: 'Huy Nguyen',
+          coWoStatus: true,
+          manager: 'Huy Nguyen',
           managerStatus: true,
-          hrDate: '01/02/2023',
           hrStatus: true,
         },
       );
@@ -49,12 +52,14 @@ export default function TimeOffForm(props) {
     else {
       data.push(
         {
-          reference: 'MSF' + [i],
-          submitData: '03/02/2023',
-          manager: ['Khanh Nguyen'],
-          managerDate: '01/02/2023',
+          reference: 'OFF' + [i],
+          submitDate: '03/03/2023',
+          startDate: '03/04/2023',
+          endDate: '03/05/2023',
+          coverWorker: 'Khanh Nguyen',
+          coWoStatus: true,
+          manager: 'Khanh Nguyen',
           managerStatus: false,
-          hrDate: '01/02/2023',
           hrStatus: '...',
         },
       );
@@ -73,26 +78,7 @@ export default function TimeOffForm(props) {
     alwaysShowAllBtns: true,
     custom: true,
     totalSize: data.length,
-    sizePerPageList: [
-      {
-        text: '10', value: 10
-      },
-      {
-        text: '20', value: 20
-      },
-      {
-        text: '30', value: 30
-      },
-      {
-        text: '40', value: 40
-      },
-      {
-        text: '50', value: 50
-      },
-      {
-        text: 'All', value: data.length
-      }
-    ],
+    sizePerPageList: itemsPerPage,
   };
 
   ///// function component for sort icon block
@@ -138,19 +124,37 @@ export default function TimeOffForm(props) {
     formatter: referenceFormatter,
     sortCaret: customSort,
   }, {
-    dataField: 'submitData',
-    text: 'Submit Data',
+    dataField: 'submitDate',
+    text: 'Submit Date',
     sort: true,
     sortCaret: customSort,
 
   }, {
-    dataField: 'manager',
-    text: 'Manager',
+    dataField: 'startDate',
+    text: 'Start Date',
+    sort: true,
+    sortCaret: customSort,
+
+  }, {
+    dataField: 'endDate',
+    text: 'End Date',
     sort: true,
     sortCaret: customSort,
   }, {
-    dataField: 'managerDate',
-    text: 'Manager Date',
+    dataField: 'coverWorker',
+    text: 'Cover Worker',
+    sort: true,
+    sortCaret: customSort,
+  }, {
+    dataField: 'coWoStatus',
+    text: 'Co-Wo Status',
+    sort: true,
+    formatter: statusFormatter,
+    sortCaret: customSort,
+  },
+  {
+    dataField: 'manager',
+    text: 'Manager',
     sort: true,
     sortCaret: customSort,
   }, {
@@ -158,11 +162,6 @@ export default function TimeOffForm(props) {
     text: 'Manager Status',
     sort: true,
     formatter: statusFormatter,
-    sortCaret: customSort,
-  }, {
-    dataField: 'hrDate',
-    text: 'HR Date',
-    sort: true,
     sortCaret: customSort,
   }, {
     dataField: 'hrStatus',
@@ -199,8 +198,13 @@ export default function TimeOffForm(props) {
                           <SizePerPageDropdownStandalone {...paginationProps} />
                           <span>entries</span>
                         </Space>
-                        <Space >
+                        <Space className='d-flex align-items-start'>
                           <SearchBar {...toolkitprops.searchProps} />
+                          <NavLink to='/admin/ticket/time-off/addnew'>
+                            <button className='btn btn-success create_new_form'>
+                              Create
+                            </button>
+                          </NavLink>
                         </Space>
                       </Space>
 

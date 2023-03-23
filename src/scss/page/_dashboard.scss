@@ -38,16 +38,13 @@
         }
     }
 
-    // @media screen and (max-width: 769px) {
-    //     /* STYLES HERE */
-    // }
-    // @media screen and (max-width: 480px) {
-    //     /* STYLES HERE */
-    // }
-    // @media screen and (max-width: 769px) {
-    //     /* STYLES HERE */
-    // }
-    // @media screen and (max-width: 769px) {
-    //     /* STYLES HERE */
-    // }
+    .statusEmployee,
+    .statusGroup {
+        border-radius: 10px;
+    }
+
+    .statusGroup {
+        padding: 10px;
+    }
+
 }

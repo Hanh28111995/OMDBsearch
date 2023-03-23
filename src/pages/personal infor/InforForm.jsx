@@ -48,10 +48,8 @@ export default function InforForm(props) {
                 disabled={props.deactive}
                 style={{ maxWidth: '100%' }}
                 autoComplete='off'
-                disabled = {props.deactive}
             >
                 <Row gutter={24}>
-
                     <Col xs={24} sm={24} md={12} lg={12} >
                         <Form.Item
                             label="Full Name"

@@ -20,16 +20,16 @@ export default function DashBoard(props) {
     
     return (
         <div className='dashboard '>
-            <Space direction='horizontal'>
-                <Space direction='vertical' >
+            <Space direction='horizontal' className='w-100'>
+                <Space direction='vertical' className='w-100'>
                     <StatusEmployee />
                     <StatusGroup />
                 </Space>
-                <Space direction='vertical'>
+                {/* <Space direction='vertical'>
                     <StatusEvent />
                     <StatusEvent />
                     <StatusEvent />
-                </Space>
+                </Space> */}
             </Space>
         </div>
     )

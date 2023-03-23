@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Menu, Space, notification, Avatar } from "antd";
+import { Menu, Avatar } from "antd";
 import Icon from '@mdi/react';
-import { mdiBellRing } from '@mdi/js';
+import { mdiBellRing, mdiMenuOpen } from '@mdi/js';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import IconHeaderLeft from './IconHeaderLeft';
 
 export default function Header(props) {
     function getItem(label, key, icon, children, type, disabled) {
@@ -36,7 +37,7 @@ export default function Header(props) {
         //         getItem('Support', null, <i className="fa-solid fa-paste"></i>),
         //     ]
         // ),
-        getItem('HR Menu', null, <></>, [
+        getItem(<IconHeaderLeft />, null, '', [
             getItem('User Management', null, '---',),
             getItem('TimeSheet', '/admin/hr/timesheet', '---',),
             getItem('Injury Report', null, '---',),
@@ -55,16 +56,15 @@ export default function Header(props) {
 
     return (
 
-        <div className='header d-flex flex-row mr-3' >
+        <div className='header d-flex flex-row ' >
             <div className='header-left d-flex flex-row'>
                 <Menu
+                    className='w-100'
                     mode="horizontal"
                     items={item2}
-                    theme="light"
                     onClick={({ key }) => {
                         navigate(key)
                     }}
-                    
                 >
                 </Menu>
 
@@ -72,7 +72,7 @@ export default function Header(props) {
 
             <div className='header-right d-flex flex-row bg-white'>
                 <div className='d-flex align-items-center'>
-                    <h4 className='mb-0 ml-4'>{userState.titleHeader}</h4>
+                    <h4>{userState.titleHeader}</h4>
                 </div>
 
                 <div className='d-flex align-items-center'>

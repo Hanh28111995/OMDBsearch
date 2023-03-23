@@ -24,7 +24,7 @@ const items1 = [
     getItem('PERSONAL___', null, <span>___</span>, null, null, true),
     getItem('Information', '/admin/personal_information', <Icon path={mdiAccount} size={1} />),
     getItem('Daily Task', '/tomorrow2', <Icon path={mdiFileEdit} size={1} />),
-    getItem('Time Sheet', '/tomorrow3', <Icon path={mdiClockTimeFour} size={1} />),
+    getItem('Time Sheet', '/admin/timesheet', <Icon path={mdiClockTimeFour} size={1} />),
     getItem('Payroll', '/tomorrow4', <Icon path={mdiAccountCash} size={1} />,),
     getItem('Ticket', '/tomorrow5', <Icon path={mdiTicketAccount} size={1} />,
         [

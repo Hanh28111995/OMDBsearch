@@ -36,7 +36,8 @@
         }
     }
 
-    .ant-space-item {
+    .ant-space .ant-space-item {
+        min-width: 100%;
         min-height: 100%;
     }
 

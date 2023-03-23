@@ -1,5 +1,6 @@
 .header {
     // justify-content: space-between;
+    padding: 10px 0px;
 
     #demo1:before,
     #demo2:before {
@@ -104,9 +105,18 @@
 
     .header-left {
         width: 100px;
+        margin-right: 10px;
 
         ul {
+            border-radius: 10px;
+            color: $font-color-7;
+            background-color: #001529;
+
             li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
                 ul {
                     top: 55px;
                     position: absolute !important;
@@ -118,14 +128,59 @@
 
                     .ant-menu-item {
                         padding: 2px 5px !important;
+                        // &:hover{
+
+                        // }    
                     }
                 }
             }
         }
+
+        .ant-menu-submenu:after {
+            border-bottom: none !important;
+        }
+
+        .menu-header-left {
+            font-size: $fs-7;
+            font-weight: bold;
+        }
+
     }
 
     .header-right {
         justify-content: space-between;
         width: calc(100% - 100px);
+        padding: 10px 0px 10px 10px;
+        border-radius: 10px;
+        position: relative;
+
+        h4 {
+            font-size: $fs-4;
+            margin-left: 5px;
+            color: $font-color-7;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            min-height: 100%;
+            width: 5px;
+            background-color: $bg-color-4;
+            padding: 0;
+            top: 0;
+            left: 0;
+            border-radius: 10px 0 0 10px;
+        }
     }
+}
+
+.ant-menu-submenu>.ant-menu {
+    border-radius: 10px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.ant-menu-submenu-popup {
+    padding-top: 10px !important;
+    left: 90px !important;
 }

@@ -19,6 +19,7 @@ import MissPunchAddNew from "../pages/Ticket/MissPunch/MissPunchAddNew";
 import MissPunchForm from "../pages/Ticket/MissPunch/MissPunchTable";
 import TimeOffAddNew from "../pages/Ticket/TimeOff/TimeOffAddNew";
 import TimeOffForm from "../pages/Ticket/TimeOff/TimeOffTable";
+import TimeSheetTable from "../pages/Ticket/TimeSheet/TimeSheetTable";
 
 export default function Router() {
   const routing = useRoutes([
@@ -60,6 +61,11 @@ export default function Router() {
               path: "/admin/personal_information",
               element: <InforForm deactive={true} title='Personal Information' />,
             },
+            {
+              path: "/admin/timesheet",
+              element: <TimeSheetTable  title="Time Sheet" />
+            }
+            ,
             {
               path: "/admin/ticket",
               children: [

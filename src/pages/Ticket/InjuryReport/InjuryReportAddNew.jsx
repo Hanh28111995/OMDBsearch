@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Form,
     DatePicker,
@@ -39,10 +39,9 @@ export default function InjuryReportAddNew(props) {
     const onFinish = (values) => {
         console.log(values)
     }
-
+    const [bodyPart, setBodyPart] = useState([])
 
     return (
-        // <InjuryBodyParts/>
         <Space direction='vertical' className='bg-form pb-5' >
             <Space direction='vertical' className='bg-form-header w-100'>
                 <div className='d-flex justify-content-between'>
@@ -202,38 +201,35 @@ export default function InjuryReportAddNew(props) {
                     </Col>
                 </Row>
                 <p className='text-center'><b>--- Part(s) of Body Affected ---</b></p>
-                <Row gutter={24} className='body-part-effect'>
-                    <Col xs={24} sm={24} md={10} lg={10}>
-                        <Form.Item name="checkboxGroup">
-                            <Checkbox.Group onChange={(checkedValues) => { console.log('checked = ', checkedValues) }}>
-                                <Row gutter={24} className='justify-content-center'><p><b>Left</b></p></Row>
-                                {
-                                    bodyPartsOptions.map((item, index) => {
-                                        return (
-                                            <Row key={'row' + index} gutter={24}>
+                <div className='container-fluid'>
+                <Checkbox.Group className='w-100' onChange={(checkedValues) => { console.log('checked = ', checkedValues); setBodyPart(checkedValues) }}>
+                    <Row gutter={24} className='body-part-effect'>
+                        <Col xs={24} sm={24} md={10} lg={10} >
+                            <Row gutter={24} className='justify-content-center'><p><b>Left</b></p></Row>
+                            {
+                                bodyPartsOptions.map((item, index) => {
+                                    return (
+                                        <Row key={'row' + index} gutter={24}>
 
-                                                {
-                                                    item.map((item_inside, index) => {
-                                                        return (
-                                                            <Col key={'col' + index} xs={6} sm={6} md={6} lg={6} >
-                                                                <Checkbox value={item_inside}>{item_inside}</Checkbox>
-                                                            </Col>
-                                                        )
-                                                    })
-                                                }
+                                            {
+                                                item.map((item_inside, index) => {
+                                                    return (
+                                                        <Col key={'col' + index} xs={6} sm={6} md={6} lg={6} >
+                                                            <Checkbox value={'Left_' + item_inside}>{item_inside}</Checkbox>
+                                                        </Col>
+                                                    )
+                                                })
+                                            }
 
-                                            </Row>
-                                        )
-                                    })
-                                }
-                            </Checkbox.Group>
-                        </Form.Item>
-                    </Col>
-                    <Col xs={24} sm={24} md={4} lg={4} className='text-center'>
-                        <img src={body_img} alt="" className='img-fluid ' />
-                    </Col>
-                    <Col xs={24} sm={24} md={10} lg={10} >
-                        <Checkbox.Group onChange={(checkedValues) => { console.log('checked = ', checkedValues) }}>
+                                        </Row>
+                                    )
+                                })
+                            }
+                        </Col>
+                        <Col xs={24} sm={24} md={4} lg={4} className='text-center'>
+                            <InjuryBodyParts listInjuryPart={bodyPart} />
+                        </Col>
+                        <Col xs={24} sm={24} md={10} lg={10} >
                             <Row gutter={24} className='justify-content-center'><p><b>Right</b></p></Row>
                             {
                                 bodyPartsOptions.map((item, index) => {
@@ -244,7 +240,7 @@ export default function InjuryReportAddNew(props) {
                                                 item.map((item_inside, index) => {
                                                     return (
                                                         <Col key={'col' + index} xs={6} sm={6} md={6} lg={6} >
-                                                            <Checkbox value={item_inside}>{item_inside}</Checkbox>
+                                                            <Checkbox value={'Right_' + item_inside}>{item_inside}</Checkbox>
                                                         </Col>
                                                     )
                                                 })
@@ -254,9 +250,10 @@ export default function InjuryReportAddNew(props) {
                                     )
                                 })
                             }
-                        </Checkbox.Group>
-                    </Col>
-                </Row>
+                        </Col>
+                    </Row>
+                </Checkbox.Group>
+                </div>
                 <p className='text-center mt-5'><b>--- Care ---</b></p>
                 <Row gutter={24}>
                     <Col xs={24} sm={12} md={12} lg={12} >

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card, Col, Row } from 'antd'
 import { Collapse } from 'antd';
+import PanelHeader from './PanelHeader';
+import PanelContent from './PanelContent';
 
 const { Panel } = Collapse;
 const text = `
@@ -14,98 +16,24 @@ export default function StatusGroup() {
     const onChange = (key) => {
         console.log(key);
     };
+    const nameGroup = ['Warehouse', 'Inventory', 'Rework', 'Shipping Clerk', 'Front Operation']
     return (
         <Row gutter={[1, 1]} style={{ backgroundColor: '#fff' }} className='statusGroup'>
-            <Col className="gutter-row" span={24} >
-                <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
-                    <Collapse  onChange={onChange}>
-                        <Panel header="This is panel header 1" key="1">
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </Card>
-            </Col>
-            <Col className="gutter-row" span={24} >
-                <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
-                    <Collapse onChange={onChange}>
-                        <Panel header="This is panel header 1" key="1">
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </Card>
-            </Col>
-            <Col className="gutter-row" span={24} >
-                <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
-                    <Collapse  onChange={onChange}>
-                        <Panel header="This is panel header 1" key="1">
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </Card>
-            </Col>
-            <Col className="gutter-row" span={24} >
-                <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
-                    <Collapse  onChange={onChange}>
-                        <Panel header="This is panel header 1" key="1">
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </Card>
-            </Col>
-            <Col className="gutter-row" span={24} >
-                <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
-                    <Collapse  onChange={onChange}>
-                        <Panel header="This is panel header 1" key="1">
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </Card>
-            </Col>
-            <Col className="gutter-row" span={24} >
-                <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
-                    <Collapse  onChange={onChange}>
-                        <Panel header="This is panel header 1" key="1">
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </Card>
-            </Col>
-            <Col className="gutter-row" span={24} >
-                <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
-                    <Collapse  onChange={onChange}>
-                        <Panel header="This is panel header 1" key="1">
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </Card>
-            </Col>
-            <Col className="gutter-row" span={24} >
-                <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
-                    <Collapse  onChange={onChange}>
-                        <Panel header="This is panel header 1" key="1">
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </Card>
-            </Col>
-            <Col className="gutter-row" span={24} >
-                <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
-                    <Collapse  onChange={onChange}>
-                        <Panel header="This is panel header 1" key="1">
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </Card>
-            </Col>
-            <Col className="gutter-row" span={24} >
-                <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
-                    <Collapse  onChange={onChange}>
-                        <Panel header="This is panel header 1" key="1">
-                            <p>{text}</p>
-                        </Panel>
-                    </Collapse>
-                </Card>
-            </Col>
+            {
+                nameGroup.map((item, index) => {
+                    return (
+                        <Col key={index} className="gutter-row" span={24} >
+                            <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
+                                <Collapse onChange={onChange}>
+                                    <Panel header={<PanelHeader name={item} />} key="1">
+                                        <p>{<PanelContent />}</p>
+                                    </Panel>
+                                </Collapse>
+                            </Card>
+                        </Col>
+                    )
+                })
+            }
         </Row>
     )
 }

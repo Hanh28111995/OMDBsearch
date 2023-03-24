@@ -43,7 +43,8 @@ export default function FooterContent() {
                     </div>
                 </Col>
             </Row>
-            <Row gutter={24}>
+            <hr color='white'/>
+            <Row gutter={24} className='pt-3'>
                 <Col xs={24} sm={12} md={12} lg={8}>
                     <p>© <a class="border-bottom" href="#">2022 WorldCraft Logistics LLC</a>, All Rights Reserved.</p>
                 </Col>

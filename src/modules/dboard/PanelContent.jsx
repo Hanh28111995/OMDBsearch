@@ -9,7 +9,7 @@ import logo from '../../../src/assets/imgs/Logo_no_bg.png'
 export default function PanelContent() {
     return (
         <Row gutter={24} >
-            <Col xs={24} sm={12} md={8} lg={2} >
+            <Col xs={24} sm={12} md={8} lg={3} >
                 <div className='card pt-2'>
                     <Avatar src={logo} size={64} alt="user avatar" className='m-auto' />
                     <div className='card-body p-1'>
@@ -21,7 +21,7 @@ export default function PanelContent() {
                     </div>
                 </div>
             </Col>
-            <Col xs={24} sm={12} md={8} lg={2} >
+            <Col xs={24} sm={12} md={8} lg={3} >
                 <div className='card pt-2'>
                     <Avatar src={logo} size={64} alt="user avatar" className='m-auto' />
                     <div className='card-body p-1'>
@@ -33,7 +33,7 @@ export default function PanelContent() {
                     </div>
                 </div>
             </Col>
-            <Col xs={24} sm={12} md={8} lg={2} >
+            <Col xs={24} sm={12} md={8} lg={3} >
                 <div className='card pt-2'>
                     <Avatar src={logo} size={64} alt="user avatar" className='m-auto' />
                     <div className='card-body p-1'>
@@ -45,7 +45,7 @@ export default function PanelContent() {
                     </div>
                 </div>
             </Col>
-            <Col xs={24} sm={12} md={8} lg={2} >
+            <Col xs={24} sm={12} md={8} lg={3} >
                 <div className='card pt-2'>
                     <Avatar src={logo} size={64} alt="user avatar" className='m-auto' />
                     <div className='card-body p-1'>
@@ -57,7 +57,7 @@ export default function PanelContent() {
                     </div>
                 </div>
             </Col>
-            <Col xs={24} sm={12} md={8} lg={2} >
+            <Col xs={24} sm={12} md={8} lg={3} >
                 <div className='card pt-2'>
                     <Avatar src={logo} size={64} alt="user avatar" className='m-auto' />
                     <div className='card-body p-1'>
@@ -69,7 +69,7 @@ export default function PanelContent() {
                     </div>
                 </div>
             </Col>
-            <Col xs={24} sm={12} md={8} lg={2} >
+            <Col xs={24} sm={12} md={8} lg={3} >
                 <div className='card pt-2'>
                     <Avatar src={logo} size={64} alt="user avatar" className='m-auto' />
                     <div className='card-body p-1'>
@@ -81,7 +81,7 @@ export default function PanelContent() {
                     </div>
                 </div>
             </Col>
-            <Col xs={24} sm={12} md={8} lg={2} >
+            <Col xs={24} sm={12} md={8} lg={3} >
                 <div className='card pt-2'>
                     <Avatar src={logo} size={64} alt="user avatar" className='m-auto' />
                     <div className='card-body p-1'>
@@ -93,6 +93,7 @@ export default function PanelContent() {
                     </div>
                 </div>
             </Col>
+            
         </Row>
     )
 }

@@ -25,7 +25,7 @@ export default function StatusGroup() {
                         <Col key={index} className="gutter-row" span={24} >
                             <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
                                 <Collapse onChange={onChange}>
-                                    <Panel header={<PanelHeader name={item} />} key="1">
+                                    <Panel header={<PanelHeader name={item} />} >
                                         <p>{<PanelContent />}</p>
                                     </Panel>
                                 </Collapse>

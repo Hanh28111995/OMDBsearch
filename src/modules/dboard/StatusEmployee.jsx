@@ -6,8 +6,8 @@ import { Space, Card, Col, Row, Avatar } from 'antd'
 
 export default function StatusEmployee() {
     return (
-            <Row gutter={[8, 8]} style={{ backgroundColor: '#fff' }} className='statusEmployee'>
-                <Col xs={12} sm={6} md={6} lg={6}
+            <Row gutter={24} style={{ backgroundColor: '#fff' }} className='statusEmployee m-0'>
+                <Col xs={12} sm={12} md={12} lg={6}
                     className="gutter-row" span={3} >
                     <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false} className='text-center' >
                         <div className='overlayStatus' style={{ border: '3px solid #096481' }}>
@@ -21,7 +21,7 @@ export default function StatusEmployee() {
                         </div>
                     </Card>
                 </Col>
-                <Col xs={12} sm={6} md={6} lg={6}
+                <Col xs={12} sm={12} md={12} lg={6}
                     className="gutter-row" span={3} >
                     <Card style={{ color: '#ed7d31', backgroundColor: 'transparent' }} bordered={false} className='text-center' >
                         <div className='overlayStatus' style={{ border: '3px solid #ed7d31' }}>
@@ -35,7 +35,7 @@ export default function StatusEmployee() {
                         </div>
                     </Card>
                 </Col>
-                <Col xs={12} sm={6} md={6} lg={6}
+                <Col xs={12} sm={12} md={12} lg={6}
                     className="gutter-row" span={3} >
                     <Card style={{ color: '#70ac48', backgroundColor: 'transparent' }} bordered={false} className='text-center' >
                         <div className='overlayStatus' style={{ border: '3px solid #70ac48' }}>
@@ -49,7 +49,7 @@ export default function StatusEmployee() {
                         </div>
                     </Card>
                 </Col>
-                <Col xs={12} sm={6} md={6} lg={6}
+                <Col xs={12} sm={12} md={12} lg={6}
                     className="gutter-row" span={3} >
                     <Card style={{ color: '#16b7eb', backgroundColor: 'transparent' }} bordered={false} className='text-center' >
                         <div className='overlayStatus' style={{ border: '3px solid #16b7eb' }}>

@@ -63,7 +63,6 @@ export default function Login() {
       <div className="login-bg">
         <div className="block-element text-center py-5 px-3">
           <Space align="start">
-
             <Space.Compact direction="vertical">
               {
                 !forgetPass

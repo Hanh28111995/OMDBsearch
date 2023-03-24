@@ -15,7 +15,7 @@
             text-align: center;
 
             .sideBar-icon-sm {
-                display: list-item;
+                display: block;
             }
 
             .sideBar-icon-lg {
@@ -26,7 +26,7 @@
         &:hover {
             .logo {
                 .sideBar-icon-lg {
-                    display: list-item;
+                    display: block;
                 }
 
                 .sideBar-icon-sm {
@@ -37,7 +37,7 @@
     }
 
     .ant-space .ant-space-item {
-        min-width: 100%;
+       
         min-height: 100%;
     }
 

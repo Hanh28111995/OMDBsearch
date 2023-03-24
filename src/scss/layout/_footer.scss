@@ -1,0 +1,60 @@
+.footer {
+    color: $font-color-2;
+    background-color: red;
+
+    h5,
+    p {
+        color: $font-color-2;
+    }
+
+    .ant-col li a {
+        text-decoration: none;
+        line-height: 2;
+        color: $font-color-2;
+
+        &:hover {
+            color: $font-color-5;
+        }
+    }
+
+    // .footer-service {}
+
+    // .footer-quick-link {}
+
+    .footer-contact li {
+        color: $font-color-2;
+        line-height: 2;
+    }
+
+    .footer-social {
+        li {
+            margin-left: 60px;
+            position: relative;
+
+            a i {
+                font-size: 20px;
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    width: 38px;
+                    height: 38px;
+                    background-color: transparent;
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    bottom: 50%;
+                    right: 50%;
+                    transform: translate(49%, 44%);
+                }
+            }
+
+            &:hover {
+                i {
+                    &::after {
+                        border: 2px solid $font-color-5;
+                    }
+                }
+            }
+        }
+    }
+}

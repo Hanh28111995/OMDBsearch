@@ -5,6 +5,8 @@
     }
 
     .statusEmployee {
+        padding-right: 1%;
+
         .contentStatus {
             float: left;
             width: 100%;
@@ -33,6 +35,7 @@
         .overlayStatus {
             display: flex;
             width: 100%;
+            min-width: 125px;
             height: 70px;
             align-items: center;
             justify-content: center;
@@ -45,12 +48,30 @@
 
     }
 
-    .statusGroup{
-        .ant-card .ant-card-body{
+    .statusGroup {
+        margin-top: 10px;
+
+        .ant-card .ant-card-body {
             padding: 10px 5px;
         }
     }
 
+    .event_content {
+        padding: 2rem;
+        position: relative;
+
+        .event_content_overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
 }
 
 
@@ -59,3 +80,7 @@
     display: block;
     transform: rotate(180deg) !important;
 }
+
+// @media screen and (max-width: 576px) {
+
+// }

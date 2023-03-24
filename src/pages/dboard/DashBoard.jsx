@@ -13,24 +13,23 @@ const { Meta } = Card;
 export default function DashBoard(props) {
     const dispatch = useDispatch();
     const userState = useSelector((state) => state.userReducer)
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(setTitleHeader(props.title))
-    },[userState.titleHeader])
-    
-    
+    }, [userState.titleHeader])
+
+
     return (
         <div className='dashboard '>
-            <Space direction='horizontal' className='w-100'>
-                <Space direction='vertical' className='w-100'>
+            <Row gutter={24} >
+                <Col xs={24} sm={24} md={18} lg={18}>
                     <StatusEmployee />
                     <StatusGroup />
-                </Space>
-                {/* <Space direction='vertical'>
-                    <StatusEvent />
-                    <StatusEvent />
-                    <StatusEvent />
-                </Space> */}
-            </Space>
-        </div>
+                </Col>
+                <Col xs={24} sm={24} md={6} lg={6}>
+                    <StatusEvent eventType='birthday'/>
+                    <StatusEvent eventType='newEmployee'/>
+                </Col>
+            </Row>
+        </div >
     )
 }

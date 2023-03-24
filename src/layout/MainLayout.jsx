@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import lg_logo from '../assets/imgs/Logo__001_no_bg.png'
 import sm_logo from '../assets/imgs/Logo_no_bg.png'
 import Header from './Header';
+import FooterContent from './FooterContent';
 
 const { Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children, type, disabled) {
@@ -77,10 +78,9 @@ export default function MainLayout() {
                             <div className='sideBar-icon-sm' >
                                 <img src={sm_logo} height={50} alt="" />
                             </div>
-                            <div className='sideBar-icon-lg '>
+                            <div className='sideBar-icon-lg'>
                                 <img src={lg_logo} height={50} alt="" />
                             </div>
-                            {/* } */}
                         </a>
                     </div>
                     <Menu
@@ -100,17 +100,15 @@ export default function MainLayout() {
                     />
                 </Sider>
                 <Layout className="site-layout w-100"
-                    style={{ paddingLeft: '80px' }}
+                    style={{ paddingLeft: '90px' , paddingRight:'20px'}}
                 >
-                    <Space direction='horizontal' align='start' className='special_menu'>
+                    <Content
+                        style={{
+                            margin: '0 0.5rem',
+                        }}
+                    >
 
-                        <Content
-                            style={{
-                                margin: '0 0.5rem',
-                            }}
-                        >
-
-                            {/* <Breadcrumb
+                        {/* <Breadcrumb
                                     style={{
                                         margin: '16px 0',
                                     }}
@@ -119,14 +117,14 @@ export default function MainLayout() {
                                     <Breadcrumb.Item>{ }</Breadcrumb.Item>
                                 </Breadcrumb> */}
 
-                            <Header />
-                            <Outlet />
-                            <Footer>
-                                Ant Design ©2018 Created by Ant UED
-                            </Footer>
+                        <Header />
+                        <Outlet />
+                        <Footer className='footer mt-5' style={{borderRadius:'10px',backgroundColor:'#001529'}}>
+                            <FooterContent />
+                        </Footer>
 
-                        </Content>
-                    </Space>
+                    </Content>
+                    {/* </Space> */}
 
                 </Layout>
             </Layout>

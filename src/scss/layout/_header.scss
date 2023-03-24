@@ -104,18 +104,24 @@
     }
 
     .header-left {
-        width: 100px;
         margin-right: 10px;
 
         ul {
-            border-radius: 10px;
-            color: $font-color-7;
-            background-color: #001529;
+            .ant-menu-submenu-active {
+                background-color: $bg-color-4;
+
+                .ant-menu-title-content {
+                    color: $font-color-3;
+                }
+            }
 
             li {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                border-radius: 10px;
+                color: $font-color-7;
+                background-color: #001529;
 
                 ul {
                     top: 55px;
@@ -183,4 +189,14 @@
 .ant-menu-submenu-popup {
     padding-top: 10px !important;
     left: 90px !important;
+}
+
+@media screen and (max-width:576px) {
+    .header .header-right h4 {
+        font-size: 1.5rem;
+    }
+
+    .header .header-left {
+        margin-right: 10px;
+    }
 }

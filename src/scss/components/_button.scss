@@ -1,0 +1,10 @@
+.create_new_form,
+.back-btn {
+    border-radius: 10px;
+    background-color: $bg-color-3 !important;
+    color: white !important;
+
+    &:hover {
+        background-color: $bg-color-4 !important;
+    }
+}

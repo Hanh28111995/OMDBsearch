@@ -35,7 +35,7 @@
         .overlayStatus {
             display: flex;
             width: 100%;
-            min-width: 125px;
+            min-width: 95px;
             height: 70px;
             align-items: center;
             justify-content: center;
@@ -43,7 +43,12 @@
             position: relative;
             margin-left: auto;
             margin-right: auto;
-            // font-size: ;
+            .contentStatus{
+                svg{
+                    width: 45px;
+                    height: 45px;
+                }
+            }
         }
 
     }
@@ -76,11 +81,50 @@
 
 
 
-.with-chevron[aria-expanded='true'] i {
-    display: block;
-    transform: rotate(180deg) !important;
+// .with-chevron[aria-expanded='true'] i {
+//     display: block;
+//     transform: rotate(180deg) !important;
+// }
+
+@media screen and (max-width: 576px) {
+    .dashboard{
+        .statusEmployee{
+            .overlayStatus{
+                width: 95px;
+                height: 50px;
+                .contentStatus{
+                    svg{
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
+    }
 }
 
-// @media screen and (max-width: 576px) {
-
-// }
+@media screen and (max-width: 376px) {
+    .dashboard{
+        .statusEmployee{
+            .overlayStatus{
+                min-width: 40px;
+                width: 70px;
+                height: 45px;
+                .contentStatus{
+                    svg{
+                        width: 20px;
+                        height: 20px;
+                    }
+                    .contentStatus_child{
+                        .contentStatus_child_num{
+                            font-size: 12px;
+                        }
+                        .contentStatus_child_text{
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -37,7 +37,7 @@ const items1 = [
         ]),
 
     getItem('DEPARTMENT___', null, <span>___</span>, null, null, true),
-    getItem('Calendar', '/tomorrow6', <Icon path={mdiCalendarMonth} size={1} />),
+    getItem('Calendar', '/admin/department/calendar', <Icon path={mdiCalendarMonth} size={1} />),
     getItem('TO-CoWorker', '/tomorrow7', <Icon path={mdiAccountNetwork} size={1} />),
     getItem('Manager', '/tomorrow8', <Icon path={mdiAccountSupervisor} size={1} />),
 
@@ -100,7 +100,7 @@ export default function MainLayout() {
                     />
                 </Sider>
                 <Layout className="site-layout w-100"
-                    style={{ paddingLeft: '90px' , paddingRight:'20px'}}
+                    style={{ paddingLeft: '90px', paddingRight: '20px' }}
                 >
                     <Content
                         style={{
@@ -119,7 +119,7 @@ export default function MainLayout() {
 
                         <Header />
                         <Outlet />
-                        <Footer className='footer mt-5' style={{borderRadius:'10px',backgroundColor:'#001529'}}>
+                        <Footer className='footer mt-5' style={{ borderRadius: '10px', backgroundColor: '#001529' }}>
                             <FooterContent />
                         </Footer>
 

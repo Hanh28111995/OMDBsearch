@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import logo from '../../../src/assets/imgs/body_img.jpg'
-import './index.scss'
-
 
 export default function InjuryBodyParts(props) {
   useEffect(() => {

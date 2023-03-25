@@ -26,7 +26,7 @@ export default function StatusGroup() {
                             <Card style={{ color: '#096481', backgroundColor: 'transparent' }} bordered={false}  >
                                 <Collapse onChange={onChange}>
                                     <Panel header={<PanelHeader name={item} />} >
-                                        <p>{<PanelContent />}</p>
+                                        {<PanelContent />}
                                     </Panel>
                                 </Collapse>
                             </Card>

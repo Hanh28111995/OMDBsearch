@@ -22,8 +22,8 @@ export default function Header(props) {
     const [closeM, setCloseM] = useState(false)
     const [closeR, setCloseR] = useState(false)
     let blurEvent = () => {
-        setCloseM(false);
-        setCloseR(false);
+        setCloseM(true);
+        setCloseR(true);
     }
     let clickEvent = () => {
         setCloseM(false);
@@ -56,11 +56,9 @@ export default function Header(props) {
 
     return (
 
-        <div className='header d-flex flex-row ' >
+        <div className='header d-flex' >
             <div className='header-left d-flex flex-row'>
                 <Menu
-                    className='w-100'
-                    mode="horizontal"
                     items={item2}
                     onClick={({ key }) => {
                         navigate(key)
@@ -104,7 +102,7 @@ export default function Header(props) {
                     </div>
                     <div style={{ position: 'relative', display: "flex" }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
                         <div className='menu_acc' data-toggle="collapse" data-target="#demo1">
-                            <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg" size={45} />
+                            <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg" />
                             <span className='pl-1'><i className="fa-solid fa-caret-down"></i></span>
                         </div>
                         <div id="demo1" className={`menu_acc_list collapse ${closeM ? "hide" : ""} py-2`}>

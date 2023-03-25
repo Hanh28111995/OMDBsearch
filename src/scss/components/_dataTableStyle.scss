@@ -1,6 +1,7 @@
 .dataTable {
     .react-bootstrap-table {
         table thead th {
+            white-space: nowrap;
             .ant-space {
                 gap: 0 !important;
                 position: relative;

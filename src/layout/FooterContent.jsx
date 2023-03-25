@@ -5,7 +5,7 @@ export default function FooterContent() {
     return (
         <div className='container-fluid'>
             <Row gutter={24}>
-                <Col xs={24} sm={12} md={12} lg={8}>
+                <Col xs={24} sm={8} md={8} lg={8}>
                     <div>
                         <h5>SERVICES</h5>
                         <ul className='footer-service'>
@@ -18,7 +18,7 @@ export default function FooterContent() {
                         </ul>
                     </div>
                 </Col>
-                <Col xs={24} sm={12} md={12} lg={8}>
+                <Col xs={24} sm={8} md={8} lg={8}>
                     <div>
                         <h5>QUICK LINKS</h5>
                         <ul className='footer-quick-link'>
@@ -30,7 +30,7 @@ export default function FooterContent() {
                         </ul>
                     </div>
                 </Col>
-                <Col xs={24} sm={12} md={12} lg={8}>
+                <Col xs={24} sm={8} md={8} lg={8}>
                     <div>
                         <h5>CONTACT INFO</h5>
                         <ul className='footer-contact'>
@@ -43,15 +43,14 @@ export default function FooterContent() {
                     </div>
                 </Col>
             </Row>
-            <hr color='white'/>
+            <hr color='white' />
             <Row gutter={24} className='pt-3'>
-                <Col xs={24} sm={12} md={12} lg={8}>
-                    <p>© <a class="border-bottom" href="#">2022 WorldCraft Logistics LLC</a>, All Rights Reserved.</p>
+                <Col xs={24} sm={16} md={16} lg={16}>
+                    <p>© <a className="border-bottom" href="#">2022 WorldCraft Logistics LLC</a>, All Rights Reserved.</p>
                 </Col>
-                <Col xs={24} sm={12} md={12} lg={8}></Col>
-                <Col xs={24} sm={12} md={12} lg={8}>
+                <Col xs={24} sm={8} md={8} lg={8}>
                     <ul className='footer-social' style={{ display: 'inline-flex' }}>
-                        <li><a href="#"><i className='fab fa-facebook-f'></i></a></li>
+                        <li style={{ marginRight: '50px' }}><a href="#"><i className='fab fa-facebook-f'></i></a></li>
                         <li><a href="#"><i className='fab fa-linkedin-in'></i></a></li>
                         <li><a href="#"><i className='fab fa-youtube'></i></a></li>
                     </ul>

@@ -49,7 +49,7 @@ export default function MissPunchAddNew(props) {
                         <h4>Create New Miss Punch</h4>
                     </div>
                     <NavLink to='/admin/ticket/miss-punch'>
-                        <button className='btn btn-success back-btn'>
+                        <button className='btn back-btn'>
                             Back
                         </button>
                     </NavLink>

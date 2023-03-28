@@ -147,8 +147,25 @@ input {
 .layOut_wrapper > .ant-layout .ant-layout-sider:hover .logo .sideBar-icon-sm {
   display: none;
 }
+.layOut_wrapper > .ant-layout .ant-layout-sider .overlay_cover_sidevbar {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+}
 .layOut_wrapper > .ant-layout .ant-space .ant-space-item {
   min-height: 100%;
+}
+
+.overlay_cover_content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: transparent;
+  top: 0;
+  left: 0;
 }
 
 .dashboard .ant-card {
@@ -405,6 +422,288 @@ input {
   border: none;
 }
 
+.mainZone {
+  position: relative;
+  height: 262px;
+  width: 143px;
+}
+.mainZone .injuryZone .text-danger-glow {
+  color: #ff4141;
+  font-size: 7px;
+  text-shadow: 0 0 20px #f00, 0 0 30px #f00, 0 0 40px #f00, 0 0 50px #f00, 0 0 60px #f00, 0 0 70px #f00;
+}
+.mainZone .injuryZone .blink {
+  -webkit-animation: blinker 1s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+          animation: blinker 1s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+}
+@-webkit-keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.mainZone .injuryZone .Left_Foot {
+  position: absolute;
+  bottom: 22px;
+  left: 58px;
+}
+.mainZone .injuryZone .Left_Ankle {
+  position: absolute;
+  bottom: 32px;
+  left: 58px;
+}
+.mainZone .injuryZone .Left_Knee {
+  position: absolute;
+  bottom: 80px;
+  left: 55px;
+}
+.mainZone .injuryZone .Left_Shin {
+  position: absolute;
+  bottom: 50px;
+  left: 57px;
+}
+.mainZone .injuryZone .Left_Caft {
+  position: absolute;
+  bottom: 57px;
+  left: 55px;
+}
+.mainZone .injuryZone .Left_Thign {
+  position: absolute;
+  bottom: 115px;
+  left: 52px;
+}
+.mainZone .injuryZone .Left_Buttocks {
+  position: absolute;
+  bottom: 135px;
+  left: 55px;
+}
+.mainZone .injuryZone .Left_Waist,
+.mainZone .injuryZone .Left_Hip {
+  position: absolute;
+  bottom: 150px;
+  left: 52px;
+}
+.mainZone .injuryZone .Left_Groin {
+  position: absolute;
+  bottom: 125px;
+  left: 60px;
+}
+.mainZone .injuryZone .Left_Stomach {
+  position: absolute;
+  bottom: 155px;
+  left: 60px;
+}
+.mainZone .injuryZone .Left_Ribs {
+  position: absolute;
+  bottom: 168px;
+  left: 55px;
+}
+.mainZone .injuryZone .Left_Chest {
+  position: absolute;
+  bottom: 185px;
+  left: 55px;
+}
+.mainZone .injuryZone .Left_Back {
+  position: absolute;
+  bottom: 170px;
+  left: 62px;
+}
+.mainZone .injuryZone .Left_Shoulder {
+  position: absolute;
+  bottom: 200px;
+  left: 48px;
+}
+.mainZone .injuryZone .Left_Neck {
+  position: absolute;
+  bottom: 205px;
+  left: 60px;
+}
+.mainZone .injuryZone .Left_Hand {
+  position: absolute;
+  bottom: 145px;
+  left: 43px;
+}
+.mainZone .injuryZone .Left_Wrist {
+  position: absolute;
+  bottom: 146px;
+  left: 40px;
+}
+.mainZone .injuryZone .Left_Forearm {
+  position: absolute;
+  bottom: 155px;
+  left: 35px;
+}
+.mainZone .injuryZone .Left_Elbow {
+  position: absolute;
+  bottom: 171px;
+  left: 30px;
+}
+.mainZone .injuryZone .Left_Bicep {
+  position: absolute;
+  bottom: 182px;
+  left: 37px;
+}
+.mainZone .injuryZone .Left_Head,
+.mainZone .injuryZone .Left_Forehead,
+.mainZone .injuryZone .Right_Head,
+.mainZone .injuryZone .Right_Forehead {
+  position: absolute;
+  bottom: 228px;
+  left: 64px;
+}
+.mainZone .injuryZone .Left_Ears {
+  position: absolute;
+  bottom: 220px;
+  left: 55px;
+}
+.mainZone .injuryZone .Left_Eyes {
+  position: absolute;
+  bottom: 220px;
+  left: 62px;
+}
+.mainZone .injuryZone .Right_Foot {
+  position: absolute;
+  bottom: 22px;
+  left: 75px;
+}
+.mainZone .injuryZone .Right_Ankle {
+  position: absolute;
+  bottom: 33px;
+  left: 75px;
+}
+.mainZone .injuryZone .Right_Knee {
+  position: absolute;
+  bottom: 80px;
+  left: 72px;
+}
+.mainZone .injuryZone .Right_Shin {
+  position: absolute;
+  bottom: 53px;
+  left: 72px;
+}
+.mainZone .injuryZone .Right_Caft {
+  position: absolute;
+  bottom: 57px;
+  left: 77px;
+}
+.mainZone .injuryZone .Right_Thign {
+  position: absolute;
+  bottom: 115px;
+  left: 72px;
+}
+.mainZone .injuryZone .Right_Buttocks {
+  position: absolute;
+  bottom: 137px;
+  left: 75px;
+}
+.mainZone .injuryZone .Right_Waist,
+.mainZone .injuryZone .Right_Hip {
+  position: absolute;
+  bottom: 150px;
+  left: 77px;
+}
+.mainZone .injuryZone .Right_Groin {
+  position: absolute;
+  bottom: 125px;
+  left: 70px;
+}
+.mainZone .injuryZone .Right_Stomach {
+  position: absolute;
+  bottom: 155px;
+  left: 70px;
+}
+.mainZone .injuryZone .Right_Ribs {
+  position: absolute;
+  bottom: 168px;
+  left: 75px;
+}
+.mainZone .injuryZone .Right_Chest {
+  position: absolute;
+  bottom: 185px;
+  left: 73px;
+}
+.mainZone .injuryZone .Right_Back {
+  position: absolute;
+  bottom: 170px;
+  left: 68px;
+}
+.mainZone .injuryZone .Right_Shoulder {
+  position: absolute;
+  bottom: 200px;
+  left: 83px;
+}
+.mainZone .injuryZone .Right_Neck {
+  position: absolute;
+  bottom: 205px;
+  left: 70px;
+}
+.mainZone .injuryZone .Right_Hand {
+  position: absolute;
+  bottom: 118px;
+  left: 88px;
+}
+.mainZone .injuryZone .Right_Wrist {
+  position: absolute;
+  bottom: 125px;
+  left: 88px;
+}
+.mainZone .injuryZone .Right_Forearm {
+  position: absolute;
+  bottom: 140px;
+  left: 88px;
+}
+.mainZone .injuryZone .Right_Elbow {
+  position: absolute;
+  bottom: 157px;
+  left: 90px;
+}
+.mainZone .injuryZone .Right_Bicep {
+  position: absolute;
+  bottom: 178px;
+  left: 88px;
+}
+.mainZone .injuryZone .Right_Ears {
+  position: absolute;
+  bottom: 220px;
+  left: 73px;
+}
+.mainZone .injuryZone .Right_Eyes {
+  position: absolute;
+  bottom: 220px;
+  left: 68px;
+}
+.mainZone .injuryZone .Left_Nose,
+.mainZone .injuryZone .Right_Nose {
+  position: absolute;
+  bottom: 217px;
+  left: 65px;
+}
+.mainZone .injuryZone .Left_Mount,
+.mainZone .injuryZone .Right_Mount {
+  position: absolute;
+  bottom: 212px;
+  left: 65px;
+}
+.mainZone .injuryZone .Left_Chin,
+.mainZone .injuryZone .Right_Chin {
+  position: absolute;
+  bottom: 210px;
+  left: 65px;
+}
+
+.dataTable .react-bootstrap-table table {
+  overflow: auto;
+}
 .dataTable .react-bootstrap-table table thead th {
   white-space: nowrap;
 }
@@ -709,18 +1008,16 @@ input {
 .header .menu_acc_list ul li,
 .header .menu_notificate ul li {
   padding: 7px 20px;
+  cursor: pointer;
 }
-.header .menu_acc_list ul li a,
-.header .menu_notificate ul li a {
-  text-decoration: none;
-  color: inherit;
-}
-.header .menu_acc_list ul li a i,
-.header .menu_notificate ul li a i {
+.header .menu_acc_list ul li i,
+.header .menu_notificate ul li i {
   margin-right: 10px;
 }
-.header .hide {
-  display: none;
+.header .menu_acc_list ul li:hover,
+.header .menu_notificate ul li:hover {
+  background-color: gray;
+  color: white;
 }
 .header .header-left {
   margin-right: 10px;

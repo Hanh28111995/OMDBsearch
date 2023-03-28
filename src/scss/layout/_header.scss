@@ -67,22 +67,19 @@
 
             li {
                 padding: 7px 20px;
+                cursor: pointer;
 
-                a {
-                    text-decoration: none;
-                    color: inherit;
+                i {
+                    margin-right: 10px;
+                }
 
-                    i {
-                        margin-right: 10px;
-                    }
+                &:hover {
+                    background-color: gray;
+                    color: white;
                 }
             }
 
         }
-    }
-
-    .hide {
-        display: none;
     }
 
     .header-left {
@@ -92,7 +89,6 @@
             border-radius: 10px;
 
             .ant-menu-submenu-active {
-                // width: auto;
                 background-color: $bg-color-4;
 
                 .ant-menu-title-content {

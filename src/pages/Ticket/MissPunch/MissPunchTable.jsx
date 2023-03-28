@@ -31,6 +31,14 @@ export default function MissPunchForm(props) {
     dispatch(setTitleHeader(props.title))
   }, [userState.titleHeader])
 
+  useEffect(() => {
+    let control = document.querySelector('.react-bootstrap-table');
+    control.addEventListener('scroll', handleScroll, true)
+  }, []);
+
+  function handleScroll() {
+    console.log("hello")
+  }
   //demo data from api
   const data = [];
   for (let i = 0; i < 46; i++) {

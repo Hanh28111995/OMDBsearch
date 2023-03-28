@@ -5,6 +5,7 @@ import { mdiBellRing, mdiMenuOpen } from '@mdi/js';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import IconHeaderLeft from './IconHeaderLeft';
+import { pathChangeInfor } from '../constants/headerPath';
 
 export default function Header(props) {
     function getItem(label, key, icon, children, type, disabled) {
@@ -20,13 +21,16 @@ export default function Header(props) {
     const userState = useSelector((state) => state.userReducer)
     const navigate = useNavigate()
     const [closeM, setCloseM] = useState(false)
-    const [closeR, setCloseR] = useState(false)
-    let blurEvent = () => {
+
+    const blurEvent = () => {
         setCloseM(true);
-        setCloseR(true);
     }
-    let clickEvent = () => {
+    const clickEvent = () => {
         setCloseM(false);
+    }
+    const navFunc = (path) => {
+        setCloseM(true);
+        navigate(path)
     }
 
     const item2 = [
@@ -82,20 +86,16 @@ export default function Header(props) {
                         </div>
                         <div id="demo2" className={`menu_notificate collapse ${closeM ? "hide" : ""}`}>
                             <div className='pt-3 text-center'>
-                                <a href="#">Xem tất cả thông báo</a>
+                                <p>Xem tất cả thông báo</p>
                             </div>
                             <ul>
                                 <li>
-                                    <a href="">
-                                        <p>Time1</p>
-                                        <p>Event1</p>
-                                    </a>
+                                    <p>Time1</p>
+                                    <p>Event1</p>
                                 </li>
                                 <li>
-                                    <a href="">
-                                        <p>Time2</p>
-                                        <p>Event2</p>
-                                    </a>
+                                    <p>Time2</p>
+                                    <p>Event2</p>
                                 </li>
                             </ul>
                         </div>
@@ -107,9 +107,9 @@ export default function Header(props) {
                         </div>
                         <div id="demo1" className={`menu_acc_list collapse ${closeM ? "hide" : ""} py-2`}>
                             <ul>
-                                <li><a href=""><i className="fa-solid fa-user"></i>Change Avatar</a></li>
-                                <li><a href=""><i className="fa-solid fa-lock"></i>Change Password</a></li>
-                                <li><a href=""><i className="fa-regular fa-life-ring"></i>Support</a></li>
+                                <li onClick={() => { navFunc(pathChangeInfor.changeAvt) }}><i className="fa-solid fa-user"></i>Change Avatar</li>
+                                <li onClick={() => { navFunc(pathChangeInfor.changePassword) }}><i className="fa-solid fa-lock"></i>Change Password</li>
+                                <li onClick={() => { navFunc(pathChangeInfor.Idealsupport) }}><i className="fa-regular fa-life-ring"></i>Support</li>
                             </ul>
                         </div>
                     </div>

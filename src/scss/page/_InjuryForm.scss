@@ -1,0 +1,326 @@
+.mainZone {
+    position: relative;
+    height: 262px;
+    width: 143px;
+
+    .injuryZone {
+        .text-danger-glow {
+            color: #ff4141;
+            font-size: 7px;
+            text-shadow: 0 0 20px #f00, 0 0 30px #f00, 0 0 40px #f00, 0 0 50px #f00, 0 0 60px #f00, 0 0 70px #f00;
+        }
+
+        .blink {
+            animation: blinker 1s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+        }
+
+        @keyframes blinker {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    }
+
+    .injuryZone .Left_Foot {
+        position: absolute;
+        bottom: 22px;
+        left: 58px;
+    }
+
+    .injuryZone .Left_Ankle {
+        position: absolute;
+        bottom: 32px;
+        left: 58px;
+    }
+
+    .injuryZone .Left_Knee {
+        position: absolute;
+        bottom: 80px;
+        left: 55px;
+    }
+
+    .injuryZone .Left_Shin {
+        position: absolute;
+        bottom: 50px;
+        left: 57px;
+    }
+
+    .injuryZone .Left_Caft {
+        position: absolute;
+        bottom: 57px;
+        left: 55px;
+    }
+
+    .injuryZone .Left_Thign {
+        position: absolute;
+        bottom: 115px;
+        left: 52px;
+    }
+
+    .injuryZone .Left_Buttocks {
+        position: absolute;
+        bottom: 135px;
+        left: 55px;
+    }
+
+    .injuryZone .Left_Waist,
+    .injuryZone .Left_Hip {
+        position: absolute;
+        bottom: 150px;
+        left: 52px;
+    }
+
+    .injuryZone .Left_Groin {
+        position: absolute;
+        bottom: 125px;
+        left: 60px;
+    }
+
+    .injuryZone .Left_Stomach {
+        position: absolute;
+        bottom: 155px;
+        left: 60px;
+    }
+
+    .injuryZone .Left_Ribs {
+        position: absolute;
+        bottom: 168px;
+        left: 55px;
+    }
+
+    .injuryZone .Left_Chest {
+        position: absolute;
+        bottom: 185px;
+        left: 55px;
+    }
+
+    .injuryZone .Left_Back {
+        position: absolute;
+        bottom: 170px;
+        left: 62px;
+    }
+
+    .injuryZone .Left_Shoulder {
+        position: absolute;
+        bottom: 200px;
+        left: 48px;
+    }
+
+    .injuryZone .Left_Neck {
+        position: absolute;
+        bottom: 205px;
+        left: 60px;
+    }
+
+    .injuryZone .Left_Hand {
+        position: absolute;
+        bottom: 145px;
+        left: 43px;
+    }
+
+    .injuryZone .Left_Wrist {
+        position: absolute;
+        bottom: 146px;
+        left: 40px;
+    }
+
+    .injuryZone .Left_Forearm {
+        position: absolute;
+        bottom: 155px;
+        left: 35px;
+    }
+
+    .injuryZone .Left_Elbow {
+        position: absolute;
+        bottom: 171px;
+        left: 30px;
+    }
+
+    .injuryZone .Left_Bicep {
+        position: absolute;
+        bottom: 182px;
+        left: 37px;
+    }
+
+    .injuryZone .Left_Head,
+    .injuryZone .Left_Forehead,
+    .injuryZone .Right_Head,
+    .injuryZone .Right_Forehead {
+        position: absolute;
+        bottom: 228px;
+        left: 64px;
+    }
+
+    .injuryZone .Left_Ears {
+        position: absolute;
+        bottom: 220px;
+        left: 55px;
+    }
+
+    .injuryZone .Left_Eyes {
+        position: absolute;
+        bottom: 220px;
+        left: 62px;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+    .injuryZone .Right_Foot {
+        position: absolute;
+        bottom: 22px;
+        left: 75px;
+    }
+
+    .injuryZone .Right_Ankle {
+        position: absolute;
+        bottom: 33px;
+        left: 75px;
+    }
+
+    .injuryZone .Right_Knee {
+        position: absolute;
+        bottom: 80px;
+        left: 72px;
+    }
+
+    .injuryZone .Right_Shin {
+        position: absolute;
+        bottom: 53px;
+        left: 72px;
+    }
+
+    .injuryZone .Right_Caft {
+        position: absolute;
+        bottom: 57px;
+        left: 77px;
+    }
+
+    .injuryZone .Right_Thign {
+        position: absolute;
+        bottom: 115px;
+        left: 72px;
+    }
+
+    .injuryZone .Right_Buttocks {
+        position: absolute;
+        bottom: 137px;
+        left: 75px;
+    }
+
+    .injuryZone .Right_Waist,
+    .injuryZone .Right_Hip {
+        position: absolute;
+        bottom: 150px;
+        left: 77px;
+    }
+
+    .injuryZone .Right_Groin {
+        position: absolute;
+        bottom: 125px;
+        left: 70px;
+    }
+
+    .injuryZone .Right_Stomach {
+        position: absolute;
+        bottom: 155px;
+        left: 70px;
+    }
+
+    .injuryZone .Right_Ribs {
+        position: absolute;
+        bottom: 168px;
+        left: 75px;
+    }
+
+    .injuryZone .Right_Chest {
+        position: absolute;
+        bottom: 185px;
+        left: 73px;
+    }
+
+    .injuryZone .Right_Back {
+        position: absolute;
+        bottom: 170px;
+        left: 68px;
+    }
+
+    .injuryZone .Right_Shoulder {
+        position: absolute;
+        bottom: 200px;
+        left: 83px;
+    }
+
+    .injuryZone .Right_Neck {
+        position: absolute;
+        bottom: 205px;
+        left: 70px;
+    }
+
+    .injuryZone .Right_Hand {
+        position: absolute;
+        bottom: 118px;
+        left: 88px;
+    }
+
+    .injuryZone .Right_Wrist {
+        position: absolute;
+        bottom: 125px;
+        left: 88px;
+    }
+
+    .injuryZone .Right_Forearm {
+        position: absolute;
+        bottom: 140px;
+        left: 88px;
+    }
+
+    .injuryZone .Right_Elbow {
+        position: absolute;
+        bottom: 157px;
+        left: 90px;
+    }
+
+    .injuryZone .Right_Bicep {
+        position: absolute;
+        bottom: 178px;
+        left: 88px;
+    }
+
+    .injuryZone .Right_Ears {
+        position: absolute;
+        bottom: 220px;
+        left: 73px;
+    }
+
+    .injuryZone .Right_Eyes {
+        position: absolute;
+        bottom: 220px;
+        left: 68px;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+
+    .injuryZone .Left_Nose,
+    .injuryZone .Right_Nose {
+        position: absolute;
+        bottom: 217px;
+        left: 65px;
+    }
+
+    .injuryZone .Left_Mount,
+    .injuryZone .Right_Mount {
+        position: absolute;
+        bottom: 212px;
+        left: 65px;
+    }
+
+    .injuryZone .Left_Chin,
+    .injuryZone .Right_Chin {
+        position: absolute;
+        bottom: 210px;
+        left: 65px;
+    }
+}

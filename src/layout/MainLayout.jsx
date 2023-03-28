@@ -59,7 +59,7 @@ export default function MainLayout() {
         navigate('/login');
     }
     const [collapsed, setCollapsed] = useState(true);
-
+    const [overlayCover, setOverlayCover] = useState(true)
     return (
         <div className='layOut_wrapper'>
             <Layout
@@ -98,36 +98,32 @@ export default function MainLayout() {
                             }
                         }}
                     />
+                    {overlayCover &&
+                        <div
+                            className='overlay_cover_sidevbar'
+                            onClick={() => { setOverlayCover(false) }}
+                        >
+                        </div>
+                    }
                 </Sider>
                 <Layout className="site-layout w-100"
                     style={{ paddingLeft: '90px', paddingRight: '20px' }}
+                    onClick={() => { setCollapsed(true); setOverlayCover(true) }}
                 >
                     <Content
                         style={{
                             margin: '0 0.5rem',
                         }}
                     >
-
-                        {/* <Breadcrumb
-                                    style={{
-                                        margin: '16px 0',
-                                    }}
-                                >
-                                    <Breadcrumb.Item>{ }</Breadcrumb.Item>
-                                    <Breadcrumb.Item>{ }</Breadcrumb.Item>
-                                </Breadcrumb> */}
-
                         <Header />
                         <Outlet />
                         <Footer className='footer mt-5' style={{ borderRadius: '10px', backgroundColor: '#001529' }}>
                             <FooterContent />
                         </Footer>
-
                     </Content>
-                    {/* </Space> */}
 
                 </Layout>
             </Layout>
-        </div>
+        </div >
     )
 }

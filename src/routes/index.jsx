@@ -7,6 +7,9 @@ import NoAuthGuards from "../guards/no-auth.guards";
 import MainLayout from "../layout/MainLayout";
 import StatusEmployee from "../modules/dboard/StatusEmployee";
 import DayOffCalendar from "../pages/Calendar/DayOffCalendar";
+import ChangeAvatar from "../pages/ChangePersonInfo/ChangeAvatar";
+import ChangePassword from "../pages/ChangePersonInfo/ChangePassword";
+import Support from "../pages/ChangePersonInfo/Support";
 import DashBoard from "../pages/dboard/DashBoard";
 import MissPunchDetail from "../pages/Detail/MissPunchDetail";
 import TimesheetExp from "../pages/HRpages/Timesheet/TimesheetExp";
@@ -55,8 +58,16 @@ export default function Router() {
               element: <DashBoard title="Dashboard" />,
             },
             {
-              path: "/admin2",
-              element: <StatusEmployee />,
+              path: "/admin/employee/change-avatar",
+              element: <ChangeAvatar />,
+            },
+            {
+              path: "/admin/employee/change-password",
+              element: <ChangePassword />,
+            },
+            {
+              path: "/admin/employee/support",
+              element: <Support />,
             },
             {
               path: "/admin/personal_information",

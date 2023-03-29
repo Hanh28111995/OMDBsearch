@@ -119,34 +119,40 @@ export default function TimeOffForm(props) {
 
   const columns = [{
     dataField: 'reference',
+    headerClasses: 'headerTableStyle',
     text: 'Reference',
     sort: true,
     formatter: referenceFormatter,
     sortCaret: customSort,
   }, {
     dataField: 'submitDate',
+    headerClasses: 'headerTableStyle',
     text: 'Submit Date',
     sort: true,
     sortCaret: customSort,
 
   }, {
     dataField: 'startDate',
+    headerClasses: 'headerTableStyle',
     text: 'Start Date',
     sort: true,
     sortCaret: customSort,
 
   }, {
     dataField: 'endDate',
+    headerClasses: 'headerTableStyle',
     text: 'End Date',
     sort: true,
     sortCaret: customSort,
   }, {
     dataField: 'coverWorker',
+    headerClasses: 'headerTableStyle',
     text: 'Cover Worker',
     sort: true,
     sortCaret: customSort,
   }, {
     dataField: 'coWoStatus',
+    headerClasses: 'headerTableStyle',
     text: 'Co-Wo Status',
     sort: true,
     formatter: statusFormatter,
@@ -154,17 +160,20 @@ export default function TimeOffForm(props) {
   },
   {
     dataField: 'manager',
+    headerClasses: 'headerTableStyle',
     text: 'Manager',
     sort: true,
     sortCaret: customSort,
   }, {
     dataField: 'managerStatus',
+    headerClasses: 'headerTableStyle',
     text: 'Manager Status',
     sort: true,
     formatter: statusFormatter,
     sortCaret: customSort,
   }, {
     dataField: 'hrStatus',
+    headerClasses: 'headerTableStyle',
     text: 'HR Status',
     sort: true,
     formatter: statusFormatter,
@@ -211,6 +220,8 @@ export default function TimeOffForm(props) {
                       <hr />
                       <BootstrapTable
                         bootstrap4
+                        wrapperClasses='table-responsive'
+                        striped
                         keyField='reference'
                         data={data}
                         columns={columns}

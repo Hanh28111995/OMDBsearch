@@ -123,39 +123,47 @@ export default function MissPunchForm(props) {
 
   const columns = [{
     dataField: 'reference',
+    headerClasses: 'headerTableStyle',
     text: 'Reference',
     sort: true,
     formatter: referenceFormatter,
     sortCaret: customSort,
+
   }, {
     dataField: 'submitDate',
+    headerClasses: 'headerTableStyle',
     text: 'Submit Date',
     sort: true,
     sortCaret: customSort,
 
   }, {
     dataField: 'manager',
+    headerClasses: 'headerTableStyle',
     text: 'Manager',
     sort: true,
     sortCaret: customSort,
   }, {
     dataField: 'managerDate',
+    headerClasses: 'headerTableStyle',
     text: 'Manager Date',
     sort: true,
     sortCaret: customSort,
   }, {
     dataField: 'managerStatus',
+    headerClasses: 'headerTableStyle',
     text: 'Manager Status',
     sort: true,
     formatter: statusFormatter,
     sortCaret: customSort,
   }, {
     dataField: 'hrDate',
+    headerClasses: 'headerTableStyle',
     text: 'HR Date',
     sort: true,
     sortCaret: customSort,
   }, {
     dataField: 'hrStatus',
+    headerClasses: 'headerTableStyle',
     text: 'HR Status',
     sort: true,
     formatter: statusFormatter,
@@ -202,6 +210,8 @@ export default function MissPunchForm(props) {
                       <hr />
                       <BootstrapTable
                         bootstrap4
+                        wrapperClasses='table-responsive'
+                        striped
                         keyField='reference'
                         data={data}
                         columns={columns}

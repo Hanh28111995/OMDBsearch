@@ -7,8 +7,9 @@ import { setUserInfor } from '../store/actions/user.action';
 import { useDispatch } from 'react-redux';
 import lg_logo from '../assets/imgs/Logo__001_no_bg.png'
 import sm_logo from '../assets/imgs/Logo_no_bg.png'
-import Header from './Header';
+import Header from './HeaderContent';
 import FooterContent from './FooterContent';
+import HeaderContent from './HeaderContent';
 
 const { Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children, type, disabled) {
@@ -115,7 +116,9 @@ export default function MainLayout() {
                             margin: '0 0.5rem',
                         }}
                     >
-                        <Header />
+                        <Header>
+                            <HeaderContent />
+                        </Header>
                         <Outlet />
                         <Footer className='footer mt-5' style={{ borderRadius: '10px', backgroundColor: '#001529' }}>
                             <FooterContent />

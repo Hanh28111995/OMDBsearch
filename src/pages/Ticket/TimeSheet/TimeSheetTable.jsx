@@ -23,22 +23,7 @@ import { itemsPerPage } from '../../../constants/formValueDefault';
 const { SearchBar } = Search;
 
 
-// function useWindowSize() {
-// const [size, setSize] = useState([0, 0]);
-// useLayoutEffect(() => {
-//     function updateSize() {
-//         setSize([window.innerWidth, window.innerHeight]);
-//     }
-//     window.addEventListener('resize', updateSize);
-//     updateSize();
-//     return () => window.removeEventListener('resize', updateSize);
-// }, []);
-// return size;
-//  }
-
 export default function TimeSheetTable(props) {
-
-    // const [width, height] = useWindowSize();
     const dispatch = useDispatch();
     const userState = useSelector((state) => state.userReducer)
     useEffect(() => {
@@ -115,70 +100,77 @@ export default function TimeSheetTable(props) {
 
     const columns = [{
         dataField: 'date',
+        headerClasses: 'headerTableStyle',
         text: 'Date',
         sort: true,
         sortCaret: customSort,
-        // classes: 'd-lg-none',
-        // headerClasses: 'd-lg-none'
-        // className: 'hidden-xs',
-        // columnClassName: 'hidden-xs'
     }, {
         dataField: 'day',
+        headerClasses: 'headerTableStyle',
         text: 'Day',
         sort: true,
         sortCaret: customSort,
-
     }, {
         dataField: 'punchin',
+        headerClasses: 'headerTableStyle',
         text: 'Punch In',
         sort: true,
         sortCaret: customSort,
     }, {
         dataField: 'lunchin',
+        headerClasses: 'headerTableStyle',
         text: 'Lunch In',
         sort: true,
         sortCaret: customSort,
     }, {
         dataField: 'lunchout',
+        headerClasses: 'headerTableStyle',
         text: 'Lunch Out',
         sort: true,
         sortCaret: customSort,
     }, {
         dataField: 'punchout',
+        headerClasses: 'headerTableStyle',
         text: 'Punch Out',
         sort: true,
         sortCaret: customSort,
     }, {
         dataField: 'total',
+        headerClasses: 'headerTableStyle',
         text: 'Total',
         sort: true,
         sortCaret: customSort,
     }, {
         dataField: 'vacation',
+        headerClasses: 'headerTableStyle',
         text: 'Vacation',
         sort: true,
         formatter: statusDayOffFormatter,
         sortCaret: customSort,
     }, {
         dataField: 'halfdays',
+        headerClasses: 'headerTableStyle',
         text: '4,5 Days',
         sort: true,
         formatter: statusDayOffFormatter,
         sortCaret: customSort,
     }, {
         dataField: 'holiday',
+        headerClasses: 'headerTableStyle',
         text: 'Holiday',
         sort: true,
         formatter: statusDayOffFormatter,
         sortCaret: customSort,
     }, {
         dataField: 'nonwork',
+        headerClasses: 'headerTableStyle',
         text: 'Nonwork',
         sort: true,
         formatter: statusDayOffFormatter,
         sortCaret: customSort,
     }, {
         dataField: 'status',
+        headerClasses: 'headerTableStyle',
         text: 'Status',
         sort: true,
         sortCaret: customSort,
@@ -187,7 +179,6 @@ export default function TimeSheetTable(props) {
 
 
     return (
-        /* <span>Window size: {width} x {height}</span> */
         <Space direction="vertical" className='d-flex dataTable'>
             <PaginationProvider pagination={paginationFactory(options)}>
                 {
@@ -196,7 +187,6 @@ export default function TimeSheetTable(props) {
                         paginationTableProps
                     }) => (
                         <>
-
                             <ToolkitProvider
                                 keyField="date"
                                 data={data}
@@ -214,18 +204,13 @@ export default function TimeSheetTable(props) {
                                                 </Space>
                                                 <Space className='d-flex align-items-start'>
                                                     <SearchBar {...toolkitprops.searchProps} />
-                                                    <NavLink to='/admin/ticket/miss-punch/addnew'>
-                                                        <button className='btn btn-success create_new_form'>
-                                                            Create
-                                                        </button>
-                                                    </NavLink>
                                                 </Space>
                                             </Space>
-
                                             <hr />
-                                            {/* <div style={{overflow:'scroll'}}> */}
                                             <BootstrapTable
                                                 bootstrap4
+                                                wrapperClasses='table-responsive'
+                                                striped
                                                 keyField='date'
                                                 data={data}
                                                 columns={columns}
@@ -233,8 +218,6 @@ export default function TimeSheetTable(props) {
                                                 {...toolkitprops.baseProps}
                                                 {...paginationTableProps}
                                             />
-                                            {/* </div> */}
-
                                             {
                                                 (data.length === 0) &&
                                                 <Space direction='vertical' className='d-dlex text-center w-100' >

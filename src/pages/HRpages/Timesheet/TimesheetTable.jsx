@@ -114,7 +114,7 @@ export default function TimesheetTable(props) {
         alwaysShowAllBtns: true,
         custom: true,
         totalSize: DataRender.length,
-        sizePerPageList:itemsPerPage,
+        sizePerPageList: itemsPerPage,
     };
     const customSort = (order, column) => {
         if (!order) return (<IconSort active={false} up={false} down={false} />)
@@ -146,54 +146,64 @@ export default function TimesheetTable(props) {
 
     const columns = [{
         dataField: 'id',
+        headerClasses: 'headerTableStyle',
         text: 'No',
         sort: true,
         sortCaret: customSort,
     }, {
         dataField: 'name',
+        headerClasses: 'headerTableStyle',
         text: 'Name',
         sort: true,
         sortCaret: customSort,
 
     }, {
         dataField: 'date',
+        headerClasses: 'headerTableStyle',
         text: 'Date',
         sort: true,
         sortCaret: customSort,
     }, {
         dataField: 'punchin',
+        headerClasses: 'headerTableStyle',
         text: 'Punch In',
         sort: true,
 
         sortCaret: customSort,
     }, {
         dataField: 'lunchin',
+        headerClasses: 'headerTableStyle',
         text: 'Lunch In',
         sort: true,
         sortCaret: customSort,
     }, {
         dataField: 'lunchout',
+        headerClasses: 'headerTableStyle',
         text: 'Lunch Out',
         sort: true,
         sortCaret: customSort,
     }, {
         dataField: 'punchout',
+        headerClasses: 'headerTableStyle',
         text: 'Punch Out',
         sort: true,
         sortCaret: customSort,
     }, {
         dataField: 'total',
+        headerClasses: 'headerTableStyle',
         text: 'Total',
         sort: true,
         sortCaret: customSort,
     }, {
         dataField: 'status',
+        headerClasses: 'headerTableStyle',
         text: 'Status',
         // sort: true,
         formatter: statusFormatter,
         sortCaret: customSort,
     }, {
         dataField: 'edit',
+        headerClasses: 'headerTableStyle',
         text: 'Edit',
         // sort: true,
         formatter: buttonFormatter,

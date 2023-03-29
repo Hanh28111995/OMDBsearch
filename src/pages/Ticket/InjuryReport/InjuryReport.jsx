@@ -99,23 +99,27 @@ export default function InjuryReport(props) {
 
   const columns = [{
     dataField: 'reference',
+    headerClasses: 'headerTableStyle',
     text: 'Reference',
     sort: true,
     formatter: referenceFormatter,
     sortCaret: customSort,
   }, {
     dataField: 'submitDate',
+    headerClasses: 'headerTableStyle',
     text: 'Submit Date',
     sort: true,
     sortCaret: customSort,
   },
   {
     dataField: 'hrDate',
+    headerClasses: 'headerTableStyle',
     text: 'HR Date',
     sort: true,
     sortCaret: customSort,
   }, {
     dataField: 'hrStatus',
+    headerClasses: 'headerTableStyle',
     text: 'HR Status',
     sort: true,
     formatter: statusFormatter,
@@ -123,6 +127,7 @@ export default function InjuryReport(props) {
   },
   {
     dataField: 'view',
+    headerClasses: 'headerTableStyle',
     text: 'View',
     sort: true,
     formatter: detailStatus,
@@ -169,6 +174,8 @@ export default function InjuryReport(props) {
                       <hr />
                       <BootstrapTable
                         bootstrap4
+                        wrapperClasses='table-responsive'
+                        striped
                         keyField='reference'
                         data={data}
                         columns={columns}

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import IconHeaderLeft from './IconHeaderLeft';
 import { pathChangeInfor } from '../constants/headerPath';
 
-export default function Header(props) {
+export default function HeaderContent(props) {
     function getItem(label, key, icon, children, type, disabled) {
         return {
             key,
@@ -42,7 +42,7 @@ export default function Header(props) {
         //     ]
         // ),
         getItem(<IconHeaderLeft />, null, '', [
-            getItem('User Management', null, '---',),
+            getItem('User Management', '/admin/hr/user-management', '---',),
             getItem('TimeSheet', '/admin/hr/timesheet', '---',),
             getItem('Injury Report', null, '---',),
             getItem('Emp Starting Infor', null, '---',),
@@ -105,7 +105,8 @@ export default function Header(props) {
                             <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg" />
                             <span className='pl-1'><i className="fa-solid fa-caret-down"></i></span>
                         </div>
-                        <div id="demo1" className={`menu_acc_list collapse ${closeM ? "hide" : ""} py-2`}>
+                        <div id="demo1"
+                            className={`menu_acc_list collapse ${closeM ? "hide" : ""} py-2`}>
                             <ul>
                                 <li onClick={() => { navFunc(pathChangeInfor.changeAvt) }}><i className="fa-solid fa-user"></i>Change Avatar</li>
                                 <li onClick={() => { navFunc(pathChangeInfor.changePassword) }}><i className="fa-solid fa-lock"></i>Change Password</li>

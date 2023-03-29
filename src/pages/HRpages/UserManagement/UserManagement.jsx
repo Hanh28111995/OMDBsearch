@@ -10,7 +10,6 @@ import paginationFactory,
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
 import Icon from '@mdi/react';
 import {
-  mdiFileEyeOutline,
   mdiCheckCircleOutline,
   mdiCloseCircleOutline,
   mdiDotsHorizontalCircleOutline
@@ -24,7 +23,8 @@ import { itemsPerPage } from '../../../constants/formValueDefault';
 const { SearchBar } = Search;
 
 
-export default function IncidentReport(props) {
+export default function UserManagement(props) {
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.userReducer)
   useEffect(() => {
@@ -33,19 +33,47 @@ export default function IncidentReport(props) {
 
   //demo data from api
   const data = [];
-  for (let i = 0; i < 6; i++) {
-    data.push(
-      {
-        reference: 'IRF' + [i],
-        submitDate: '03/02/2023',
-        hrDate: '01/02/2023',
-        hrStatus: true,
-      },
-    );
+  for (let i = 0; i < 4; i++) {
+    if (i % 2 === 0) {
+      data.push(
+        {
+          reference: 'OFF' + [i],
+          submitDate: '03/02/2023',
+          startDate: '03/02/2023',
+          endDate: '03/03/2023',
+          coverWorker: 'Huy Nguyen',
+          coWoStatus: true,
+          manager: 'Huy Nguyen',
+          managerStatus: true,
+          hrStatus: true,
+        },
+      );
+    }
+    else {
+      data.push(
+        {
+          reference: 'OFF' + [i],
+          submitDate: '03/03/2023',
+          startDate: '03/04/2023',
+          endDate: '03/05/2023',
+          coverWorker: 'Khanh Nguyen',
+          coWoStatus: true,
+          manager: 'Khanh Nguyen',
+          managerStatus: false,
+          hrStatus: '...',
+        },
+      );
+    }
   }
 
   //setting dataTable
   const options = {
+    // prePageText: "",
+    // nextPageText: '',
+    // hidePageListOnlyOnePage: false,
+    // showTotal: false,
+    // paginationSize: 4,
+    // alwaysShowAllBtns: true,
     withFirstAndLast: false,
     alwaysShowAllBtns: true,
     custom: true,
@@ -89,50 +117,59 @@ export default function IncidentReport(props) {
     );
   }
 
-  const detailStatus = (cell, row) => {
-    return (
-      <a href='#'>
-        <Icon path={mdiFileEyeOutline} size={0.8} />
-      </a>
-    )
-  }
-
   const columns = [{
     dataField: 'reference',
-    headerClasses: 'headerTableStyle',
     text: 'Reference',
     sort: true,
     formatter: referenceFormatter,
     sortCaret: customSort,
   }, {
     dataField: 'submitDate',
-    headerClasses: 'headerTableStyle',
     text: 'Submit Date',
     sort: true,
     sortCaret: customSort,
-  },
-  {
-    dataField: 'hrDate',
-    headerClasses: 'headerTableStyle',
-    text: 'HR Date',
+
+  }, {
+    dataField: 'startDate',
+    text: 'Start Date',
+    sort: true,
+    sortCaret: customSort,
+
+  }, {
+    dataField: 'endDate',
+    text: 'End Date',
     sort: true,
     sortCaret: customSort,
   }, {
-    dataField: 'hrStatus',
-    headerClasses: 'headerTableStyle',
-    text: 'HR Status',
+    dataField: 'coverWorker',
+    text: 'Cover Worker',
+    sort: true,
+    sortCaret: customSort,
+  }, {
+    dataField: 'coWoStatus',
+    text: 'Co-Wo Status',
     sort: true,
     formatter: statusFormatter,
     sortCaret: customSort,
   },
   {
-    dataField: 'view',
-    headerClasses: 'headerTableStyle',
-    text: 'View',
+    dataField: 'manager',
+    text: 'Manager',
     sort: true,
-    formatter: detailStatus,
     sortCaret: customSort,
-  },
+  }, {
+    dataField: 'managerStatus',
+    text: 'Manager Status',
+    sort: true,
+    formatter: statusFormatter,
+    sortCaret: customSort,
+  }, {
+    dataField: 'hrStatus',
+    text: 'HR Status',
+    sort: true,
+    formatter: statusFormatter,
+    sortCaret: customSort,
+  }
   ];
 
 
@@ -155,7 +192,7 @@ export default function IncidentReport(props) {
                 {
                   toolkitprops => (
                     <Space direction='vertical d-dlex w-100'>
-                      <Space direction='horizontal' className='justify-content-between d-flex'>
+                      <Space direction='horizontal' align='baseline' className='justify-content-between d-flex'>
                         <Space>
                           <span className='bg-red'>Show</span>
                           <SizePerPageDropdownStandalone {...paginationProps} />
@@ -163,7 +200,7 @@ export default function IncidentReport(props) {
                         </Space>
                         <Space className='d-flex align-items-start'>
                           <SearchBar {...toolkitprops.searchProps} />
-                          <NavLink to='/admin/ticket/incident/addnew'>
+                          <NavLink to='/admin/ticket/time-off/addnew'>
                             <button className='btn btn-success create_new_form'>
                               Create
                             </button>
@@ -172,6 +209,9 @@ export default function IncidentReport(props) {
                       </Space>
 
                       <hr />
+                      {/* <div className='management_action'> */}
+                        {/* <Button className='btn btn-success create_new_form'>Create</Button> */}
+                      {/* </div> */}
                       <BootstrapTable
                         bootstrap4
                         wrapperClasses='table-responsive'

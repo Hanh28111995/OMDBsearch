@@ -1,7 +1,27 @@
 .dataTable {
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        height: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background-color: rgba(0, 0, 0, .5);
+        -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .3);
+    }
+
+    font-size: $fs-5;
+
+    .headerTableStyle {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
     .react-bootstrap-table {
         table {
-            overflow: auto;
+            table-layout: auto;
+            overflow: scroll;
+
             thead th {
                 white-space: nowrap;
 

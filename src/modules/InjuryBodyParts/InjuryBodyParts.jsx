@@ -3,7 +3,7 @@ import logo from '../../../src/assets/imgs/body_img.jpg'
 
 export default function InjuryBodyParts(props) {
   useEffect(() => {
-    console.log(props)
+    // console.log(props)
   }, [props.listInjuryPart])
   return (
     <div className='mainZone mx-auto'>

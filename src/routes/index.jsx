@@ -14,9 +14,11 @@ import DashBoard from "../pages/dboard/DashBoard";
 import MissPunchDetail from "../pages/Detail/MissPunchDetail";
 import TimesheetExp from "../pages/HRpages/Timesheet/TimesheetExp";
 import TimesheetTable from "../pages/HRpages/Timesheet/TimesheetTable";
+import UserManagement from "../pages/HRpages/UserManagement/UserManagement";
 import Login from "../pages/Login/Login";
 import InforForm from "../pages/personal infor/InforForm";
 import IncidentReport from "../pages/Ticket/IncidentReport/IncidentReport";
+import IncidentReportAddNew from "../pages/Ticket/IncidentReport/IncidentReportAddNew";
 import InjuryReport from "../pages/Ticket/InjuryReport/InjuryReport";
 import InjuryReportAddNew from "../pages/Ticket/InjuryReport/InjuryReportAddNew";
 import MissPunchAddNew from "../pages/Ticket/MissPunch/MissPunchAddNew";
@@ -59,11 +61,11 @@ export default function Router() {
             },
             {
               path: "/admin/employee/change-avatar",
-              element: <ChangeAvatar />,
+              element: <ChangeAvatar title='Change Avatar' />,
             },
             {
               path: "/admin/employee/change-password",
-              element: <ChangePassword />,
+              element: <ChangePassword title='Change Password' />,
             },
             {
               path: "/admin/employee/support",
@@ -109,6 +111,10 @@ export default function Router() {
                   path: "/admin/ticket/incident",
                   element: <IncidentReport title="Incident Report" />,
                 },
+                {
+                  path: "/admin/ticket/incident/addnew",
+                  element: <IncidentReportAddNew title="Incident Report" />,
+                },
               ]
             },
             {
@@ -128,7 +134,12 @@ export default function Router() {
                 {
                   path: "/admin/hr/timesheet",
                   element: <TimesheetTable title='HR Time Sheet' />
+                },
+                {
+                  path: "/admin/hr/user-management",
+                  element: <UserManagement title='HR Employee Management' />
                 }
+
               ]
             },
 

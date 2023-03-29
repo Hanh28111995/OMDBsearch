@@ -18,7 +18,6 @@ import { NavLink } from 'react-router-dom';
 
 const { Option } = Select;
 const { TextArea } = Input;
-const { Panel } = Collapse;
 
 export default function MissPunchAddNew(props) {
     const [collapsible, setCollapsible] = useState(false)
@@ -134,23 +133,25 @@ export default function MissPunchAddNew(props) {
                         </Form.Item>
                     </Col>
 
-                    {/* <Col xs={24} sm={24} md={24} lg={24} >
-                        <Form.Item label="Manager" name="manager">
+                    <Col xs={24} sm={24} md={24} lg={24} >
+                        <Form.Item label="Manager" name="manager" initialValue=''>
                             <Select
-                                showSearch style={{ width: 200 }}
-                                placeholder="Select a person"
+                                className='w-100'
+                                showSearch
+                                placeholder="Select your Manager"
                                 optionFilterProp="children"
                                 onChange={handleChange}
                                 onFocus={handleFocus}
                                 onBlur={handleBlur}
                                 onSearch={handleSearch}
                                 filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0} >
+                                <Option value="">----</Option>
                                 <Option value="jack">Jack</Option>
                                 <Option value="lucy">Lucy</Option>
                                 <Option value="tom">Tom</Option>
-                            </Select>,
+                            </Select>
                         </Form.Item>
-                    </Col> */}
+                    </Col>
 
                     <Col xs={24} sm={24} md={24} lg={24} >
                         <Form.Item label="Other Reason" name="reason">

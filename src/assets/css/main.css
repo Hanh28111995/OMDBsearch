@@ -154,6 +154,7 @@ input {
   background-color: transparent;
   top: 0;
   left: 0;
+  display: none;
 }
 .layOut_wrapper > .ant-layout .ant-space .ant-space-item {
   min-height: 100%;
@@ -168,6 +169,11 @@ input {
   left: 0;
 }
 
+@media screen and (max-width: 992px) {
+  .layOut_wrapper > .ant-layout .overlay_cover_content {
+    display: block;
+  }
+}
 .dashboard .ant-card {
   border-radius: 5px;
 }
@@ -701,8 +707,25 @@ input {
   left: 65px;
 }
 
+.dataTable {
+  font-size: 12px;
+}
+.dataTable ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  height: 3px;
+}
+.dataTable ::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+}
+.dataTable .headerTableStyle {
+  font-weight: bold;
+  font-size: 1.2em;
+}
 .dataTable .react-bootstrap-table table {
-  overflow: auto;
+  table-layout: auto;
+  overflow: scroll;
 }
 .dataTable .react-bootstrap-table table thead th {
   white-space: nowrap;

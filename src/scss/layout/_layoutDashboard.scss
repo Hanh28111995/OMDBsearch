@@ -42,6 +42,7 @@
             background-color: transparent;
             top: 0;
             left: 0;
+            display: none;
         }
     }
 
@@ -59,3 +60,12 @@
     top: 0;
     left: 0;
 }
+@media screen and (max-width: 992px){
+    .layOut_wrapper>.ant-layout {
+        .overlay_cover_content {
+            display: block;
+        }
+    }
+
+}
+    

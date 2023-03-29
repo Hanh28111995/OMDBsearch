@@ -1,5 +1,5 @@
 import React from 'react'
-import { Space, Card, Col, Row } from 'antd'
+import { Col, Row } from 'antd'
 
 export default function FooterContent() {
     return (

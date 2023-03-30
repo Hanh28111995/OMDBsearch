@@ -6,6 +6,7 @@ import HRAuthGuards from "../guards/hr_auth.guards";
 import NoAuthGuards from "../guards/no-auth.guards";
 import MainLayout from "../layout/MainLayout";
 import StatusEmployee from "../modules/dboard/StatusEmployee";
+import CreateNewInforUser from "../modules/HRUserManagement/CreateNewInforUser";
 import DayOffCalendar from "../pages/Calendar/DayOffCalendar";
 import ChangeAvatar from "../pages/ChangePersonInfo/ChangeAvatar";
 import ChangePassword from "../pages/ChangePersonInfo/ChangePassword";
@@ -138,6 +139,14 @@ export default function Router() {
                 {
                   path: "/admin/hr/user-management",
                   element: <UserManagement title='HR Employee Management' />
+                },
+                {
+                  path: "/admin/hr/user-management/create",
+                  element:  <CreateNewInforUser title='Create New User' />
+                },
+                {
+                  path: "/admin/hr/user-management/edit/:username",
+                  element:  <CreateNewInforUser  title='Detail User' />
                 }
 
               ]

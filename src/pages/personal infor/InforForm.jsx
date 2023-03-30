@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setTitleHeader } from '../../store/actions/user.action';
 const Dpm = ['IT', 'Sale', 'Warehouse', '-- Inventory', '-- Rework', '-- Shipping Clerk', '-- QC', '-- Front Operation', 'Accounting', 'Export', 'HR', 'Import', 'Transportation', 'Ecommerce', 'Other', 'CEO'];
 const location = ['US-MLK', 'US-CTR', 'VN-NT', 'VN-HCM', 'US-RLD'];
+
 const render = (x) => {
     return x.map((option, index) => (
         <Select.Option key={index} value={option}>{option}</Select.Option>
@@ -22,6 +23,7 @@ const render = (x) => {
 const renderedDpmObject = render(Dpm);
 
 const renderedLocationObject = render(location);
+
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 export default function InforForm(props) {
@@ -140,7 +142,7 @@ export default function InforForm(props) {
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12}>
-                        <Form.Item label="DatePicker" >
+                        <Form.Item label="BirthDay" >
                             <DatePicker className='w-100' />
                         </Form.Item>
                     </Col>

@@ -14,7 +14,7 @@ import {
     mdiCloseCircleOutline,
     mdiDotsHorizontalCircleOutline
 } from '@mdi/js';
-import { Space } from 'antd';
+import { Checkbox, Space } from 'antd';
 import IconSort from '../../../modules/dataTable/IconSort';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,10 +32,10 @@ export default function TimeSheetTable(props) {
 
     //demo data from api
     const data = [];
-    for (let i = 1; i < 6; i++) {
+    for (let i = 0; i < 6; i++) {
         data.push(
             {
-                date: `03/${i}/2023`,
+                date: i,
                 day: 'Wed',
                 punchin: '8:19 AM',
                 lunchin: '12:37 PM',
@@ -74,18 +74,11 @@ export default function TimeSheetTable(props) {
         return null;
     }
     ///// function component for sort next/prev pagination
-    const referenceFormatter = (cell, row) => {
-        if (row.hrStatus === true) {
-            return (
-                <span>
-                    <NavLink to={`/admin/ticket/miss-punch/miss-punch-detail/${cell}`}>{cell}</NavLink>
-                </span>
-            );
-        }
-        return (
-            <span> {cell}</span>
-        );
-    }
+    // const methodName = (cell, row) => {
+    //     return (
+    //         <Checkbox value={row.day} />
+    //     );
+    // }
 
     const statusDayOffFormatter = (cell, row) => {
         return (
@@ -98,85 +91,85 @@ export default function TimeSheetTable(props) {
         );
     }
 
-    const columns = [{
-        dataField: 'date',
-        headerClasses: 'headerTableStyle',
-        text: 'Date',
-        sort: true,
-        sortCaret: customSort,
-    }, {
-        dataField: 'day',
-        headerClasses: 'headerTableStyle',
-        text: 'Day',
-        sort: true,
-        sortCaret: customSort,
-    }, {
-        dataField: 'punchin',
-        headerClasses: 'headerTableStyle',
-        text: 'Punch In',
-        sort: true,
-        sortCaret: customSort,
-    }, {
-        dataField: 'lunchin',
-        headerClasses: 'headerTableStyle',
-        text: 'Lunch In',
-        sort: true,
-        sortCaret: customSort,
-    }, {
-        dataField: 'lunchout',
-        headerClasses: 'headerTableStyle',
-        text: 'Lunch Out',
-        sort: true,
-        sortCaret: customSort,
-    }, {
-        dataField: 'punchout',
-        headerClasses: 'headerTableStyle',
-        text: 'Punch Out',
-        sort: true,
-        sortCaret: customSort,
-    }, {
-        dataField: 'total',
-        headerClasses: 'headerTableStyle',
-        text: 'Total',
-        sort: true,
-        sortCaret: customSort,
-    }, {
-        dataField: 'vacation',
-        headerClasses: 'headerTableStyle',
-        text: 'Vacation',
-        sort: true,
-        formatter: statusDayOffFormatter,
-        sortCaret: customSort,
-    }, {
-        dataField: 'halfdays',
-        headerClasses: 'headerTableStyle',
-        text: '4,5 Days',
-        sort: true,
-        formatter: statusDayOffFormatter,
-        sortCaret: customSort,
-    }, {
-        dataField: 'holiday',
-        headerClasses: 'headerTableStyle',
-        text: 'Holiday',
-        sort: true,
-        formatter: statusDayOffFormatter,
-        sortCaret: customSort,
-    }, {
-        dataField: 'nonwork',
-        headerClasses: 'headerTableStyle',
-        text: 'Nonwork',
-        sort: true,
-        formatter: statusDayOffFormatter,
-        sortCaret: customSort,
-    }, {
-        dataField: 'status',
-        headerClasses: 'headerTableStyle',
-        text: 'Status',
-        sort: true,
-        sortCaret: customSort,
-    }
+    const columns = [
+        {
+            dataField: 'date',
+            headerClasses: 'headerTableStyle',
+            text: 'Date',
+            sort: true,
+            sortCaret: customSort,
+        }, {
+            dataField: 'day',
+            headerClasses: 'headerTableStyle',
+            text: 'Day',
+            sort: true,
+            sortCaret: customSort,
+        }, {
+            dataField: 'punchin',
+            headerClasses: 'headerTableStyle',
+            text: 'Punch In',
+            sort: true,
+            sortCaret: customSort,
+        }, {
+            dataField: 'lunchin',
+            headerClasses: 'headerTableStyle',
+            text: 'Lunch In',
+            sort: true,
+            sortCaret: customSort,
+        }, {
+            dataField: 'lunchout',
+            headerClasses: 'headerTableStyle',
+            text: 'Lunch Out',
+            sort: true,
+            sortCaret: customSort,
+        }, {
+            dataField: 'punchout',
+            headerClasses: 'headerTableStyle',
+            text: 'Punch Out',
+            sort: true,
+            sortCaret: customSort,
+        }, {
+            dataField: 'total',
+            headerClasses: 'headerTableStyle',
+            text: 'Total',
+            sort: true,
+            sortCaret: customSort,
+        }, {
+            dataField: 'vacation',
+            headerClasses: 'headerTableStyle',
+            text: 'Vacation',
+            sort: true,
+            formatter: statusDayOffFormatter,
+            sortCaret: customSort,
+        }, {
+            dataField: 'halfdays',
+            headerClasses: 'headerTableStyle',
+            text: '4,5 Days',
+            sort: true,
+            formatter: statusDayOffFormatter,
+            sortCaret: customSort,
+        }, {
+            dataField: 'holiday',
+            headerClasses: 'headerTableStyle',
+            text: 'Holiday',
+            sort: true,
+            formatter: statusDayOffFormatter,
+            sortCaret: customSort,
+        }, {
+            dataField: 'nonwork',
+            headerClasses: 'headerTableStyle',
+            text: 'Nonwork',
+            sort: true,
+            formatter: statusDayOffFormatter,
+            sortCaret: customSort,
+        }, {
+            dataField: 'status',
+            headerClasses: 'headerTableStyle',
+            text: 'Status',
+            sort: true,
+            sortCaret: customSort,
+        }
     ];
-
 
     return (
         <Space direction="vertical" className='d-flex dataTable'>
@@ -214,7 +207,7 @@ export default function TimeSheetTable(props) {
                                                 keyField='date'
                                                 data={data}
                                                 columns={columns}
-                                                bordered={false}
+                                                bordered={false}                                            
                                                 {...toolkitprops.baseProps}
                                                 {...paginationTableProps}
                                             />

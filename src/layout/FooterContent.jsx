@@ -4,7 +4,7 @@ import { Col, Row } from 'antd'
 export default function FooterContent() {
     return (
         <div className='container-fluid'>
-            <Row gutter={24}>
+            {/* <Row gutter={24}>
                 <Col xs={24} sm={8} md={8} lg={8}>
                     <div>
                         <h5>SERVICES</h5>
@@ -43,12 +43,12 @@ export default function FooterContent() {
                     </div>
                 </Col>
             </Row>
-            <hr color='white' />
+            <hr color='white' /> */}
             <Row gutter={24} className='pt-3'>
                 <Col xs={24} sm={16} md={16} lg={16}>
                     <p>© <a className="border-bottom" href="#">2022 WorldCraft Logistics LLC</a>, All Rights Reserved.</p>
                 </Col>
-                <Col xs={24} sm={8} md={8} lg={8}>
+                <Col xs={24} sm={8} md={8} lg={8} className='text-right'>
                     <ul className='footer-social' style={{ display: 'inline-flex' }}>
                         <li style={{ marginRight: '50px' }}><a href="#"><i className='fab fa-facebook-f'></i></a></li>
                         <li><a href="#"><i className='fab fa-linkedin-in'></i></a></li>

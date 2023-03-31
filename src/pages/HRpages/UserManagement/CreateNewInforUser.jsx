@@ -1,10 +1,9 @@
 import { InputNumber, Space, Form, Row, Col, Input, Select, Radio, DatePicker, Button, Modal } from 'antd'
 import React from 'react'
-import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { data_user_detail, data_user_detail_default } from '../../constants/detailUser'
-import ModalAddDKP from './ModalAddDKP';
+import { data_user_detail, data_user_detail_default } from '../../../constants/detailUser'
+
 
 export default function CreateNewInforUser(props) {
     const param = useParams()

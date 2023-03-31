@@ -14,7 +14,7 @@ import {
   mdiCloseCircleOutline,
   mdiDotsHorizontalCircleOutline
 } from '@mdi/js';
-import { Space } from 'antd';
+import { Space , Button} from 'antd';
 import IconSort from '../../../modules/dataTable/IconSort';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,7 +23,7 @@ import { itemsPerPage } from '../../../constants/formValueDefault';
 const { SearchBar } = Search;
 
 
-export default function TimeOffForm(props) {
+export default function TimeoffForm(props) {
   // const navigate = useNavigate();
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.userReducer)
@@ -39,6 +39,7 @@ export default function TimeOffForm(props) {
         {
           reference: 'OFF' + [i],
           submitDate: '03/02/2023',
+          name: 'Khanh Nguyen',
           startDate: '03/02/2023',
           endDate: '03/03/2023',
           coverWorker: 'Huy Nguyen',
@@ -54,6 +55,7 @@ export default function TimeOffForm(props) {
         {
           reference: 'OFF' + [i],
           submitDate: '03/03/2023',
+          name: 'Huy Nguyen',
           startDate: '03/04/2023',
           endDate: '03/05/2023',
           coverWorker: 'Khanh Nguyen',
@@ -93,7 +95,7 @@ export default function TimeOffForm(props) {
     if (row.hrStatus === true) {
       return (
         <span>
-          <NavLink to={`/admin/ticket/time-off/time-off-detail/${cell}/${userState.userInfor.username}`}>{cell}</NavLink>
+          <NavLink to={`/admin/ticket/miss-punch/miss-punch-detail/${cell}`}>{cell}</NavLink>
         </span>
       );
     }
@@ -106,7 +108,14 @@ export default function TimeOffForm(props) {
     return (
       < span >
         {(cell === '...')
-          ? <Icon path={mdiDotsHorizontalCircleOutline} size={0.8} color='gray' />
+          ?
+          (
+            <Space className='text-white' >
+              <Button className='btn-primary'><i className="fa-solid fa-info "></i></Button>
+              <Button className='btn-success' ><i className="fa-solid fa-check fa-2xs" ></i></Button>
+              <Button className='btn-danger'><i className="fa-solid fa-xmark"></i></Button>
+            </Space>
+          )
           : (
             (cell === false)
               ? <Icon path={mdiCloseCircleOutline} size={0.8} color='red' />
@@ -115,6 +124,12 @@ export default function TimeOffForm(props) {
         }
       </span >
     );
+  }
+
+  const noteFormatter = (cell, row) => {
+    return (
+      <span><a href={`/admin/hr/timeoff-management/note/${row.reference}/${row.name}`}><i className="fa-solid fa-pen"></i></a></span >
+    )
   }
 
   const columns = [{
@@ -128,6 +143,13 @@ export default function TimeOffForm(props) {
     dataField: 'submitDate',
     headerClasses: 'headerTableStyle',
     text: 'Submit Date',
+    sort: true,
+    sortCaret: customSort,
+  },
+  {
+    dataField: 'name',
+    headerClasses: 'headerTableStyle',
+    text: 'Name',
     sort: true,
     sortCaret: customSort,
 
@@ -177,6 +199,12 @@ export default function TimeOffForm(props) {
     text: 'HR Status',
     sort: true,
     formatter: statusFormatter,
+    sortCaret: customSort,
+  }, {
+    dataField: 'hrNote',
+    headerClasses: 'headerTableStyle',
+    text: 'HR Note',
+    formatter: noteFormatter,
     sortCaret: customSort,
   }
   ];

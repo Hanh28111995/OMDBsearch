@@ -35,8 +35,8 @@ export default function InforForm(props) {
     }, [userState.titleHeader])
 
     return (
-        <Space direction='vertical' className='bg-form pb-5'>
-            <Space direction='vertical' className='bg-form-header'>
+        <Space direction='vertical' className='bg-form pb-5 w-100'>
+            <Space direction='vertical' className='bg-form-header w-100'>
                 <div className='d-flex'>
                     <h4 >INFORMATION</h4>
                 </div>
@@ -239,6 +239,5 @@ export default function InforForm(props) {
                 </Row>
             </Form >
         </Space>
-
     )
 }

@@ -6,15 +6,23 @@ import HRAuthGuards from "../guards/hr_auth.guards";
 import NoAuthGuards from "../guards/no-auth.guards";
 import MainLayout from "../layout/MainLayout";
 import StatusEmployee from "../modules/dboard/StatusEmployee";
-import CreateNewInforUser from "../modules/HRUserManagement/CreateNewInforUser";
+
 import DayOffCalendar from "../pages/Calendar/DayOffCalendar";
 import ChangeAvatar from "../pages/ChangePersonInfo/ChangeAvatar";
 import ChangePassword from "../pages/ChangePersonInfo/ChangePassword";
 import Support from "../pages/ChangePersonInfo/Support";
 import DashBoard from "../pages/dboard/DashBoard";
-import MissPunchDetail from "../pages/Detail/MissPunchDetail";
-import TimesheetExp from "../pages/HRpages/Timesheet/TimesheetExp";
+import MissPunchExp from "../pages/Detail/MissPunchExp";
+import MissPunchDetail from "../pages/Detail/MissPunchExp";
+import TimeOffExp from "../pages/Detail/TimeOffExp";
+import EmployeeComplaintTable from "../pages/HRpages/EmployeeComplaint/EmployeeComplaintTable";
+import MisspunchNote from "../pages/HRpages/MissPunch/MisspunchNote";
+import MisspunchForm from "../pages/HRpages/MissPunch/MisspunchTable";
+import TimeoffNote from "../pages/HRpages/TimeOff/TimeoffNote";
+import TimeoffForm from "../pages/HRpages/TimeOff/TimeoffTable";
+import TimesheetNote from "../pages/HRpages/Timesheet/TimesheetNote";
 import TimesheetTable from "../pages/HRpages/Timesheet/TimesheetTable";
+import CreateNewInforUser from "../pages/HRpages/UserManagement/CreateNewInforUser";
 import UserManagement from "../pages/HRpages/UserManagement/UserManagement";
 import Login from "../pages/Login/Login";
 import InforForm from "../pages/personal infor/InforForm";
@@ -134,7 +142,11 @@ export default function Router() {
               children: [
                 {
                   path: "/admin/hr/timesheet",
-                  element: <TimesheetTable title='HR Time Sheet' />
+                  element: <TimesheetTable title='HR TimeSheet' />
+                },
+                {
+                  path: "/admin/hr/timesheet/note/:id",
+                  element: <TimesheetNote title='HR TimeSheet' />
                 },
                 {
                   path: "/admin/hr/user-management",
@@ -142,12 +154,32 @@ export default function Router() {
                 },
                 {
                   path: "/admin/hr/user-management/create",
-                  element:  <CreateNewInforUser title='Create New User' />
+                  element: <CreateNewInforUser title='Create New User' />
                 },
                 {
                   path: "/admin/hr/user-management/edit/:username",
-                  element:  <CreateNewInforUser  title='Detail User' />
-                }
+                  element: <CreateNewInforUser title='Detail User' />
+                },
+                {
+                  path: "/admin/hr/misspuch-management",
+                  element: <MisspunchForm title='HR Misspunch Management' />
+                },
+                {
+                  path: "/admin/hr/misspuch-management/note/:id/:name",
+                  element: <MisspunchNote title='HR Misspunch Management' />
+                },
+                {
+                  path: "/admin/hr/timeoff-management",
+                  element: <TimeoffForm title='HR TimeOff Management' />
+                },
+                {
+                  path: "/admin/hr/timeoff-management/note/:id/:name",
+                  element: <TimeoffNote title='HR TimeOff Management' />
+                },
+                {
+                  path: "/admin/hr/employee-complaint",
+                  element: <EmployeeComplaintTable title='Employee Complaint' />
+                },
 
               ]
             },
@@ -155,8 +187,12 @@ export default function Router() {
           ]
         },
         {
-          path: "/admin/ticket/miss-punch/miss-punch-detail/:referenceCode",
-          element: <MissPunchDetail />,
+          path: "/admin/ticket/miss-punch/miss-punch-detail/:referenceCode/:yourname",
+          element: <MissPunchExp />,
+        },
+        {
+          path: "/admin/ticket/time-off/time-off-detail/:referenceCode/:yourname",
+          element: <TimeOffExp />,
         },
         {
           path: "/admin/hr",
@@ -164,14 +200,13 @@ export default function Router() {
           children: [
             {
               path: "/admin/hr/timesheet/view/:user/:dateStart/:dateEnd",
-              element: <TimesheetExp />,
+              element: <></>,
             }
           ]
         }
 
       ]
     },
-
   ]);
   return routing;
 }

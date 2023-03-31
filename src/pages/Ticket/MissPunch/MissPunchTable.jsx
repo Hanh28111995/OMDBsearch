@@ -97,7 +97,7 @@ export default function MissPunchForm(props) {
     if (row.hrStatus === true) {
       return (
         <span>
-          <NavLink to={`/admin/ticket/miss-punch/miss-punch-detail/${cell}`}>{cell}</NavLink>
+          <NavLink to={`/admin/ticket/miss-punch/miss-punch-detail/${cell}/${userState.userInfor.username}`}>{cell}</NavLink>
         </span>
       );
     }

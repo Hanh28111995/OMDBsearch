@@ -4,7 +4,7 @@ import logo from '../../assets/imgs/Logo__001_no_bg.png'
 import ManagerSignature from '../../assets/imgs/Pending.png'
 import HRSignature from '../../assets/imgs/Approved.png'
 
-export default function MissPunchDetail(props) {
+export default function TimeOffExp(props) {
     const param = useParams();
     return (
         <div className='mp_ex_form'>
@@ -21,7 +21,7 @@ export default function MissPunchDetail(props) {
                     <div>Fax: 909-632-1208</div>
                 </div>
                 <div style={{ height: '10px' }} />
-                <div className="f-h">MISS PUNCH - HANH TRAN - {param.referenceCode}</div>
+                <div className="f-h">TIME OFF - {param.yourname} - {param.referenceCode}</div>
                 <div style={{ height: '20px' }} />
                 <div style={{ height: '20px' }} />
                 <div className="f"><div className="w-75">

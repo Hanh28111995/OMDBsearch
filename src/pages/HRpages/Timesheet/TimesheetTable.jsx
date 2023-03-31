@@ -138,7 +138,7 @@ export default function TimesheetTable(props) {
     }
     const buttonFormatter = (cell, row) => {
         return (
-            <a href='#'>
+            <a href={`/admin/hr/timesheet/note/${row.name}`}>
                 <Icon path={mdiNoteEditOutline} size={0.8} />
             </a>
         )

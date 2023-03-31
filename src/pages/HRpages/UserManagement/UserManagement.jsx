@@ -8,13 +8,7 @@ import paginationFactory,
   PaginationListStandalone,
 } from 'react-bootstrap-table2-paginator';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
-import Icon from '@mdi/react';
-import {
-  mdiCheckCircleOutline,
-  mdiCloseCircleOutline,
-  mdiDotsHorizontalCircleOutline
-} from '@mdi/js';
-import { Space, Modal } from 'antd';
+import { Space, Modal, Button } from 'antd';
 import IconSort from '../../../modules/dataTable/IconSort';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,18 +16,20 @@ import { setTitleHeader } from '../../../store/actions/user.action';
 import { itemsPerPage } from '../../../constants/formValueDefault';
 import { data_user_detail } from '../../../constants/detailUser'
 import { useState } from 'react';
-import ModalAddDKP from '../../../modules/HRUserManagement/ModalAddDKP';
+import ModalAdd from '../../../modules/HRUserManagement/ModalAdd';
+;
 
 const { SearchBar } = Search;
 
 export default function UserManagement(props) {
-  const [modalContent, setModelContent] = useState(<></>)
+  const [modalContent, setModelContent] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [titleModal, setTitleModal] = useState('');
   const showModal = () => {
     setIsModalOpen(true);
   };
   const handleOk = () => {
+
     setIsModalOpen(false);
   };
   const handleCancel = () => {
@@ -149,6 +145,16 @@ export default function UserManagement(props) {
   }
   ];
 
+  const addDKPHandleClick = () => {
+    setModelContent('dkp');
+    setTitleModal('Add DKP');
+    showModal();
+  }
+  const addVacationHandleClick = () => {
+    setModelContent('vacation');
+    setTitleModal('Add Vacation');
+    showModal();
+  }
   return (
     <>
       <Space direction="vertical" className='d-flex dataTable'>
@@ -176,12 +182,6 @@ export default function UserManagement(props) {
                             <span>entries</span>
                           </Space>
                           <Space className='d-flex align-items-start'>
-                            <button className='btn btn-success create_new_form' onClick={() => { showModal(); setTitleModal('Add DKP'); }}>
-                              <i className="fa-solid fa-plus mr-2"></i>Add DKP
-                            </button>
-                            <button className='btn btn-success create_new_form' onClick={() => { showModal(); setTitleModal('Add Vacation'); }}>
-                              <i className="fa-solid fa-plus mr-2"></i>Add 1 vacation Employee VN
-                            </button>
                             <SearchBar {...toolkitprops.searchProps} />
                             <NavLink to='/admin/hr/user-management/create'>
                               <button className='btn btn-success create_new_form'>
@@ -189,6 +189,20 @@ export default function UserManagement(props) {
                               </button>
                             </NavLink>
                           </Space>
+                        </Space>
+                        <Space className='d-flex justify-content-end'>
+                          <button className='btn btn-success create_new_form' onClick={addDKPHandleClick}>
+                            <i className="fa-solid fa-plus mr-2"></i>Add DKP
+                          </button>
+                          <button className='btn btn-success create_new_form' onClick={addVacationHandleClick}>
+                            <i className="fa-solid fa-plus mr-2"></i>Add Vacation
+                          </button>
+                          <button className='btn btn-success create_new_form' >
+                            <i className="fa-solid fa-money-check-dollar mr-2"></i> Payroll Employee
+                          </button>
+                          <button className='btn btn-success create_new_form' >
+                            <i className="fa-solid fa-file-arrow-down mr-2"></i>Export
+                          </button>
                         </Space>
 
                         <hr />
@@ -237,9 +251,19 @@ export default function UserManagement(props) {
           }
         </PaginationProvider>
       </Space >
-      <Modal title={titleModal} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+      <Modal
+        title={titleModal} open={isModalOpen}
+        footer={[
+          <Button key="submit" type="primary" onClick={handleOk}>
+            Add 1 Point
+          </Button>,
+          <Button key="back" onClick={handleCancel}>
+            Cancel
+          </Button>,
+        ]}
+      >
         {
-          <ModalAddDKP />
+          <ModalAdd modalContent={modalContent} />
         }
       </Modal>
     </>

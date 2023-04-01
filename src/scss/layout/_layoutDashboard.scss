@@ -49,23 +49,14 @@
     .ant-space .ant-space-item {
         min-height: 100%;
     }
-
 }
 
-.overlay_cover_content {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: transparent;
-    top: 0;
-    left: 0;
-}
-@media screen and (max-width: 992px){
+@media screen and (max-width: 992px) {
     .layOut_wrapper>.ant-layout {
-        .overlay_cover_content {
-            display: block;
+        .ant-layout-sider {
+            .overlay_cover_sidevbar {
+                display: block;
+            }
         }
     }
-
 }
-    

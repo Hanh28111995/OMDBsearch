@@ -1,6 +1,6 @@
-.events {
-  margin: 0;
-  min-height: 100%;
+.hide {
+  display: none;
+}in-height: 100%;
   position: absolute;
   width: 100%;
   bottom: 0;

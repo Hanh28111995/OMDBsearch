@@ -1,6 +1,6 @@
 export const dataUserOff = [
     {
-        day: '03/08/2023',
+        day: '04/01/2023',
         user: [
             {
                 typeDayOff: 'half day',
@@ -17,12 +17,12 @@ export const dataUserOff = [
         ]
     },
     {
-        day: '03/28/2023',
+        day: '04/10/2023',
         user: [
             {
                 typeDayOff: 'non-work',
                 detail: 'vacation',
-                name: 'HUyN',
+                name: 'HuyN',
                 department: 'IT'
             },
         ]

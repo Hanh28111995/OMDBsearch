@@ -17,7 +17,7 @@ import { itemsPerPage } from '../../../constants/formValueDefault';
 import { data_user_detail } from '../../../constants/detailUser'
 import { useState } from 'react';
 import ModalAdd from '../../../modules/HRUserManagement/ModalAdd';
-;
+import './index.scss'
 
 const { SearchBar } = Search;
 
@@ -252,7 +252,8 @@ export default function UserManagement(props) {
         </PaginationProvider>
       </Space >
       <Modal
-        title={titleModal} open={isModalOpen}
+        className='modal-add-dkp'
+        title={titleModal} open={isModalOpen} onCancel={handleCancel}
         footer={[
           <Button key="submit" type="primary" onClick={handleOk}>
             Add 1 Point

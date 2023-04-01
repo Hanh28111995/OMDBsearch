@@ -1,4 +1,4 @@
-import { SET_USER_INFOR, SET_TITLE_HEADER } from "../types/user.type";
+import { SET_USER_INFOR, SET_TITLE_HEADER, SET_DETAIL_DAYOFF } from "../types/user.type";
 const setUserInfor = (user) => {
   return {
     type: SET_USER_INFOR,
@@ -12,4 +12,11 @@ const setTitleHeader = (title) => {
   }
 };
 
-export { setUserInfor, setTitleHeader }
+const setDetailDayOff = (user) => {
+  return {
+    type: SET_DETAIL_DAYOFF,
+    payload: user,
+  }
+};
+
+export { setUserInfor, setTitleHeader, setDetailDayOff }

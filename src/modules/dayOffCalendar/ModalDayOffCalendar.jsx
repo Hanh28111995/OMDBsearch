@@ -1,7 +1,9 @@
 import React from 'react'
 import { Col, Row } from 'antd'
+import { useSelector } from 'react-redux'
 
 export default function ModalDayOffCalendar() {
+    const userState = useSelector((state) => state.userReducer)
     return (
         <>
             <div className='modal-calendar-header'></div>
@@ -10,7 +12,7 @@ export default function ModalDayOffCalendar() {
                     <Col xs={24} sm={24} md={8} lg={8} className='fullday-list'>
                         <table className="table table-bordered">
                             <thead>
-                                <tr>
+                                <tr className='bg-success'>
                                     <th colSpan="2">Full Day</th>
                                 </tr>
                                 <tr>
@@ -19,17 +21,27 @@ export default function ModalDayOffCalendar() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Khanh Nguyen</td>
-                                    <td>IT</td>
-                                </tr>
+                                {
+                                    userState.detailDayOff.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                {(item.typeDayOff === 'full day') &&
+                                                    <>
+                                                        <td>{item.name}</td>
+                                                        <td>{item.department}</td>
+                                                    </>
+                                                }
+                                            </tr>
+                                        )
+                                    })
+                                }
                             </tbody>
                         </table>
                     </Col>
                     <Col xs={24} sm={24} md={8} lg={8} className='halfday-list'>
                         <table className="table table-bordered">
                             <thead>
-                                <tr>
+                                <tr className='bg-warning'>
                                     <th colSpan="3">Half Day</th>
                                 </tr>
                                 <tr>
@@ -39,18 +51,28 @@ export default function ModalDayOffCalendar() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Khanh Nguyen</td>
-                                    <td>IT</td>
-                                    <td>Late Half Day</td>
-                                </tr>
+                                {
+                                    userState.detailDayOff.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                {(item.typeDayOff === 'half day') &&
+                                                    <>
+                                                        <td>{item.name}</td>
+                                                        <td>{item.department}</td>
+                                                        <td>{item.detail}</td>
+                                                    </>
+                                                }
+                                            </tr>
+                                        )
+                                    })
+                                }
                             </tbody>
                         </table>
                     </Col>
                     <Col xs={24} sm={24} md={8} lg={8} className='nonwork-list'>
                         <table className="table table-bordered">
                             <thead>
-                                <tr>
+                                <tr className='bg-danger'>
                                     <th colSpan="3">Non-Work</th>
                                 </tr>
                                 <tr>
@@ -60,11 +82,21 @@ export default function ModalDayOffCalendar() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Khanh Nguyen</td>
-                                    <td>IT</td>
-                                    <td>Late Half Day</td>
-                                </tr>
+                                {
+                                    userState.detailDayOff.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                {(item.typeDayOff === 'non-work') &&
+                                                    <>
+                                                        <td>{item.name}</td>
+                                                        <td>{item.department}</td>
+                                                        <td>{item.detail}</td>
+                                                    </>
+                                                }
+                                            </tr>
+                                        )
+                                    })
+                                }
                             </tbody>
                         </table>
                     </Col>

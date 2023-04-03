@@ -37,6 +37,7 @@ export default function Login() {
     }
     setChangeFocus(false)
   };
+
   const loginmethod = () => {
     setDisBTN(true);
     setstyleLogin(!styleLogin);
@@ -53,7 +54,6 @@ export default function Login() {
       e.preventDefault();
       input2Ref.current.focus();
     } else if (e.target.id.indexOf('password') >= 0) {
-      setChangeFocus(true);
     }
   }
 
@@ -123,6 +123,7 @@ export default function Login() {
                           htmlType="submit"
                           className='btn-login'
                           block
+                          onClick={() => setChangeFocus(true)}
                         >
                           Login
                         </Button>
@@ -256,6 +257,7 @@ export default function Login() {
                           style={{
                             marginTop: "55px",
                           }}
+                          onClick={() => setChangeFocus(true)}
                         >
                           Login
                         </Button>

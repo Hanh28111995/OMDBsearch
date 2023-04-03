@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Layout, Menu, Image, Space, notification, Avatar } from "antd";
+import { Layout, Menu, Image } from "antd";
 import Icon from "@mdi/react";
 import { mdiAccount, mdiAccountCash, mdiFileEdit, mdiClockTimeFour, mdiTicketAccount, mdiCalendarMonth, mdiAccountNetwork, mdiAccountSupervisor, mdiLogout } from "@mdi/js";
 import { Outlet, useNavigate } from 'react-router-dom';
@@ -25,9 +25,10 @@ function getItem(label, key, icon, children, type, disabled) {
 const items1 = [
     getItem('PERSONAL___', null, <span>___</span>, null, null, true),
     getItem('Information', '/admin/personal_information', <Icon path={mdiAccount} size={1} />),
-    getItem('Daily Task', '/tomorrow2', <Icon path={mdiFileEdit} size={1} />),
+    getItem('Pay Stub', '/admin/pay_stub', <Icon path={mdiAccountCash} size={1} />),
+    getItem('Daily Task', '/admin/daily_task', <Icon path={mdiFileEdit} size={1} />),
     getItem('Time Sheet', '/admin/timesheet', <Icon path={mdiClockTimeFour} size={1} />),
-    getItem('Payroll', '/tomorrow4', <Icon path={mdiAccountCash} size={1} />,),
+    getItem('Payroll', '/admin/pay_roll', <Icon path={mdiAccountCash} size={1} />,),
     getItem('Ticket', '/tomorrow5', <Icon path={mdiTicketAccount} size={1} />,
         [
             getItem('Miss Punch', '/admin/ticket/miss-punch'),
@@ -77,10 +78,10 @@ export default function MainLayout() {
                     <div className="logo" >
                         <a href="/">
                             <div className='sideBar-icon-sm' >
-                                <img src={sm_logo} height={50} alt="" />
+                                <Image src={sm_logo} alt="" width={45} />
                             </div>
                             <div className='sideBar-icon-lg'>
-                                <img src={lg_logo} height={50} alt="" />
+                                <Image src={lg_logo} alt="" width={145} />
                             </div>
                         </a>
                     </div>
@@ -108,7 +109,6 @@ export default function MainLayout() {
                     }
                 </Sider>
                 <Layout className="site-layout w-100"
-                    style={{ paddingLeft: '90px', paddingRight: '20px' }}
                     onClick={() => { setCollapsed(true); setOverlayCover(true) }}
                 >
                     <Content
@@ -120,7 +120,7 @@ export default function MainLayout() {
                             <HeaderContent />
                         </Header>
                         <Outlet />
-                        <Footer className='footer mt-5' style={{ borderRadius: '10px', backgroundColor: '#001529' }}>
+                        <Footer className='footer mt-5' >
                             <FooterContent />
                         </Footer>
                     </Content>

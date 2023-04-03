@@ -81,7 +81,7 @@ export default function HeaderContent(props) {
                     <div style={{ position: 'relative', display: "flex" }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
                         <div className='menu_acc' data-toggle="collapse" data-target="#demo2">
                             <div className='bg-bell'>
-                                <Icon path={mdiBellRing} size={1} />
+                                <Icon path={mdiBellRing} />
                             </div>
                         </div>
                         <div id="demo2" className={`menu_notificate collapse ${closeM ? "hide" : ""}`}>

@@ -99,7 +99,7 @@ export default function DayOffCalendar(props) {
                 className='model-calendar'>
                 <ModalDayOffCalendar />
             </Modal>
-            <p>{selectedMonth.format('MM')}</p>
+            {/* <p>{selectedMonth.format('MM')}</p> */}
         </div>
 
     )

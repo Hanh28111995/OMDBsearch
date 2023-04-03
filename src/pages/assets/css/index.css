@@ -1,6 +1,10 @@
-.hide {
-  display: none;
-}in-height: 100%;
+.day-off-calendar .ant-picker-calendar {
+  border-radius: 10px;
+  padding: 10px;
+}
+.day-off-calendar .events {
+  margin: 0;
+  min-height: 100%;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -8,10 +12,14 @@
   padding-left: 5px;
   padding-right: 5px;
 }
-
-.modal-calendar {
+@media screen and (max-width: 576px) {
+  .day-off-calendar .events .ant-badge-status-text {
+    display: none;
+  }
+}
+.day-off-calendar .modal-calendar {
   min-width: 1000px;
 }
-.modal-calendar .ant-space .ant-space-item {
+.day-off-calendar .modal-calendar .ant-space .ant-space-item {
   width: 100%;
 }

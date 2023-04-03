@@ -35,6 +35,10 @@ import MissPunchForm from "../pages/Ticket/MissPunch/MissPunchTable";
 import TimeOffAddNew from "../pages/Ticket/TimeOff/TimeOffAddNew";
 import TimeOffForm from "../pages/Ticket/TimeOff/TimeOffTable";
 import TimeSheetTable from "../pages/Ticket/TimeSheet/TimeSheetTable";
+import PayStub from "../pages/Ticket/PayStub/PayStub";
+import DailyTask from "../pages/Ticket/DailyTask/DailyTask";
+import PayRoll from "../pages/Ticket/PayRoll/PayRoll";
+import DailyTaskAddNew from "../pages/Ticket/DailyTask/DailyTaskAddNew";
 
 export default function Router() {
   const routing = useRoutes([
@@ -83,6 +87,22 @@ export default function Router() {
             {
               path: "/admin/personal_information",
               element: <InforForm deactive={true} title='Personal Information' />,
+            },
+            {
+              path: "/admin/pay_stub",
+              element: <PayStub title='Pay Stub' />,
+            },
+            {
+              path: "/admin/pay_roll",
+              element: <PayRoll title='Pay Roll' />,
+            },
+            {
+              path: "/admin/daily_task",
+              element: <DailyTask title='Daily Task' />,
+            },
+            {
+              path: "/admin/daily_task/addnew",
+              element: <DailyTaskAddNew title='Daily Task' />,
             },
             {
               path: "/admin/timesheet",

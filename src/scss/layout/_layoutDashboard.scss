@@ -2,29 +2,12 @@
     position: relative;
 
     .ant-layout-sider {
-        overflow-x: hidden;
-        position: fixed;
-        min-height: 100%;
-        z-index: 99;
-        top: 0;
-        left: 0;
-
-        .logo {
-            padding-top: 30px;
-            padding-bottom: 20px;
-            text-align: center;
-
-            .sideBar-icon-sm {
-                display: block;
-            }
-
-            .sideBar-icon-lg {
-                display: none;
-            }
-        }
-
-        &:hover {
+        .ant-layout-sider-children {
             .logo {
+                padding-top: 30px;
+                padding-bottom: 20px;
+                text-align: center;
+
                 .sideBar-icon-lg {
                     display: block;
                 }
@@ -34,6 +17,28 @@
                 }
             }
         }
+    }
+
+    .ant-layout-sider-collapsed .ant-layout-sider-children {
+        .logo {
+            .sideBar-icon-lg {
+                display: none;
+            }
+
+            .sideBar-icon-sm {
+                display: block;
+            }
+        }
+    }
+
+    .ant-layout-sider {
+        overflow-x: hidden;
+        position: fixed;
+        min-height: 100%;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        border-radius: 0 10px 10px 0 !important;
 
         .overlay_cover_sidevbar {
             width: 100%;
@@ -49,14 +54,41 @@
     .ant-space .ant-space-item {
         min-height: 100%;
     }
+
+    .site-layout {
+        padding-left: 90px;
+        padding-right: 20px;
+    }
+
+    .ant-menu.ant-menu-inline-collapsed>.ant-menu-item,
+    .ant-menu.ant-menu-inline-collapsed>.ant-menu-submenu>.ant-menu-submenu-title {
+        padding: 0 calc(50% - 15px) !important;
+    }
 }
 
 @media screen and (max-width: 992px) {
     .layOut_wrapper>.ant-layout {
+        .ant-layout-sider-collapsed {
+            flex: 0 0 60px !important;
+            max-width: 60px !important;
+            min-width: 60px !important;
+            width: 60px !important;
+        }
+
         .ant-layout-sider {
             .overlay_cover_sidevbar {
                 display: block;
             }
+        }
+
+        .site-layout {
+            padding-left: 70px;
+            padding-right: 10px;
+        }
+
+        .ant-menu.ant-menu-inline-collapsed>.ant-menu-item,
+        .ant-menu.ant-menu-inline-collapsed>.ant-menu-submenu>.ant-menu-submenu-title {
+            padding: 0 calc(50% - 10px) !important;
         }
     }
 }

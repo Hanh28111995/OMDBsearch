@@ -1155,10 +1155,15 @@ input {
 .header .menu_acc_list ul li i,
 .header .menu_notificate ul li i {
   margin-right: 10px;
+  color: gray;
 }
 .header .menu_acc_list ul li:hover,
 .header .menu_notificate ul li:hover {
   background-color: gray;
+  color: white;
+}
+.header .menu_acc_list ul li:hover i,
+.header .menu_notificate ul li:hover i {
   color: white;
 }
 .header .header-left {

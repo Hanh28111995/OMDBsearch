@@ -39,7 +39,6 @@
         &:hover .menu_notificate,
         .menu_acc_list {
             color: white;
-            // background-color: transparent;
         }
     }
 
@@ -74,11 +73,16 @@
 
                 i {
                     margin-right: 10px;
+                    color: gray;
                 }
 
                 &:hover {
                     background-color: gray;
                     color: white;
+
+                    i {
+                        color: white;
+                    }
                 }
             }
 
@@ -282,6 +286,7 @@
                     width: 100%;
                 }
             }
+
             .menu-header-left {
                 font-size: 12px;
             }

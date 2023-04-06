@@ -11,7 +11,7 @@ export default function StatusEvent(props) {
     <div>
       {
         (props.eventType === 'birthday')
-          ? <Carousel autoplay={true} className='bg-white'>
+          ? <Carousel autoplay={false} className='bg-white'>
             <div className='event_content' >
               <img src={event_birthday} alt="event_birthday" className='img-fluid' />
               <div className='event_content_overlay'>

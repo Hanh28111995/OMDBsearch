@@ -14,7 +14,7 @@ import {
   mdiCloseCircleOutline,
   mdiDotsHorizontalCircleOutline
 } from '@mdi/js';
-import { Space } from 'antd';
+import { Button, Space } from 'antd';
 import IconSort from '../../../modules/dataTable/IconSort';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -178,11 +178,6 @@ export default function PayRoll(props) {
                         </Space>
                         <Space className='d-flex align-items-start'>
                           <SearchBar {...toolkitprops.searchProps} />
-                          <NavLink to='/admin/ticket/miss-punch/addnew'>
-                            <button className='btn create_new_form'>
-                              Create
-                            </button>
-                          </NavLink>
                         </Space>
                       </Space>
 
@@ -215,9 +210,9 @@ export default function PayRoll(props) {
                 />
                 {(data.length === 0) ?
                   <Space>
-                    <ul class="pagination react-bootstrap-table-page-btns-ul">
-                      <li class="disabled page-item" title="previous page"><a href="#" class="page-link">&lt;</a></li>
-                      <li class="disabled page-item" title="next page"><a href="#" class="page-link">&gt;</a></li>
+                    <ul className="pagination react-bootstrap-table-page-btns-ul">
+                      <li className="disabled page-item" title="previous page"><a href="#" className="page-link">&lt;</a></li>
+                      <li className="disabled page-item" title="next page"><a href="#" className="page-link">&gt;</a></li>
                     </ul>
                   </Space>
 

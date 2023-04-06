@@ -5,9 +5,12 @@ import { setDetailDayOff, setTitleHeader } from '../../store/actions/user.action
 import ModalDayOffCalendar from '../../modules/dayOffCalendar/ModalDayOffCalendar';
 import { dataUserOff } from '../../constants/dataUserOff';
 import moment from 'moment';
-import './index.scss'
-
+import TimeOffAddNew from '../Ticket/TimeOff/TimeOffAddNew';
+import dayjs from 'dayjs';
 export default function DayOffCalendar(props) {
+    const [ModalCreate, setModalCreate] = useState(false)
+    const [ModalDetail, setModalDetail] = useState(false)
+    const [value, setValue] = useState(() => dayjs(''));
     const [selectedMonth, setSelectedMonth] = useState(moment());
     const [isModalOpen, setIsModalOpen] = useState(false);
     const dispatch = useDispatch();
@@ -27,6 +30,8 @@ export default function DayOffCalendar(props) {
     };
     const handleCancel = () => {
         setIsModalOpen(false);
+        setModalCreate(false);
+        setModalDetail(false)
     };
 
     const getMonthData = (value) => {
@@ -69,11 +74,17 @@ export default function DayOffCalendar(props) {
         return (
             <ul
                 className='events' style={{ maxHeight: '100%' }}
-                onClick={() => { dispatch(setDetailDayOff(listData[0].detail)); setIsModalOpen(true); console.log(listData[0].detail) }}
             >
                 {
                     listData.map((item) => (
-                        <li key={item.content}>
+                        <li
+                            key={item.content}
+                            onClick={() => {
+                                dispatch(setDetailDayOff(listData[0].detail));
+                                setIsModalOpen(true);
+                                setModalDetail(true)
+                            }}
+                        >
                             <Badge status={item.type} text={item.content} />
                         </li>
                     ))
@@ -90,17 +101,44 @@ export default function DayOffCalendar(props) {
 
     return (
         <div className='day-off-calendar'>
+            <div className='calendar-header'>
+                <h4>Select Day Off</h4>
+                <p>Click to the date box of Calendar to create your Time Off.<br></br>
+                    Click to the event in the date box  to see detail.
+                </p>
+            </div>
             <Calendar
-                // onChange={()=> console.log()}
-                onPanelChange={handlePanelChange}
+                onSelect={(newValue) => {
+                    setValue(newValue);
+                    setIsModalOpen(true);
+                    setModalCreate(true);
+                    
+                }}
+                onPanelChange={(newValue) => handlePanelChange(newValue)}
                 dateCellRender={dateCellRender}
                 monthCellRender={monthCellRender} />
-            <Modal title="FRI 13" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}
-                className='model-calendar'>
-                <ModalDayOffCalendar />
+            <Modal
+                title={value.format('MMMM Do YYYY')} open={isModalOpen}
+                onOk={handleOk}
+                onCancel={handleCancel}
+                className='model-calendar'
+                footer={null}
+                width={1000}
+            >
+
+                {
+                    ModalDetail &&
+                    <ModalDayOffCalendar />
+                }
+                {
+                    ((!ModalDetail) && (ModalCreate)) &&
+                    < TimeOffAddNew
+                        hideBtn={false}
+                        daySelected={value}
+                    />
+                }
             </Modal>
             {/* <p>{selectedMonth.format('MM')}</p> */}
         </div>
-
     )
 }

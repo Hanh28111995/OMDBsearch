@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
-import { Menu, Avatar } from "antd";
+import { Menu, Avatar, Switch } from "antd";
 import Icon from '@mdi/react';
 import { mdiBellRing, mdiMenuOpen } from '@mdi/js';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import IconHeaderLeft from './IconHeaderLeft';
 import { pathChangeInfor } from '../constants/headerPath';
+import ToggleBtn from '../modules/toggleComponent/ToggleBtn';
+import { setUserInfor } from '../store/actions/user.action';
 
 export default function HeaderContent(props) {
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+    const [closeM, setCloseM] = useState(false)
+
     function getItem(label, key, icon, children, type, disabled) {
         return {
             key,
@@ -19,8 +25,6 @@ export default function HeaderContent(props) {
         };
     }
     const userState = useSelector((state) => state.userReducer)
-    const navigate = useNavigate()
-    const [closeM, setCloseM] = useState(false)
 
     const blurEvent = () => {
         setCloseM(true);
@@ -44,20 +48,24 @@ export default function HeaderContent(props) {
         getItem(<IconHeaderLeft />, null, '', [
             getItem('User Management', '/admin/hr/user-management', '---',),
             getItem('TimeSheet', '/admin/hr/timesheet', '---',),
-            getItem('Injury Report', null, 'x--',),
-            getItem('Emp Starting Infor', null, 'x--',),
+            // getItem('Injury Report', null, 'x--',),
+            // getItem('Emp Starting Infor', null, 'x--',),
             getItem('Employee Complaint', '/admin/hr/employee-complaint', '---',),
-            getItem('Incident Report', null, '---',),
-            getItem('Lunch Correction', null, '---',),
+            // getItem('Incident Report', null, '---',),
+            // getItem('Lunch Correction', null, '---',),
             getItem('Miss Punch', '/admin/hr/misspuch-management', '---',),
             getItem('Time Off', '/admin/hr/timeoff-management', '---',),
-            getItem('Pay Roll', null, '---',),
-            getItem('VTO Request', null, '---',),
-            getItem('Notificate', null, '---',),
-            getItem('View Log', null, '---',),
+            // getItem('Pay Roll', null, '---',),
+            // getItem('VTO Request', null, '---',),
+            // getItem('Notificate', null, '---',),
+            // getItem('View Log', null, '---',),
         ]),
     ]
-
+    const handleLogout = () => {
+        localStorage.removeItem("WLC_LOGIN");
+        dispatch(setUserInfor(null));
+        navigate('/login');
+    }
     return (
 
         <div className='header d-flex' >
@@ -72,13 +80,18 @@ export default function HeaderContent(props) {
 
             </div>
 
-            <div className='header-right d-flex flex-row bg-white'>
+            <div className='header-right d-flex flex-row'>
                 <div className='d-flex align-items-center'>
                     <h4>{userState.titleHeader}</h4>
                 </div>
 
                 <div className='d-flex align-items-center'>
-                    <div style={{ position: 'relative', display: "flex" }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
+                    <div style={{ position: 'relative' }}>
+                        <div className='menu_acc' >
+                            <ToggleBtn />
+                        </div>
+                    </div>
+                    <div style={{ position: 'relative', display: "flex", marginRight: '5px' }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
                         <div className='menu_acc' data-toggle="collapse" data-target="#demo2">
                             <div className='bg-bell'>
                                 <Icon path={mdiBellRing} />
@@ -102,7 +115,7 @@ export default function HeaderContent(props) {
                     </div>
                     <div style={{ position: 'relative', display: "flex" }} onBlur={blurEvent} onClick={clickEvent} tabIndex={0}>
                         <div className='menu_acc' data-toggle="collapse" data-target="#demo1">
-                            <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg" />
+                            <Avatar src="https://admin.worldcraftlogistics.net/img/Avatar/HanhT__2023-03-30-08-33-40-026.jpg" />
                             <span className='pl-1'><i className="fa-solid fa-caret-down"></i></span>
                         </div>
                         <div id="demo1"
@@ -111,6 +124,7 @@ export default function HeaderContent(props) {
                                 <li onClick={() => { navFunc(pathChangeInfor.changeAvt) }}><i className="fa-solid fa-user"></i>Change Avatar</li>
                                 <li onClick={() => { navFunc(pathChangeInfor.changePassword) }}><i className="fa-solid fa-lock"></i>Change Password</li>
                                 <li onClick={() => { navFunc(pathChangeInfor.Idealsupport) }}><i className="fa-regular fa-life-ring"></i>Support</li>
+                                <li onClick={() => { handleLogout() }}><i className="fa-solid fa-right-from-bracket"></i>Logout</li>
                             </ul>
                         </div>
                     </div>

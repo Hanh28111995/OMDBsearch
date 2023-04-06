@@ -79,7 +79,9 @@ export default function Login() {
                       name="basic1"
                       labelCol={{ span: 7 }}
                       initialValues={{
-                        remember: true,
+                        username:'hanhT',
+                        password:'0163H'
+                        
                       }}
                       onFinish={onFinish}
                       onFinishFailed={onFinishFailed}
@@ -95,7 +97,7 @@ export default function Login() {
                           },
                         ]}
                       >
-                        <Input placeholder="Enter your user" autoComplete="off" onPressEnter={(e) => handleKeyDown(e)} ref={input1Ref} />
+                        <Input  placeholder="Enter your user" autoComplete="off" onPressEnter={(e) => handleKeyDown(e)} ref={input1Ref}  />
                       </Form.Item>
 
                       <Form.Item
@@ -108,7 +110,7 @@ export default function Login() {
                           },
                         ]}
                       >
-                        <Input.Password placeholder="Enter your password" autoComplete='new-password' onPressEnter={(e) => handleKeyDown(e)} ref={input2Ref} />
+                        <Input.Password  placeholder="Enter your password" autoComplete='new-password' onPressEnter={(e) => handleKeyDown(e)} ref={input2Ref} />
                       </Form.Item>
                       <Space align="horizontal" style={{ alignItems: 'baseline' }}>
                         <Form.Item name="remember" valuePropName="checked">
@@ -121,7 +123,7 @@ export default function Login() {
                         <Button
                           type="primary"
                           htmlType="submit"
-                          className='btn-login'
+                          className="btn-login"
                           block
                           onClick={() => setChangeFocus(true)}
                         >

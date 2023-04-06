@@ -1,10 +1,25 @@
-.create_new_form,
-.back-btn {
-    border-radius: 10px;
+.create_new_btn,
+.back-btn,
+.search-btn,
+.add_btn {
     background-color: $bg-color-3 !important;
-    color: white !important;
+    border-radius: 5px !important;
+    height: 35px !important;
+    margin-bottom: 0;
+    margin-left: 5px;
+
+    i, span {
+        color: white;
+        font-weight: bold;
+    }
 
     &:hover {
         background-color: $bg-color-4 !important;
     }
+}
+
+
+
+#search-bar-0 {
+    height: 35px !important;
 }

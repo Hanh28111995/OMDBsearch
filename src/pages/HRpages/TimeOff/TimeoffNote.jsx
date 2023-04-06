@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { setTitleHeader } from '../../../store/actions/user.action';
 import { Form, Space, Col, Select, Input, Row, Button } from 'antd'
 const { TextArea } = Input;
@@ -17,8 +17,15 @@ export default function TimeoffNote(props) {
     return (
         <Space direction='vertical' className='bg-form pb-5 w-100' >
             <Space direction='vertical' className='bg-form-header w-100' >
-                <div className='d-flex w-100'>
-                    <h4 >TIME OFF NOTE - {param.name} - {param.id}</h4>
+                <div className='d-flex justify-content-between'>
+                    <div className='d-flex w-100'>
+                        <h4 >TIME OFF NOTE - {param.name} - {param.id}</h4>
+                    </div>
+                    <NavLink to='/admin/hr/timeoff-management'>
+                        <Button className='back-btn'>
+                            Back
+                        </Button>
+                    </NavLink>
                 </div>
             </Space>
             <Form
@@ -64,7 +71,11 @@ export default function TimeoffNote(props) {
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={24} >
                         <Space className='d-flex justify-content-end'>
-                            <Button>Save</Button>
+                            <Form.Item>
+                                <Button className='create_new_btn' htmlType="submit">
+                                    Submit
+                                </Button>
+                            </Form.Item>
                         </Space>
                     </Col>
                 </Row>

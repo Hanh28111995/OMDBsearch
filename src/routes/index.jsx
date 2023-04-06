@@ -122,11 +122,11 @@ export default function Router() {
                 },
                 {
                   path: "/admin/ticket/time-off",
-                  element: <TimeOffForm title="Time Off" />,
+                  element: <TimeOffForm title="Time Off"/>,
                 },
                 {
                   path: "/admin/ticket/time-off/addnew",
-                  element: <TimeOffAddNew title="Time Off" />,
+                  element: <TimeOffAddNew title="Time Off" hideBtn = {true}/>,
                 },
                 {
                   path: "/admin/ticket/injury",

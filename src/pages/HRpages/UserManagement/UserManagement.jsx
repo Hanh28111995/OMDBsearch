@@ -17,7 +17,6 @@ import { itemsPerPage } from '../../../constants/formValueDefault';
 import { data_user_detail } from '../../../constants/detailUser'
 import { useState } from 'react';
 import ModalAdd from '../../../modules/HRUserManagement/ModalAdd';
-import './index.scss'
 
 const { SearchBar } = Search;
 
@@ -184,25 +183,25 @@ export default function UserManagement(props) {
                           <Space className='d-flex align-items-start'>
                             <SearchBar {...toolkitprops.searchProps} />
                             <NavLink to='/admin/hr/user-management/create'>
-                              <button className='btn btn-success create_new_form'>
+                              <Button className='create_new_btn'>
                                 Create
-                              </button>
+                              </Button>
                             </NavLink>
                           </Space>
                         </Space>
                         <Space className='d-flex justify-content-end'>
-                          <button className='btn btn-success create_new_form' onClick={addDKPHandleClick}>
+                           <Button className='create_new_btn' onClick={addDKPHandleClick}>
                             <i className="fa-solid fa-plus mr-2"></i>Add DKP
-                          </button>
-                          <button className='btn btn-success create_new_form' onClick={addVacationHandleClick}>
+                          </Button>
+                           <Button className='create_new_btn' onClick={addVacationHandleClick}>
                             <i className="fa-solid fa-plus mr-2"></i>Add Vacation
-                          </button>
-                          <button className='btn btn-success create_new_form' >
+                          </Button>
+                           <Button className='create_new_btn' >
                             <i className="fa-solid fa-money-check-dollar mr-2"></i> Payroll Employee
-                          </button>
-                          <button className='btn btn-success create_new_form' >
+                          </Button>
+                           <Button className='create_new_btn' >
                             <i className="fa-solid fa-file-arrow-down mr-2"></i>Export
-                          </button>
+                          </Button>
                         </Space>
 
                         <hr />

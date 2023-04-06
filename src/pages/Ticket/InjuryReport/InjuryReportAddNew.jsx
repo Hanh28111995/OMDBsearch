@@ -49,9 +49,9 @@ export default function InjuryReportAddNew(props) {
                         <h4>Create New Injury Report</h4>
                     </div>
                     <NavLink to='/admin/ticket/injury'>
-                        <button className='btn btn-success back-btn'>
+                        <Button className='back-btn'>
                             Back
-                        </button>
+                        </Button>
                     </NavLink>
                 </div>
             </Space>
@@ -124,9 +124,19 @@ export default function InjuryReportAddNew(props) {
                     </Col>
                 </Row>
                 <p className='text-center'><b>---Incident---</b></p>
+
                 <Row gutter={24}>
                     <Col xs={24} sm={24} md={24} lg={24} >
-                        <Form.Item label="1) Date of Accident" name="dateAccident">
+                        <Form.Item
+                            label="1) Date of Accident"
+                            name="dateAccident"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Date and Time!",
+                                },
+                            ]}
+                        >
                             <DatePicker
                                 className='w-100'
                                 placeholder='Select Date and Time (mm/dd/yyyy --:-- )'
@@ -142,6 +152,12 @@ export default function InjuryReportAddNew(props) {
                         <Form.Item
                             label="2) How did the injury occur?"
                             name="describeInjuryOccur1"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Description!",
+                                },
+                            ]}
                         >
                             <Input />
                         </Form.Item>
@@ -150,12 +166,26 @@ export default function InjuryReportAddNew(props) {
                         <Form.Item
                             label="3) Others Involved"
                             name="describeInjuryOccur2"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please inputOthers Involved !",
+                                },
+                            ]}
                         >
                             <Input />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={24} >
-                        <Form.Item label="4) Caused by" name='causeby' >
+                        <Form.Item
+                            label="4) Caused by"
+                            name='causeby'
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Reason!",
+                                },
+                            ]}>
                             <CheckboxGroup
                                 options={reasonOptions}
                             // value={checkedList} 
@@ -165,8 +195,14 @@ export default function InjuryReportAddNew(props) {
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={24} >
                         <Form.Item
-                            label="5) Other"
+                            label="5) Other Reason"
                             name="describeInjuryOccur3"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Other Reason!",
+                                },
+                            ]}
                         >
                             <Input />
                         </Form.Item>
@@ -178,6 +214,12 @@ export default function InjuryReportAddNew(props) {
                         <Form.Item
                             label="1) Description of Injury"
                             name="describeInjuryOccur4"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Description of Injury!",
+                                },
+                            ]}
                         >
                             <Input />
                         </Form.Item>
@@ -186,6 +228,12 @@ export default function InjuryReportAddNew(props) {
                         <Form.Item
                             label="2) Nature of Injury"
                             name="describeInjuryOccur5"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Nature of Injury!",
+                                },
+                            ]}
                         >
                             <CheckboxGroup
                                 options={natureInjuryOptions} />
@@ -195,6 +243,12 @@ export default function InjuryReportAddNew(props) {
                         <Form.Item
                             label="3) Other"
                             name="describeInjuryOccur6"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Other!",
+                                },
+                            ]}
                         >
                             <Input />
                         </Form.Item>
@@ -204,6 +258,12 @@ export default function InjuryReportAddNew(props) {
                 <div className='container-fluid'>
                     <Form.Item
                         name="injuryParts"
+                        rules={[
+                            {
+                                required: true,
+                                message: "Please select Part of Body Affected !",
+                            },
+                        ]}
                     >
                         <Checkbox.Group className='w-100' onChange={(checkedValues) => { setBodyPart(checkedValues) }}>
                             <Row gutter={24} className='body-part-effect'>
@@ -264,6 +324,12 @@ export default function InjuryReportAddNew(props) {
                         <Form.Item
                             label="1) Doctor"
                             name="dr"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Doctor Name!",
+                                },
+                            ]}
                         >
                             <Input />
                         </Form.Item>
@@ -272,6 +338,12 @@ export default function InjuryReportAddNew(props) {
                         <Form.Item
                             label="2) Hospital"
                             name="hospital"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Hospital!",
+                                },
+                            ]}
                         >
                             <Input />
                         </Form.Item>
@@ -280,6 +352,12 @@ export default function InjuryReportAddNew(props) {
                         <Form.Item
                             label="3) Insurance"
                             name="insurance"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Insurance!",
+                                },
+                            ]}
                         >
                             <Input />
                         </Form.Item>
@@ -288,6 +366,12 @@ export default function InjuryReportAddNew(props) {
                         <Form.Item
                             label="4) Account No"
                             name="accnum"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Account No!",
+                                },
+                            ]}
                         >
                             <Input />
                         </Form.Item>
@@ -296,6 +380,12 @@ export default function InjuryReportAddNew(props) {
                         <Form.Item
                             label="5) Care Provided"
                             name="careprovide"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Care Provided!",
+                                },
+                            ]}
                         >
                             <Input />
                         </Form.Item>
@@ -303,7 +393,7 @@ export default function InjuryReportAddNew(props) {
                 </Row>
                 <Row gutter={24} style={{ padding: '12px', justifyContent: 'right' }}>
                     <Form.Item>
-                        <Button type="primary" htmlType="submit">
+                        <Button className='create_new_btn' htmlType="submit">
                             Submit
                         </Button>
                     </Form.Item>

@@ -32,10 +32,11 @@ export default function PayStub(props) {
                 autoComplete='off'
             >
                 <div className='d-flex'>
-                    <Form.Item label="" style={{ textAlign: 'left' }} labelCol={{ span: 3 }} name='paystub_time' >
-                        <DatePicker picker="month" />
+                    <Form.Item label="" style={{ textAlign: 'left' }} name='paystub_time'  >
+                        <DatePicker picker="month" placeholder='Select Month and Year' style={{width:'200px'}}/>
                     </Form.Item>
-                    <Button>Search</Button>
+
+                    <Button className='search-btn' >Search</Button>
                 </div>
             </Form >
         </Space>

@@ -38,13 +38,42 @@
         }
     }
 
-    .statusEmployee,
     .statusGroup {
         border-radius: 10px;
     }
 
     .statusGroup {
         padding: 10px;
+
+        .panel_header_content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .panel_header_content_title {
+                h6 {
+                    margin-bottom: 0;
+                }
+            }
+
+            .panel_header_content_icon {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                i {
+                    &:first-child {
+                        color: 'rgb(237, 125, 49)'
+                    }
+
+                    &:last-child {
+                        color: 'rgb(112, 172, 72)'
+                    }
+                }
+            }
+        }
     }
+
 
 }

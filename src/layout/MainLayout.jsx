@@ -4,7 +4,7 @@ import Icon from "@mdi/react";
 import { mdiAccount, mdiAccountCash, mdiFileEdit, mdiClockTimeFour, mdiTicketAccount, mdiCalendarMonth, mdiAccountNetwork, mdiAccountSupervisor, mdiLogout } from "@mdi/js";
 import { Outlet, useNavigate } from 'react-router-dom';
 import { setUserInfor } from '../store/actions/user.action';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import lg_logo from '../assets/imgs/Logo__001_no_bg.png'
 import sm_logo from '../assets/imgs/Logo_no_bg.png'
 import Header from './HeaderContent';
@@ -40,19 +40,20 @@ const items1 = [
 
     getItem('DEPARTMENT___', null, <span>___</span>, null, null, true),
     getItem('Calendar', '/admin/department/calendar', <Icon path={mdiCalendarMonth} size={1} />),
-    getItem('TO-CoWorker', '/tomorrow7', <Icon path={mdiAccountNetwork} size={1} />),
-    getItem('Manager', '/tomorrow8', <Icon path={mdiAccountSupervisor} size={1} />),
+    // getItem('TO-CoWorker', '/tomorrow7', <Icon path={mdiAccountNetwork} size={1} />),
+    // getItem('Manager', '/tomorrow8', <Icon path={mdiAccountSupervisor} size={1} />),
 
-    getItem('GROUP___', null, <span>___</span>, null, null, true),
-    getItem('Time Sheet', '/tomorrow9', <Icon path={mdiAccountSupervisor} size={1} />),
-    getItem('Daily Task', '/tomorrow10', <Icon path={mdiAccountSupervisor} size={1} />),
+    // getItem('GROUP___', null, <span>___</span>, null, null, true),
+    // getItem('Time Sheet', '/tomorrow9', <Icon path={mdiAccountSupervisor} size={1} />),
+    // getItem('Daily Task', '/tomorrow10', <Icon path={mdiAccountSupervisor} size={1} />),
 
-    getItem(<hr color='white' />, null, null, null, null, true),
-    getItem('Log Out', 'logOut', <Icon path={mdiLogout} size={1} />),
+//     getItem(<hr color='white' />, null, null, null, null, true),
+//     getItem('Log Out', 'logOut', <Icon path={mdiLogout} size={1} />),
 ]
 
 
 export default function MainLayout() {
+    const userState = useSelector((state) => state.userReducer)
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const handleLogout = () => {
@@ -108,7 +109,7 @@ export default function MainLayout() {
                         </div>
                     }
                 </Sider>
-                <Layout className="site-layout w-100"
+                <Layout className={`${userState.toggleDarkLight ? 'dark_mode' : ''} site-layout w-100`}
                     onClick={() => { setCollapsed(true); setOverlayCover(true) }}
                 >
                     <Content

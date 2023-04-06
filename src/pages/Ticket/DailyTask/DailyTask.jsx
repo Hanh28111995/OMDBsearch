@@ -14,7 +14,7 @@ import {
     mdiCloseCircleOutline,
     mdiDotsHorizontalCircleOutline
 } from '@mdi/js';
-import { Space } from 'antd';
+import { Button, Space } from 'antd';
 import IconSort from '../../../modules/dataTable/IconSort';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -165,9 +165,9 @@ export default function DailyTask(props) {
                                                 <Space className='d-flex align-items-start'>
                                                     <SearchBar {...toolkitprops.searchProps} />
                                                     <NavLink to='/admin/daily_task/addnew'>
-                                                        <button className='btn create_new_form'>
+                                                        <Button className='create_new_btn'>
                                                             Create
-                                                        </button>
+                                                        </Button>
                                                     </NavLink>
                                                 </Space>
                                             </Space>

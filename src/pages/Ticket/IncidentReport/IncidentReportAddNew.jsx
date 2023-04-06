@@ -24,9 +24,9 @@ export default function IncidentReportAddNew(props) {
                         <h4>Create New Incident Report</h4>
                     </div>
                     <NavLink to='/admin/ticket/incident'>
-                        <button className='btn btn-success back-btn'>
+                        <Button className='back-btn'>
                             Back
-                        </button>
+                        </Button>
                     </NavLink>
                 </div>
             </Space>
@@ -40,7 +40,15 @@ export default function IncidentReportAddNew(props) {
             >
                 <Row gutter={24}>
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Type" name='type_incident' >
+                        <Form.Item
+                            label="Type" name='type_incident'
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Type Incident!",
+                                },
+                            ]}
+                        >
                             <Radio.Group>
                                 <Radio value="MLK1"> MLK1 </Radio>
                                 <Radio value="CTR1"> CTR1 </Radio>
@@ -49,7 +57,13 @@ export default function IncidentReportAddNew(props) {
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Location" name='location' >
+                        <Form.Item label="Location" name='location'
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Location!",
+                                },
+                            ]}>
                             <Radio.Group>
                                 <Radio value="Warehouse"> Warehouse </Radio>
                                 <Radio value="Office"> Office </Radio>
@@ -58,7 +72,16 @@ export default function IncidentReportAddNew(props) {
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Manager" name="manager" initialValue=''>
+                        <Form.Item
+                            label="Manager"
+                            name="manager"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Manager!",
+                                },
+                            ]}
+                        >
                             <Select
                                 className='w-100'
                                 showSearch
@@ -77,7 +100,16 @@ export default function IncidentReportAddNew(props) {
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Date Of Incident" name="dateIncident">
+                        <Form.Item
+                            label="Date Of Incident"
+                            name="dateIncident"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Date Of Incident!",
+                                },
+                            ]}
+                        >
                             <DatePicker
                                 className='w-100'
                                 placeholder='Select Date and Time'
@@ -90,7 +122,14 @@ export default function IncidentReportAddNew(props) {
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Witness" name="witness" initialValue=''>
+                        <Form.Item label="Witness" name="witness"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Witness!",
+                                },
+                            ]}
+                        >
                             <Select
                                 className='w-100'
                                 showSearch
@@ -112,19 +151,31 @@ export default function IncidentReportAddNew(props) {
                         <Form.Item
                             label="Reference"
                             name="reference"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Reference!",
+                                },
+                            ]}
                         >
                             <Input placeholder='Reference' />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={24} md={24} lg={24} >
                         <Form.Item
-                            label="Reference"
-                            name="reference"
+                            label="Description"
+                            name="description"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Description!",
+                                },
+                            ]}
                         >
                             <Editor
                                 apiKey='t9w3mxyyc7148r0r70mz3vlfoljkm2a80yta7b9dncznkebx'
                                 name='description'
-                                initialValue="<p>This is the initial content of the editor.</p>"
+                                initialValue="<p></p>"
                                 init={{
                                     menubar: false,
                                     selector: 'textarea',
@@ -135,26 +186,16 @@ export default function IncidentReportAddNew(props) {
                             />
                         </Form.Item>
                     </Col>
-
-
+                </Row>
+                <Row gutter={24} style={{ padding: '12px', justifyContent: 'right' }}>
+                    <Form.Item>
+                        <Button className='create_new_btn' htmlType="submit">
+                            Submit
+                        </Button>
+                    </Form.Item>
                 </Row>
             </Form >
         </Space >
     )
 }
 
-
-
-
-// height: 500,
-//     menubar: false,
-//         plugins: [
-//             'advlist autolink lists link image charmap print preview anchor',
-//             'searchreplace visualblocks code fullscreen',
-//             'insertdatetime media table paste code help wordcount'
-//         ],
-//             toolbar: 'newdocument | undo redo | formatselect | ' +
-//                 'bold italic backcolor | alignleft aligncenter ' +
-//                 'alignright alignjustify | bullist numlist outdent indent | ' +
-//                 'removeformat | help',
-//                 content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'

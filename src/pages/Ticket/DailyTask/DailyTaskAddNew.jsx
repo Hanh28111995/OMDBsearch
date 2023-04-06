@@ -2,14 +2,10 @@ import React, { useEffect, useState } from 'react'
 import {
     Form,
     Select,
-    DatePicker,
     Col,
     Row,
     Space,
     Input,
-    Collapse,
-    AutoComplete,
-    Radio,
     Button,
     InputNumber,
 } from 'antd';
@@ -27,19 +23,12 @@ export default function DailyTaskAddNew(props) {
     useEffect(() => {
         dispatch(setTitleHeader(props.title))
     }, [userState.titleHeader])
-    const onChange1 = (value, dateString) => {
-        console.log('Selected Time: ', value);
-        console.log('Formatted Selected Time: ', dateString);
-    };
+
     const onOk = (value) => {
         console.log('onOk: ', value);
     };
 
     function handleChange(value) { console.log(`Selected ${value}`); }
-    function handleBlur() { console.log('blur'); }
-    function handleFocus() { console.log('focus'); }
-    function handleSearch(value) { console.log('search:', value); }
-
 
     return (
         <Space direction='vertical' className='bg-form pb-5 w-100' >
@@ -49,9 +38,9 @@ export default function DailyTaskAddNew(props) {
                         <h4>Create Task Today</h4>
                     </div>
                     <NavLink to='/admin/daily_task'>
-                        <button className='btn back-btn'>
+                        <Button className='back-btn'>
                             Back
-                        </button>
+                        </Button>
                     </NavLink>
                 </div>
 
@@ -70,9 +59,14 @@ export default function DailyTaskAddNew(props) {
                         <Form.Item
                             label="Project Name"
                             name="pjname"
-                            placeholder="Enter Project Name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input project name!",
+                                },
+                            ]}
                         >
-                            <Input />
+                            <Input placeholder="Enter Project Name" />
                         </Form.Item>
                     </Col>
 
@@ -80,14 +74,27 @@ export default function DailyTaskAddNew(props) {
                         <Form.Item
                             label="Task Name"
                             name="taskName"
-                            placeholder="Enter Task Name"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input task name!",
+                                },
+                            ]}
                         >
-                            <Input />
+                            <Input placeholder="Enter Task Name" />
                         </Form.Item>
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Priority" name="priority">
+                        <Form.Item
+                            label="Priority"
+                            name="priority"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select priority!",
+                                },
+                            ]}>
                             <Select
                                 className='w-100'
                                 placeholder="Select Priority"
@@ -103,7 +110,15 @@ export default function DailyTaskAddNew(props) {
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Task Type" name="taskType">
+                        <Form.Item
+                            label="Task Type"
+                            name="taskType"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Task Type!",
+                                },
+                            ]}>
                             <Select
                                 className='w-100'
                                 placeholder="Select Task Type"
@@ -118,11 +133,16 @@ export default function DailyTaskAddNew(props) {
 
                     <Col xs={24} sm={24} md={12} lg={12} >
                         <Form.Item
-                            label="Original Estimate"
+                            label="Original Estimate (hour)"
                             name="time_estimate"
-                            placeholder=""
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input Original Estimate!",
+                                }
+                            ]}
                         >
-                            <InputNumber className='w-100' />
+                            <InputNumber type='number' className='w-100' placeholder="Select Original Estimate" />
                         </Form.Item>
                     </Col>
 
@@ -132,18 +152,28 @@ export default function DailyTaskAddNew(props) {
                                 <Form.Item
                                     label="Time Spent"
                                     name="time_spent"
-                                    placeholder=""
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "Please input Time Spent!",
+                                        }
+                                    ]}
                                 >
-                                    <InputNumber className='w-100' />
+                                    <InputNumber type='number' className='w-100' placeholder="Select Time Spent" />
                                 </Form.Item>
                             </Col>
                             <Col xs={24} sm={24} md={12} lg={12} >
                                 <Form.Item
                                     label="Time Remain"
                                     name="time_remain"
-                                    placeholder=""
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "Please input Time Remain!",
+                                        }
+                                    ]}
                                 >
-                                    <InputNumber className='w-100' />
+                                    <InputNumber type='number' className='w-100' placeholder="Select Time Remain" />
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -155,7 +185,7 @@ export default function DailyTaskAddNew(props) {
 
                     <Col xs={24} sm={24} md={24} lg={24} >
                         <Space className='d-flex justify-content-end'>
-                            <Button>Create</Button>
+                            <Button htmlType="submit" className='create_new_btn'>Submit</Button>
                         </Space>
                     </Col>
                 </Row>

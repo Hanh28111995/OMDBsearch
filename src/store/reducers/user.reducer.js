@@ -1,4 +1,4 @@
-import { SET_USER_INFOR, SET_TITLE_HEADER, SET_DETAIL_DAYOFF } from "../types/user.type";
+import { SET_USER_INFOR, SET_TITLE_HEADER, SET_DETAIL_DAYOFF, SET_TOGGLE_DARK_LIGHT } from "../types/user.type";
 
 let userInfor = localStorage.getItem("WLC_LOGIN");
 if (userInfor) {
@@ -9,6 +9,7 @@ const DEFAULT_STATE = {
   userPosition: 'HR',
   titleHeader: '',
   detailDayOff: [],
+  toggleDarkLight: false,
 };
 export const userReducer = (state = DEFAULT_STATE, { type, payload }) => {
   switch (type) {
@@ -22,6 +23,10 @@ export const userReducer = (state = DEFAULT_STATE, { type, payload }) => {
     }
     case SET_DETAIL_DAYOFF: {
       state.detailDayOff = payload;
+      return { ...state };
+    }
+    case SET_TOGGLE_DARK_LIGHT: {
+      state.toggleDarkLight = payload;
       return { ...state };
     }
 

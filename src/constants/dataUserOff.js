@@ -25,6 +25,24 @@ export const dataUserOff = [
                 name: 'HuyN',
                 department: 'IT'
             },
+            {
+                typeDayOff: 'half day',
+                detail: 'late half day',
+                name: 'David',
+                department: 'Warehouse'
+            },
+            {
+                typeDayOff: 'full day',
+                detail: '',
+                name: 'Helen',
+                department: 'HR'
+            },
+            {
+                typeDayOff: 'full day',
+                detail: '',
+                name: 'Hela',
+                department: 'HR'
+            },
         ]
     },
 ]

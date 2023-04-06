@@ -6,6 +6,7 @@
 
     .statusEmployee {
         padding-right: 1%;
+        border-radius: 10px;
 
         .contentStatus {
             float: left;
@@ -43,8 +44,9 @@
             position: relative;
             margin-left: auto;
             margin-right: auto;
-            .contentStatus{
-                svg{
+
+            .contentStatus {
+                svg {
                     width: 45px;
                     height: 45px;
                 }
@@ -58,6 +60,14 @@
 
         .ant-card .ant-card-body {
             padding: 10px 5px;
+        }
+    }
+
+    .ant-carousel .slick-slider {
+        border-radius: 10px;
+        .slick-list
+        {
+            border-radius: 10px;
         }
     }
 
@@ -75,6 +85,7 @@
             height: 100%;
             top: 0;
             left: 0;
+            border-radius: 10px;
         }
     }
 }
@@ -87,13 +98,14 @@
 // }
 
 @media screen and (max-width: 576px) {
-    .dashboard{
-        .statusEmployee{
-            .overlayStatus{
+    .dashboard {
+        .statusEmployee {
+            .overlayStatus {
                 width: 95px;
                 height: 50px;
-                .contentStatus{
-                    svg{
+
+                .contentStatus {
+                    svg {
                         width: 30px;
                         height: 30px;
                     }
@@ -104,22 +116,25 @@
 }
 
 @media screen and (max-width: 376px) {
-    .dashboard{
-        .statusEmployee{
-            .overlayStatus{
+    .dashboard {
+        .statusEmployee {
+            .overlayStatus {
                 min-width: 40px;
                 width: 70px;
                 height: 45px;
-                .contentStatus{
-                    svg{
+
+                .contentStatus {
+                    svg {
                         width: 20px;
                         height: 20px;
                     }
-                    .contentStatus_child{
-                        .contentStatus_child_num{
+
+                    .contentStatus_child {
+                        .contentStatus_child_num {
                             font-size: 12px;
                         }
-                        .contentStatus_child_text{
+
+                        .contentStatus_child_text {
                             font-size: 10px;
                         }
                     }

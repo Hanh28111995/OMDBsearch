@@ -39,4 +39,15 @@
    .body-part-effect>.ant-col:last-child {
       display: grid;
    }
+
+   label[for~="__location"] {
+      text-align: left;
+   }
+}
+
+.ant-col-24.ant-form-item-label>label::before {
+   display: none !important;
+}
+.ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):before {
+   display: none !important;
 }

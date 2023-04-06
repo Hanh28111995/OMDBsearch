@@ -1,5 +1,8 @@
 .layOut_wrapper>.ant-layout {
     position: relative;
+    .dark_mode{
+        background-color: #262626;
+    }
 
     .ant-layout-sider {
         .ant-layout-sider-children {

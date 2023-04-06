@@ -21,11 +21,11 @@ export default function DashBoard(props) {
     return (
         <div className='dashboard '>
             <Row gutter={24} >
-                <Col xs={24} sm={24} md={18} lg={18}>
+                <Col xs={24} sm={16} md={16} lg={18}>
                     <StatusEmployee />
                     <StatusGroup />
                 </Col>
-                <Col xs={24} sm={24} md={6} lg={6}>
+                <Col xs={24} sm={8} md={8} lg={6}>
                     <StatusEvent eventType='birthday'/>
                     <StatusEvent eventType='newEmployee'/>
                 </Col>

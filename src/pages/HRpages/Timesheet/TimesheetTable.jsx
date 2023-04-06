@@ -309,9 +309,9 @@ export default function TimesheetTable(props) {
                                                                 setStateUserList(filteredArrayUser)
                                                             }}
                                                         />
-                                                        <Button type="dash" size={'large'} className='rounded' onClick={onChange}>Search</Button>
-                                                        <Button type="dash" size={'large'} className='rounded' onClick={onClear}>Show All</Button>
-                                                        <Button type="dash" size={'large'} className='rounded' onClick={() => navigate(`/admin/hr/timesheet/view/${valueShow}/${selectDate.dateStart}/${selectDate.dateEnd}`)} >Export</Button>
+                                                        <Button  className='search-btn' onClick={onChange}>Search</Button>
+                                                        <Button  className='search-btn' onClick={onClear}>Show All</Button>
+                                                        <Button  className='search-btn' onClick={() => navigate(`/admin/hr/timesheet/view/${valueShow}/${selectDate.dateStart}/${selectDate.dateEnd}`)} >Export</Button>
                                                     </Space>
                                                 </Space>
 

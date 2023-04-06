@@ -1,0 +1,20 @@
+.theme-switch {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+
+    &::hover i {
+        color: #fff !important;
+    }
+
+    .mode-container {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        padding: 0px 0;
+        margin-left: 9px;
+        color: #4867b0;
+        cursor: pointer;
+
+    }
+}

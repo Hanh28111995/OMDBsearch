@@ -48,9 +48,9 @@ export default function MissPunchAddNew(props) {
                         <h4>Create New Miss Punch</h4>
                     </div>
                     <NavLink to='/admin/ticket/miss-punch'>
-                        <button className='btn back-btn'>
+                        <Button className='back-btn'>
                             Back
-                        </button>
+                        </Button>
                     </NavLink>
                 </div>
 
@@ -67,7 +67,15 @@ export default function MissPunchAddNew(props) {
                 <Row gutter={24}>
 
                     <Col xs={24} sm={24} md={24} lg={24} >
-                        <Form.Item label="Location :" style={{ textAlign: 'left' }} labelCol={{ span: 3 }} name='location' >
+                        <Form.Item
+                            label="Location :"  labelCol={{ span: 3 }} name='location'
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Location!",
+                                },
+                            ]}
+                        >
                             <Radio.Group>
                                 <Radio value="MLK1"> MLK1 </Radio>
                                 <Radio value="CTR1"> CTR1 </Radio>
@@ -78,7 +86,14 @@ export default function MissPunchAddNew(props) {
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Punch In" name="punchin">
+                        <Form.Item label="Punch In" name="punchin"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Punch In!",
+                                },
+                            ]}
+                        >
                             <DatePicker
                                 className='w-100'
                                 placeholder='Select Date and Time'
@@ -92,7 +107,14 @@ export default function MissPunchAddNew(props) {
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Lunch In" name="lunchin">
+                        <Form.Item label="Lunch In" name="lunchin"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Lunch In!",
+                                },
+                            ]}
+                        >
                             <DatePicker
                                 className='w-100'
                                 placeholder='Select Date and Time'
@@ -106,7 +128,13 @@ export default function MissPunchAddNew(props) {
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Punch Out" name="punchout">
+                        <Form.Item label="Punch Out" name="punchout"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Punch Out!",
+                                },
+                            ]}>
                             <DatePicker
                                 className='w-100'
                                 placeholder='Select Date and Time'
@@ -120,7 +148,14 @@ export default function MissPunchAddNew(props) {
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={12} >
-                        <Form.Item label="Lunch Out" name="Lunchout">
+                        <Form.Item
+                            label="Lunch Out" name="Lunchout"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Lunch Out!",
+                                },
+                            ]}>
                             <DatePicker
                                 className='w-100'
                                 placeholder='Select Date and Time'
@@ -134,7 +169,13 @@ export default function MissPunchAddNew(props) {
                     </Col>
 
                     <Col xs={24} sm={24} md={24} lg={24} >
-                        <Form.Item label="Manager" name="manager" initialValue=''>
+                        <Form.Item label="Manager" name="manager" initialValue=''
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please select Manager!",
+                                },
+                            ]}>
                             <Select
                                 className='w-100'
                                 showSearch
@@ -158,12 +199,15 @@ export default function MissPunchAddNew(props) {
                             <TextArea rows={4} placeholder="Other Reason" maxLength={6} />
                         </Form.Item>
                     </Col>
-                    <Col xs={24} sm={24} md={24} lg={24} >
-                        <Space className='d-flex justify-content-end'>
-                            <Button>Create</Button>
-                        </Space>
-                    </Col>
                 </Row>
+                <Row gutter={24} style={{ padding: '12px', justifyContent: 'right' }}>
+                    <Form.Item>
+                        <Button className='create_new_btn' htmlType="submit">
+                            Submit
+                        </Button>
+                    </Form.Item>
+                </Row>
+
             </Form >
         </Space>
 

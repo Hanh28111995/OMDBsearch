@@ -122,6 +122,9 @@ input {
 .layOut_wrapper > .ant-layout {
   position: relative;
 }
+.layOut_wrapper > .ant-layout .dark_mode {
+  background-color: #262626;
+}
 .layOut_wrapper > .ant-layout .ant-layout-sider .ant-layout-sider-children .logo {
   padding-top: 30px;
   padding-bottom: 20px;
@@ -226,12 +229,47 @@ input {
   top: 2%;
   padding: 5px 5px;
 }
-.dashboard .statusEmployee,
 .dashboard .statusGroup {
   border-radius: 10px;
 }
 .dashboard .statusGroup {
   padding: 10px;
+}
+.dashboard .statusGroup .panel_header_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.dashboard .statusGroup .panel_header_content .panel_header_content_title h6 {
+  margin-bottom: 0;
+}
+.dashboard .statusGroup .panel_header_content .panel_header_content_icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.dashboard .statusGroup .panel_header_content .panel_header_content_icon i:first-child {
+  color: "rgb(237, 125, 49)";
+}
+.dashboard .statusGroup .panel_header_content .panel_header_content_icon i:last-child {
+  color: "rgb(112, 172, 72)";
 }
 
 .login-bg {
@@ -723,6 +761,44 @@ input {
   left: 65px;
 }
 
+.day-off-calendar .calendar-header {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px 30px 20px 30px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.day-off-calendar .ant-picker-calendar {
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+.day-off-calendar .ant-picker-calendar .events li {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+}
+.day-off-calendar .ant-picker-calendar .events li .ant-badge-status-text:hover {
+  color: #2988ab;
+}
+
+@media screen and (max-width: 576px) {
+  .day-off-calendar .ant-badge-status-text {
+    display: none;
+  }
+}
+.modal-add-dkp .ant-space .ant-space-item {
+  width: 100%;
+}
+
 .dataTable {
   font-size: 12px;
 }
@@ -738,6 +814,9 @@ input {
 .dataTable .headerTableStyle {
   font-weight: bold;
   font-size: 1.2em;
+}
+.dataTable .react-bootstrap-table {
+  margin-bottom: 5px;
 }
 .dataTable .react-bootstrap-table table {
   table-layout: auto;
@@ -852,14 +931,14 @@ input {
   font-weight: bold;
 }
 .bg-form .bg-form-header .ant-btn-primary {
-  border-color: #0acf97;
-  background: #0acf97;
+  border-color: #001529;
+  background: #001529;
   border-radius: 5px;
   -webkit-box-shadow: 0 2px 6px 0 rgba(10, 207, 151, 0.5);
           box-shadow: 0 2px 6px 0 rgba(10, 207, 151, 0.5);
 }
 .bg-form .bg-form-header .ant-btn-primary:hover {
-  background-color: #056e50;
+  background-color: black;
 }
 .bg-form .ant-form-item .ant-col-3 {
   text-align: left;
@@ -868,6 +947,17 @@ input {
 .bg-form .body-part-effect > .ant-col:last-child {
   display: grid;
 }
+.bg-form label[for~=__location] {
+  text-align: left;
+}
+
+.ant-col-24.ant-form-item-label > label::before {
+  display: none !important;
+}
+
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional):before {
+  display: none !important;
+}
 
 .dashboard .ant-card .ant-card-body p {
   padding: 0;
@@ -875,6 +965,7 @@ input {
 }
 .dashboard .statusEmployee {
   padding-right: 1%;
+  border-radius: 10px;
 }
 .dashboard .statusEmployee .contentStatus {
   float: left;
@@ -928,6 +1019,12 @@ input {
 .dashboard .statusGroup .ant-card .ant-card-body {
   padding: 10px 5px;
 }
+.dashboard .ant-carousel .slick-slider {
+  border-radius: 10px;
+}
+.dashboard .ant-carousel .slick-slider .slick-list {
+  border-radius: 10px;
+}
 .dashboard .event_content {
   padding: 2rem;
   position: relative;
@@ -948,6 +1045,7 @@ input {
   height: 100%;
   top: 0;
   left: 0;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 576px) {
@@ -978,13 +1076,14 @@ input {
   }
 }
 .header {
-  -webkit-box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
-          box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
   margin: 10px 0px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+.header .fa-solid {
+  color: #e7ebf0;
 }
 .header .ant-menu-submenu-arrow {
   display: none;
@@ -1035,7 +1134,7 @@ input {
 .header .menu_notificate {
   position: absolute;
   top: calc(100% + 14px);
-  right: 16px;
+  right: 17%;
   z-index: 100;
   background-color: white;
   width: 200px;
@@ -1064,15 +1163,18 @@ input {
 }
 .header .header-left {
   margin-right: 10px;
+  -webkit-box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+          box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+}
+.header .header-left .ant-menu-title-content {
+  color: #fff !important;
 }
 .header .header-left ul {
-  border-radius: 10px;
+  border-right: none;
+  border-radius: 5px;
 }
 .header .header-left ul .ant-menu-submenu-active {
   background-color: #096481;
-}
-.header .header-left ul .ant-menu-submenu-active .ant-menu-title-content {
-  color: #fff;
 }
 .header .header-left ul li {
   display: -webkit-box;
@@ -1084,7 +1186,7 @@ input {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-radius: 10px;
+  border-radius: 5px;
   color: #6c757d;
   background-color: #001529;
   height: 100%;
@@ -1110,9 +1212,12 @@ input {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
-  padding: 10px 0px 10px 10px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 5px;
   position: relative;
+  background-color: #001529;
+  -webkit-box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+          box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
 }
 .header .header-right .ant-avatar {
   -webkit-box-shadow: 2px 4px 11px 2px rgba(154, 161, 171, 0.5);
@@ -1127,7 +1232,7 @@ input {
   font-size: 2rem;
   margin-left: 5px;
   margin-bottom: 0;
-  color: #6c757d;
+  color: #fff;
 }
 .header .header-right::before {
   position: absolute;
@@ -1163,9 +1268,21 @@ input {
   width: 1.5rem;
   height: 1.5rem;
 }
+.header .header-right .bg-bell:hover {
+  background-color: #2988ab;
+  color: #d0d2d4;
+  -webkit-transition: all 0.3;
+  transition: all 0.3;
+}
+.header .header-right .bg-bell:hover .mode-container i {
+  color: white;
+}
 .header .header-right .menu_acc .ant-avatar {
   height: 45px;
   width: 45px;
+}
+.header .header-right .menu_acc:hover i {
+  color: #096481;
 }
 
 .ant-menu-submenu > .ant-menu {
@@ -1187,6 +1304,9 @@ input {
   }
   .ant-menu-submenu-title:active {
     background: transparent !important;
+  }
+  .header .menu_notificate {
+    right: 0;
   }
   .header {
     -webkit-box-orient: vertical;
@@ -1220,8 +1340,14 @@ input {
     margin-right: 10px;
     margin-bottom: 10px;
   }
+  .header .header-left ul {
+    height: 35px;
+  }
   .header .header-left ul li {
     width: 100%;
+  }
+  .header .header-left .menu-header-left {
+    font-size: 12px;
   }
 }
 .footer {
@@ -1295,13 +1421,33 @@ input {
     margin-right: 0;
   }
 }
-.create_new_form,
-.back-btn {
-  border-radius: 10px;
+.create_new_btn,
+.back-btn,
+.search-btn,
+.add_btn {
   background-color: #2988ab !important;
-  color: white !important;
+  border-radius: 5px !important;
+  height: 35px !important;
+  margin-bottom: 0;
+  margin-left: 5px;
 }
-.create_new_form:hover,
-.back-btn:hover {
+.create_new_btn i, .create_new_btn span,
+.back-btn i,
+.back-btn span,
+.search-btn i,
+.search-btn span,
+.add_btn i,
+.add_btn span {
+  color: white;
+  font-weight: bold;
+}
+.create_new_btn:hover,
+.back-btn:hover,
+.search-btn:hover,
+.add_btn:hover {
   background-color: #096481 !important;
+}
+
+#search-bar-0 {
+  height: 35px !important;
 }

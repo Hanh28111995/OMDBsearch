@@ -1,4 +1,4 @@
-import { SET_USER_INFOR, SET_TITLE_HEADER, SET_DETAIL_DAYOFF } from "../types/user.type";
+import { SET_USER_INFOR, SET_TITLE_HEADER, SET_DETAIL_DAYOFF, SET_TOGGLE_DARK_LIGHT } from "../types/user.type";
 const setUserInfor = (user) => {
   return {
     type: SET_USER_INFOR,
@@ -19,4 +19,11 @@ const setDetailDayOff = (user) => {
   }
 };
 
-export { setUserInfor, setTitleHeader, setDetailDayOff }
+const setToggleDarkLight = (user) => {
+  return {
+    type: SET_TOGGLE_DARK_LIGHT,
+    payload: user,
+  }
+};
+
+export { setUserInfor, setTitleHeader, setDetailDayOff, setToggleDarkLight }

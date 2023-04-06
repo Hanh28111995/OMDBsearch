@@ -238,9 +238,9 @@ export default function TimeoffForm(props) {
                         <Space className='d-flex align-items-start'>
                           <SearchBar {...toolkitprops.searchProps} />
                           <NavLink to='/admin/ticket/time-off/addnew'>
-                            <button className='btn btn-success create_new_form'>
+                            <Button className='create_new_btn'>
                               Create
-                            </button>
+                            </Button>
                           </NavLink>
                         </Space>
                       </Space>

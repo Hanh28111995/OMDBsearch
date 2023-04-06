@@ -225,9 +225,9 @@ export default function MisspunchForm(props) {
                                                 <Space className='d-flex align-items-start'>
                                                     <SearchBar {...toolkitprops.searchProps} />
                                                     <NavLink to='/admin/ticket/miss-punch/addnew'>
-                                                        <button className='btn create_new_form'>
+                                                        <Button className='create_new_btn '>
                                                             Create
-                                                        </button>
+                                                        </Button>
                                                     </NavLink>
                                                 </Space>
                                             </Space>

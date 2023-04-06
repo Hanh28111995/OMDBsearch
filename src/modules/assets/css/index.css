@@ -1,5 +1,21 @@
-.day-off-calendar .ant-modal {
-  width: -webkit-fit-content !important;
-  width: -moz-fit-content !important;
-  width: fit-content !important;
+.theme-switch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 0;
+}
+.theme-switch::hover i {
+  color: #fff !important;
+}
+.theme-switch .mode-container {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding: 0px 0;
+  margin-left: 9px;
+  color: #4867b0;
+  cursor: pointer;
 }

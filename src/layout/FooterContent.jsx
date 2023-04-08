@@ -3,7 +3,7 @@ import { Col, Row } from 'antd'
 
 export default function FooterContent() {
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid footer'>
          
             <Row gutter={24} className='pt-3'>
                 <Col xs={24} sm={16} md={16} lg={16}>

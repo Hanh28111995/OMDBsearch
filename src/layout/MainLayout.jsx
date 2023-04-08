@@ -79,10 +79,10 @@ export default function MainLayout() {
                     <div className="logo" >
                         <a href="/">
                             <div className='sideBar-icon-sm' >
-                                <Image src={sm_logo} alt="" width={45} />
+                                <Image src={sm_logo} alt="" width={45} preview={false}/>
                             </div>
                             <div className='sideBar-icon-lg'>
-                                <Image src={lg_logo} alt="" width={145} />
+                                <Image src={lg_logo} alt="" width={145} preview={false}/>
                             </div>
                         </a>
                     </div>
@@ -117,13 +117,13 @@ export default function MainLayout() {
                             margin: '0 0.5rem',
                         }}
                     >
-                        <Header>
+                        <header className='mb-3 mt-3'>
                             <HeaderContent />
-                        </Header>
+                        </header>
                         <Outlet />
-                        <Footer className='footer mt-5' >
+                        <footer className='mt-3' >
                             <FooterContent />
-                        </Footer>
+                        </footer>
                     </Content>
 
                 </Layout>

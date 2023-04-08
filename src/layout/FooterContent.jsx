@@ -3,11 +3,10 @@ import { Col, Row } from 'antd'
 
 export default function FooterContent() {
     return (
-        <div className='container-fluid footer'>
-         
-            <Row gutter={24} className='pt-3'>
+        <div className='footer'>
+            <Row className='pt-3'>
                 <Col xs={24} sm={16} md={16} lg={16}>
-                    <p>© <a className="border-bottom" href="#">2022 WorldCraft Logistics LLC</a>, All Rights Reserved.</p>
+                    <p style={{marginLeft:'30px'}}>© <a className="border-bottom" href="#">2022 WorldCraft Logistics LLC</a>, All Rights Reserved.</p>
                 </Col>
                 <Col xs={24} sm={8} md={8} lg={8} className='text-right'>
                     <ul className='footer-social' style={{ display: 'inline-flex' }}>

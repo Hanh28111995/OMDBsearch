@@ -15,7 +15,7 @@ export default function StatusEvent(props) {
             <div className='event_content' >
               <img src={event_birthday} alt="event_birthday" className='img-fluid' />
               <div className='event_content_overlay'>
-                <Avatar src='https://admin.worldcraftlogistics.net/img/Avatar/hanhT__2023-03-04-01-23-53-990.jpg' size={78}></Avatar>
+                <Avatar src='https://admin.worldcraftlogistics.net/img/avatar/HannahT__2023-01-19-11-00-45-210.jpg' size={78}></Avatar>
               </div>
             </div>
             <div className='event_content' >

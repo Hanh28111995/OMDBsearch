@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { AutoComplete } from 'antd';
-import { fetchDetailMovieAPI, fetchListMovieAPI } from '../services/getMethod';
+import { fetchListMovieAPI } from '../services/getMethod';
 import { OMDB_API_KEY } from '../constants/common';
 import { useDispatch, useSelector } from 'react-redux';
 // import { userReducer } from '../MovieStore/reducers/user.reducer';
@@ -14,18 +14,13 @@ export default function SearchInput() {
     const fetchAutocompleteListMovie = async (keyword) => {
         if (keyword) {
             const result = await fetchListMovieAPI(`?apikey=${OMDB_API_KEY}&s=${keyword}`);
-            dispatch(setMovieList(result.data.Search))
+            dispatch(setMovieList(result.data.Search || []))
         }
         else {
             dispatch(setMovieList([]))
             dispatch(setMovieDetail({}))
         }
     };
-
-    const fetchGetDetailMovie = async (title) => {
-        const result = await fetchDetailMovieAPI(`?apikey=${OMDB_API_KEY}&t=${title}`)
-        dispatch(setMovieDetail(result.data))
-    }
 
     const searchRef = useRef(null)
     return (
@@ -36,8 +31,8 @@ export default function SearchInput() {
 
             <AutoComplete
                 placeholder="Search Movie Title"
-                options={userState.movieList?.map((movieS, index) => {
-                    return { value: movieS.Title.toString(), label: movieS.Title, key: Math.random() }
+                options={userState.movieList?.map((movieS) => {
+                    return { value: movieS.imdbID, label: movieS.Title, key: movieS.imdbID }
                 })}
                 value={value}
                 onChange={(text) => {
@@ -51,8 +46,12 @@ export default function SearchInput() {
                         fetchAutocompleteListMovie(value)
                     }, 200)
                 }}
-                onSelect={(options) => {
-                    fetchGetDetailMovie(options);
+                onSelect={(imdbID) => {
+                    const selectedMovie = userState.movieList.find((movie) => movie.imdbID === imdbID)
+                    if (selectedMovie) {
+                        setValue(selectedMovie.Title)
+                        dispatch(setMovieDetail(selectedMovie))
+                    }
                 }}
             />
         </div>
